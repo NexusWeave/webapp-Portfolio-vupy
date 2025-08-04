@@ -1,0 +1,46 @@
+
+@use './colors' as color
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap")
+
+
+@mixin font-style($font, $family: null)
+
+    $roboto: 'Roboto'
+    $work-sans: 'Work Sans'
+
+    @if $family == null and $font == $roboto or $font == $work-sans
+        $family : sans-serif
+
+    color: color.$font-light
+    font-family: $font, $family
+
+
+@mixin link-styles($link-color: null, $link-hover-color: null, $link-active-color: null, $link-visited-color: null)
+
+    @if $link-color == null
+        $link-color: color.$link-color
+
+    @if $link-hover-color == null
+        $link-hover-color: color.$link-hover-color
+
+    @if $link-active-color == null
+        $link-active-color: color.$link-active-color
+
+    @if $link-visited-color == null
+        $link-visited-color: color.$link-visited-color
+    a
+        color: $link-color
+        text-decoration: none
+        transition: 0.3s ease-in-out
+    
+        [aria-disabled='true']
+            cursor: not-allowed
+            color: color.$link-disabled-color
+            
+        &:hover
+            color: $link-hover-color
+
+        &:active
+            color: $link-active-color
+
+        &:visited
