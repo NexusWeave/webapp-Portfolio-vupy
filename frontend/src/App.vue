@@ -1,7 +1,18 @@
-<template>
-  <RouterView />
-</template>
 
+<template>
+    <header>
+        <Header/>
+    </header>
+    <main>
+        <RouterView />
+
+    </main>
+    <footer>
+    </footer>
+</template>
 <script setup>
-import {RouterView } from 'vue-router'
+    
+    //  Importing components
+    import Footer from './views/utils/Footer.vue';
+    import Header from './views/utils/Header.vue';
 </script>

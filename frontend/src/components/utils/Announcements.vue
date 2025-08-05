@@ -7,7 +7,7 @@
 
 //  Importing the required modules
 import { onMounted, reactive, computed } from 'vue';
-import { FetchApiResponse} from '../assets/js/utils/apiHandler.js';
+import { FetchApiResponse} from '../../assets/js/utils/apiHandler.js';
 
 //  Initializing reactive objects
 const announce = reactive(

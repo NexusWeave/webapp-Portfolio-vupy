@@ -1,15 +1,8 @@
 //  Index file for the main SASS styles of the frontend Elements styles
-@use './utils/grid'
+@use './utils/flexbox'
 @use './utils/mixins' as mix
 @use './utils/colors' as color
-@use './utils/flexbox'
-@use './utils/expertise'
-@use './utils/fullstack'
-@use './utils/btrapicons'
-@use './utils/lang-filter'
-@use './media-query/media-queries'
-
-
+@use './utils/navigation'
 //  Importing bootstrap for the project
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 
@@ -18,28 +11,8 @@
     writing-mode: horizontal-tb
 
 body
-    background-color: color.$bg-light
-
-nav
-    margin: auto
-
-nav h3
-    margin-block: 3vh
-
-body
     color: rgb(64, 64, 64)
-
-header
-    img
-        inline-size: 23vw
-    a
-        padding: 1em
-        font-weight: 300
-        @include mix.font-style('Roboto')
-        text-decoration: none
-
-    .slogan-wrapper
-        font-size: .282em
+    background-color: color.$bg-light
 
 footer
     padding: 1vw

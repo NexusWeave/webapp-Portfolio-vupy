@@ -34,20 +34,13 @@
         cls: {
             type: Array,
             required: false,
-            default: () => [['nav-bar', 'flex-wrap-row-justify-space-between'], ['nav-list', 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
+            default: () => [['nav-bar',], [['nav-list', 'flex-wrap-row-justify-space-between'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
         }
     });
+
     const data = props.data;
-
-    const isAnchor = computed(() => {
-
-        const anchorData = data.filter(item => item.type === 'anchor');
-        return !!anchorData.length ;
-    });
-    const isRouterLink = computed(() => {
-        const routerData = data.filter(item => item.type === 'router');
-        return !!routerData.length;
-    });
+    const isAnchor = computed(() => { return !!data.find(item => item.type === 'anchor');});
+    const isRouterLink = computed(() => { return !!data.find(item => item.type === 'router');});
 
     console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
 </script>
