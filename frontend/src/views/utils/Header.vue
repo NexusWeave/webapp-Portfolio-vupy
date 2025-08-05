@@ -1,5 +1,5 @@
 <template>
-    <section class="flex-wrap-row">
+    <section class="flex-wrap-row-align-items-center">
         <section>
             <NavMenu :data="data.logo.menu" :cls="['logo-bar', 'logo-list', 'logo-item']" />
         </section>
