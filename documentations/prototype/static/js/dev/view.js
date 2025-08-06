@@ -2,11 +2,9 @@ function devView(page)
 {
     html = /*HTML*/`
         ${headerView()}
-        <div class="dev-page">
-            <h1>Developer Portal</h1>
-            <p>Welcome to the developer portal. Here you can find resources and tools for development.</p>
-            <p>Explore our documentation and get started with your projects.</p>
-        </div>
+        ${backendProfile()}
+        ${frontendProfile()}
+        ${technicalSkills()}
     ${footerView()}`;
     return html
 }
@@ -15,9 +13,20 @@ function backendProfile()
 {
     html = /*HTML*/`
         <div class="backend-profile">
-            <h2>Backend Profile</h2>
-            <p>This section provides information about the backend development profile.</p>
-            <p>Learn more about the technologies and frameworks used in backend development.</p>
+            <h2>Backend Profil</h2>
+            <p>Denne seksjonen gir informasjon om backend utviklingsprofilen.</p>
+            <p>Lær mer om teknologiene og rammeverkene som brukes i backend utvikling.</p>
+        </div>
+    `;
+    return html
+}
+function frontendProfile()
+{
+    html = /*HTML*/`
+        <div class="frontend-profile">
+            <h2>Frontend Profil</h2>
+            <p>Denne seksjonen gir informasjon om frontend utviklingsprofilen.</p>
+            <p>Oppdag de nyeste trendene og teknologiene innen frontend utvikling.</p>
         </div>
     `;
     return html
@@ -26,9 +35,9 @@ function technicalSkills()
 {
     html = /*HTML*/`
         <div class="technical-skills">
-            <h2>Technical Skills</h2>
-            <p>This section highlights my technical skills and expertise in various programming languages and tools.</p>
-            <p>Explore my skill set and see how I can contribute to your projects!</p>
+            <h2>Min TechStack</h2>
+            <p>Denne seksjonen fremhever mine tekniske ferdigheter og ekspertise innen ulike programmeringsspråk og verktøy.</p>
+            <p>Utforsk ferdighetene mine og se hvordan jeg kan bidra til prosjektene deres!</p>
         </div>
     `;
     return html

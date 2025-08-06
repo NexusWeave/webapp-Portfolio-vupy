@@ -1,11 +1,23 @@
 function aboutView(page) {
     html = /*HTML*/`
         ${headerView()}
+        ${aboutMeSection()}
         ${exerciseLogSection()}
         ${blogLogSection()}
-        ${aboutMeSection()}
         ${personalBackgroundSection()}
     ${footerView()}`;
+    return html
+}
+
+function aboutMeSection()
+{
+    html = /*HTML*/`
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>Denne seksjonen er en introduksjon til hvem jeg er.</p>
+            <p>Føl deg fri til å utforske og lære mer om min bakgrunn og interesser.</p>
+        </div>
+    `;
     return html
 }
 
@@ -20,25 +32,14 @@ function exerciseLogSection()
     `;
     return html
 }
+
 function blogLogSection()
 {
     html = /*HTML*/`
         <div class="blog-log">
             <h2>Blog Log</h2>
-            <p>This section features my blog posts where I share my thoughts and insights on various topics.</p>
-            <p>Feel free to read and engage with my content!</p>
-        </div>
-    `;
-    return html
-}
-
-function aboutMeSection()
-{
-    html = /*HTML*/`
-        <div class="about-me">
-            <h2>About Me</h2>
-            <p>This is the about me section where I share my story and experiences.</p>
-            <p>Feel free to explore and learn more about my background and interests.</p>
+            <p>Denne seksjonen inneholder mine blogginnlegg hvor jeg deler mine tanker og innsikter om ulike emner.</p>
+            <p>Føl deg fri til å lese og engasjere deg med innholdet mitt!</p>
         </div>
     `;
     return html
@@ -49,8 +50,8 @@ function personalBackgroundSection()
     html = /*HTML*/`
         <div class="personal-background">
             <h2>Personal Background</h2>
-            <p>This section provides insights into my personal background, including my education and work experience.</p>
-            <p>Discover how my journey has shaped who I am today.</p>
+            <p>Denne seksjonen gir deg en grundigere innsikt i min personlige bakgrunn.</p>
+            <p>Oppdag hvordan min reise har formet hvem jeg er i dag.</p>
         </div>
     `;
     return html

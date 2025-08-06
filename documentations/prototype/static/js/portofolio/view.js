@@ -16,8 +16,8 @@ function archivementsSection()
     html = /*HTML*/`
         <div class="archivements">
             <h2>My Achievements</h2>
-            <p>This section showcases my achievements and milestones in various projects.</p>
-            <p>Feel free to explore and see what I've accomplished!</p>
+            <p>Denne seksjonen viser frem mine prestasjoner og milepæler i ulike prosjekter.</p>
+            <p>Føl deg fri til å utforske og se hva jeg har oppnådd!</p>
         </div>
     `;
     return html
@@ -27,9 +27,9 @@ function AcademicSection()
 {
     html = /*HTML*/`
         <div class="academic">
-            <h2>Academic Projects</h2>
-            <p>This section highlights my academic projects and research work.</p>
-            <p>Discover the academic side of my portfolio!</p>
+            <h2>Academic Journey</h2>
+            <p>Denne seksjonen fremhever mine akademiske prestasjoner.</p>
+            <p>Oppdag den akademiske siden av porteføljen min!</p>
         </div>
     `;
     return html
@@ -38,8 +38,7 @@ function portfolio() {
     html = /*HTML*/`
         <div class="portfolio">
             <h2>My Portfolio</h2>
-            <p>Here you can find a selection of my work and projects.</p>
-        </div>
-    `;
+            <p>Her finner du alt av arbeidet mitt og prosjektene jeg har vært involvert i.</p>
+        </div>`;
     return html
 }

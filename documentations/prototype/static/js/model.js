@@ -42,7 +42,7 @@ const model =
             {
                 id: 2,
                 type: "button",
-                name: "Dev",
+                name: "dev",
                 title: "Dev",
             },
         ],

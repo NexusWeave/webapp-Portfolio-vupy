@@ -39,6 +39,7 @@ function headerView()
         <div class="flex-column-align-items-center">
                     <h1 class="h1">${model.header.title}</h1>
                 </div>
+        <div> Announcements of today : </div>
     </header>`;
 
     return html;
