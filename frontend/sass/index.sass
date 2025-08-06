@@ -1,8 +1,9 @@
 //  Index file for the main SASS styles of the frontend Elements styles
 @use './utils/flexbox'
 @use './utils/mixins' as mix
-@use './utils/colors' as color
+@use './colors/colors' as color
 @use './utils/navigation'
+@use './utils/buttons'
 //  Importing bootstrap for the project
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 
@@ -11,12 +12,17 @@
     writing-mode: horizontal-tb
 
 body
-    color: rgb(64, 64, 64)
-    background-color: color.$bg-light
+    @include mix.theme-color
 
 footer
     padding: 1vw
     margin: 1vw auto
 
-.relative
-    position: relative
+
+.timeline-container
+    padding: 1em
+    @include mix.component-color($color: color.$primary, $background-color: color.$acent-3)
+
+    .timeline-content
+        padding: 1em
+        @include mix.component-color($color: color.$primary, $background-color: color.$secondary)
