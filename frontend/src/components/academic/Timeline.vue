@@ -1,26 +1,9 @@
 <template>
-    <section class="flex-column-justify-center-align-center timeline-container" :class="cls">
-        <section class ="flex-row-reversed-justify-space-evenly-align-content-center">
-                    <h2 :class ="cls">{{ data.year }}</h2>
-                </section>
-        <section class="flex-row-reversed-justify-space-evenly-align-content-center">
-            <button :class="['btn', btn.cls]" @click="btn.action(data.id)"></button>
-        </section>
-
-        <section v-show="data.content.isVisable"
-            class="flex-wrap-column timeline-content">
-            <h3>{{ data.title }}</h3>
-
-            <section v-if="!!data.content.school" class="flex-column-justify-center-align-center">
-                Skole :<Anchor :data="data.content.school.anchor" />
-                <p>Campus : {{ data.content.school.location }}</p>
-                <p>År : {{ data.content.school.start }} - {{ data.content.school.end }}</p>
-                <h3 v-if="!!data.content.anchor"> 
-                    <Anchor :data="data.content.anchor" />
-                </h3>
-            </section>
-            <p v-if="!!data.description">{{ data.description }}</p>
-        </section>
+    <section class ="flex-column-align-items-center timeline-item">
+        <h2 class ="timelineStore-h2">{{ data.year }}</h2>
+        <button :class="['btn', 'timeline-btn']" @click="btn.action(data.id)"></button>
+    </section>
+    <section>
     </section>
 </template>
 
@@ -30,22 +13,25 @@
     import Anchor from '../navigation/Anchor.vue';
 
     const props = defineProps({
-        data: {
+        data:
+        {
             type: Object,
         },
-        cls: {
+        cls:
+        {
             type: Array,
-        }
+        },
+        btn :
+        {
+            type: Object,
+        },
     });
 
-    const emits = defineEmits(['toggleVisibility']);
-    const cls = props.cls;
+    
+    const cls = !!props.cls ? props.cls : null;
+    const btn = computed(() => props.btn);
     const data = computed(() => props.data);
-
-    const btn = {
-        cls: 'timeline-btn',
-        action: () => emits('toggleVisibility', data.id)
-    };
+    const emits = defineEmits(['toggleVisibility']);
 
     console.log("Timeline data:", data.value);
 </script>
