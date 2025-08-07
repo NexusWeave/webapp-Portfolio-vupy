@@ -1,5 +1,6 @@
 //  Index file for the main SASS styles of the frontend Elements styles
 @use './utils/flexbox'
+@use './utils/academic'
 @use './utils/mixins' as mix
 @use './colors/colors' as color
 @use './utils/navigation'
@@ -17,12 +18,3 @@ body
 footer
     padding: 1vw
     margin: 1vw auto
-
-
-.timeline-container
-    padding: 1em
-    @include mix.component-color($color: color.$primary, $background-color: color.$acent-3)
-
-    .timeline-content
-        padding: 1em
-        @include mix.component-color($color: color.$primary, $background-color: color.$secondary)
