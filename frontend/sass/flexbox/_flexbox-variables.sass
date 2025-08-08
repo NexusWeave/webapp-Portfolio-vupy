@@ -1,6 +1,0 @@
-@use '../mappings/flexbox' as flexbox
-@use '../functions/flexbox' as func
-@each $flex-type, $props in flexbox.$flexbox
-
-    #{$flex-type}
-        $flex-style: func.flexbox($flex-type)
