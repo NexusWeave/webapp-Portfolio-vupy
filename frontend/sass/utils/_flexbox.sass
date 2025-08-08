@@ -1,53 +1,47 @@
 //  Flexbox
+@use 'sass:map'
+@use '../flexbox/flexbox-variables' as flexbox
+
 @forward '../flexbox/flexbox-row'
 @forward '../flexbox/flexbox-column'
 @forward '../flexbox/flexbox-wrap-row'
 @forward '../flexbox/flexbox-reversed-row'
 
-flex-box
-    display: flex
-
-flex-box-align-items-center
-    display: flex
-    align-items: center
-
-.flex-box-space-between
-    @extend flex-box
+.flex-justify-space-between
+    flexbox.flex-box
     justify-content: space-between
 
 .flex-align-items-flex-end-justify-center
-    @extend flex-box
+    flexbox.flex-box
     align-items: flex-end 
     justify-content: center
 
 .flex-align-items-center-justify-content-space-between
-    @extend flex-box-align-items-center
+    flexbox.flex-box
     justify-content: space-between
-
-
 
 //  Flexbox row classes / styles
 .flex-justify-center
-    @extend flex-box
+    flexbox.flex-box
     justify-content: center
 
-.flex-row 
-    @extend flex-row
+.flex-row
+    flexbox.flex-row
 
 .flex-wrap-row
-    @extend flex-wrap-row
+    flexbox.flex-wrap-row
 
 .flex-wrap-reversed-row
-    @extend flex-wrap-reversed-row
+    flexbox.flex-wrap-reversed-row
 
 .flex-column
-    @extend flex-column
+    flexbox.flex-column
 
 .flex-wrap-column
-    @extend flex-wrap-column
+    flexbox.flex-wrap-column
 
 .flex-wrap-reversed-column
-    @extend flex-wrap-reversed-column
+    flexbox.flex-wrap-reversed-column
 
 
 

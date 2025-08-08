@@ -1,39 +1,25 @@
-flex-column
-    display: flex
-    flex-direction: column
+@use './flexbox-variables' as flexbox
 
-flex-wrap-column
-    display: flex
-    flex-wrap: wrap
-    flex-direction: column
 
-flex-wrap-reversed-column
-    display: flex
-    flex-wrap: wrap
-    flex-direction: column-reverse
+.flex-column-align-items-center
+    flexbox.flex-column
+    align-items: center
+    
+    
+.flex-column-justify-center
+    flexbox.flex-column
+    justify-content: center
 
 .flex-wrap-column-align-content-center
     align-content: center
-    @extend flex-wrap-column
-
-.flex-column-align-items-center
-    align-items: center
-    @extend flex-column
-
-.flex-column-align-items-center
-    @extend flex-column
-    align-items: center
-    
-.flex-column-justify-center
-    @extend flex-column
-    justify-content: center
+    flexbox.flex-wrap-column
 
 .flex-wrap-column-align-center-justify-space-evenly
     align-content: center
-    @extend flex-wrap-column
+    flexbox.flex-wrap-column
     justify-content: space-evenly
 
 .flex-column-align-items-end
-    @extend flex-column 
+    flexbox.flex-column
     align-items: flex-end
     

@@ -2,21 +2,12 @@
 @use 'sass:map'
 
 $breakpoints:(
-//  Mobile Breakpoints
     'S': 200px,
     'M': 500px,
     'L': 800px,
     'XL': 1024px,
     '2XL': 1280px,
     '3XL': 1300px,
-    'tablet':(
-        block-size: 800px,
-        inline-size: 600px,
-    ),
-    'wideScreen':(
-        block-size: 768px,
-        inline-size: 1274px,
-    ),
 )
 $amazon:(
     'kindle-fire':(
@@ -98,6 +89,22 @@ $black-berry:(
         block-size: 800px, 
         inline-size: map.get(map.get($apple, 'iphone'),'block-size'),
         )
+)
+
+$display:
+    (
+    'hd-720p':(
+        block-size: 720px,
+        inline-size: 1280px,
+    ),
+    'hd-1080i':(
+        block-size: 1080px,
+        inline-size: 1440px,
+    ),
+    'hd-1080p':(
+        block-size: 846px,
+        inline-size: 1839px,
+    ),
 )
 
 $google:(
@@ -197,31 +204,26 @@ $sharp:(
     ),
 )
 
-$display:
-    (
-    'hd-720p':(
-        block-size: 720px,
-        inline-size: 1280px,
+$misc:(
+    'tablet':(
+        block-size: 800px,
+        inline-size: 600px,
     ),
-    'hd-1080i':(
-        block-size: 1080px,
-        inline-size: 1440px,
-    ),
-    'hd-1080p':(
-        block-size: 846px,
-        inline-size: 1839px,
+    'wideScreen':(
+        block-size: 768px,
+        inline-size: 1274px,
     ),
 )
-
 //  Devices breakpoints mapping
 $devices:(
-    'apple': $apple, 
-    'black-berry': $black-berry,
-    'google': $google, 
     'htc': $htc,
-    'motorola': $motorola, 
-    'samsung': $samsung, 
-    'sony-ericson': $sony-ericson,
+    'misc': $misc,
     'sharp': $sharp,
+    'apple': $apple,
+    'google': $google,
     'display': $display,
+    'samsung': $samsung,
+    'motorola': $motorola,
+    'black-berry': $black-berry,
+    'sony-ericson': $sony-ericson,
 )
