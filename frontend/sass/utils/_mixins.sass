@@ -1,15 +1,29 @@
 
+@use './mappings' as mapping
+@use '../mappings/devices-breakpoints' as breakpoints
 @use '../colors/colors' as color
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap")
 
-@mixin media-queries ($size)
+@mixin media-queries ($size, $breakpoint: null)
 
     @if $size == 'prefers-color-scheme'
         @media (prefers-color-scheme: dark)
             @content
 
-    @media screen and (max-width: $size)
-        @content
+    @if $size == null and $breakpoint != null
+        $size: map.get(breakpoints.$breakpoints, $breakpoint)
+        $block-size: map.get(breakpoints.$breakpoints, $breakpoint, 'block-size')
+        $inline-size: map.get(breakpoints.$breakpoints, $breakpoint, 'inline-size')
+
+        @media screen and ($inline-size <= width <= $inline-size + 50px ) and (min-height: $block-size) and (orientation: portrait)
+            @content
+
+        @media screen and ($block-size <= height <= $block-size + 50px) and (min-width: $inline-size) and (orientation: landscape)
+            @content
+
+    @media screen and (max-width: $size) 
+            @content
 
 @mixin theme-color()
 
@@ -40,7 +54,6 @@
     color: $color
     //border-radius: 0.5em
     background-color: $background-color
-    
     
 @mixin font-style($font, $family: null)
 
