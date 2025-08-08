@@ -17,11 +17,11 @@ export const timelineStore = defineStore("Data",
         {
             addToStore(item)
             {
+                item.content.isVisible = true;
+
                 const timeline = this.data.timeline
-                
-                item.content.isVisible = false;
                 timeline.push(item);
-                //console.warn("Adding data to store:", item, this.data);
+                console.warn("Adding data to store:", item, this.data);
             },
             async fetchData()
             {
@@ -42,8 +42,12 @@ export const timelineStore = defineStore("Data",
             },
         },
         getters: {
-            timelines: (state) => state.data.timeline,
             isLoaded: (state) => state.data.isLoaded,
+            timelines: (state) => state.data.timeline,
+            odd: (state) => state.data.timeline.filter(item => item.id % 2 !== 0),
+            even: (state) => state.data.timeline.filter(item => item.id % 2 === 0),
+            
+            
 
         },  
 });
