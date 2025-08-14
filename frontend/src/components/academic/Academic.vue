@@ -7,9 +7,9 @@
                     v-show="data.content.isVisible"/>
         </section>
         <section class="flex-wrap-row-justify-space-evenly component-blue timeline-line">
-            <Timeline v-for="data  in timeline.timelines" :key="data.id"
-            :data="data"
+            <Timeline
             :btn ="btn" :cls="[]"
+            :data="timeline.timelineRange"
             @toggle-visibility="toggleVisibility(data.id)"/>
         </section>
         <section class="flex-wrap-row-justify-space-evenly component-blue">
