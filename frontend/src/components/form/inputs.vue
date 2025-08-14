@@ -2,10 +2,10 @@
     <label :for="data.name" :class="cls[0]">{{ data.label }}</label>
     <input :id="data.id"
         :class="cls[1]"
+        :placeholder="data.type == 'text' || data.type == 'password' ? data.placeholder : ''"
         :min="data.type =='range' ? 0 : ''"
-        :max="data.type =='range' ? 100 : ''"
         :step="data.type =='range' ? 1 : ''"
-        :placeholder="data.placeholder"
+        :max="data.type =='range' ? 100 : ''"
         :type="data.type ? data.type : 'text'"
         :size="!!data.size ? data.size : '30'"
         :width="!!data.width ? data.width : ''"
@@ -22,7 +22,7 @@
 </template>
 <script setup>
 
-    import { defineProps, ref } from 'vue';
+    import { computed, defineProps, ref } from 'vue';
 
     const props = defineProps({
         data: {
@@ -36,6 +36,10 @@
     });
     const cls = props.cls;
     const data = props.data;
+
+    const dataType = computed(() => {
+        return !!data.type ? data.type : 'text';
+    });
 
     console.warn(data);
 </script>
