@@ -2,7 +2,7 @@
     <label :for="data.name" :class="cls[0]">{{ data.label }}</label>
     <input :id="data.id"
         :class="cls[1]"
-        :placeholder="data.type == 'text' || data.type == 'password' ? data.placeholder : ''"
+        :placeholder="!!data.placeholder ? data.placeholder : ''"
         :min="data.type =='range' ? 0 : ''"
         :step="data.type =='range' ? 1 : ''"
         :max="data.type =='range' ? 100 : ''"
@@ -36,10 +36,6 @@
     });
     const cls = props.cls;
     const data = props.data;
-
-    const dataType = computed(() => {
-        return !!data.type ? data.type : 'text';
-    });
 
     console.warn(data);
 </script>
