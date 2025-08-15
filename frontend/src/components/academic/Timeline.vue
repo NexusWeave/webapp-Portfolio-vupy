@@ -34,18 +34,9 @@
             set: (value) => 
             {
                 emits('toggleVisibility', value);
-                data.field.value = value;
             }
             
         });
-
-    watch(data.field.value, (rangeValue, oldVal) => {
-        console.log(rangeValue, oldVal)
-        if (rangeValue !== oldVal)
-        {
-            emits('toggleVisibility', data.field.value);
-        }
-        console.warn("Range value changed:", rangeValue);
-    });
+        //console.warn("Range value changed:", rangeValue);
     //console.warn("Timeline data:", data.value);
 </script>
