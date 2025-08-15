@@ -1,39 +1,51 @@
 <template>
-    <section class ="flex-column-align-items-center timeline-item">
-        <h2 v-for="h2 in data.timeline" :key="h2.id"
-        class ="timelineStore-h2">{{ h2.year }}</h2>
-        <Inputs :data="data.field" :cls="['timeline-input-label', 'timeline-input']"/>
-    </section>
-    <section>
+    <section :class="cls[0]">
+        <h2 :class="cls[1]">{{ data.field.title }}</h2>
+        <Inputs :data="data.field" :cls="cls[2]" v-model="modelValue" />
     </section>
 </template>
 
 <script setup>
 
-    import { computed, defineProps, defineEmits } from 'vue';
-    import Anchor from '../navigation/Anchor.vue';
-import Inputs from '../form/inputs.vue';
+    import { watch, computed, defineProps, defineEmits, reactive } from 'vue';
+
+    import Inputs from '../form/inputs.vue';
 
     const props = defineProps({
         data:
         {
             type: Object,
+            required: true
         },
         cls:
         {
             type: Array,
-        },
-        btn :
-        {
-            type: Object,
+            required: false,
         },
     });
 
-    
+    const data = reactive(props.data);
     const cls = !!props.cls ? props.cls : null;
-    const btn = computed(() => props.btn);
-    const data = computed(() => props.data);
     const emits = defineEmits(['toggleVisibility']);
 
-    console.log("Timeline data:", data.value);
+    const modelValue = computed(
+        {
+            get: () => data.field.value,
+            set: (value) => 
+            {
+                emits('toggleVisibility', value);
+                data.field.value = value;
+            }
+            
+        });
+
+    watch(data.field.value, (rangeValue, oldVal) => {
+        console.log(rangeValue, oldVal)
+        if (rangeValue !== oldVal)
+        {
+            emits('toggleVisibility', data.field.value);
+        }
+        console.warn("Range value changed:", rangeValue);
+    });
+    //console.warn("Timeline data:", data.value);
 </script>
