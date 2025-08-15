@@ -18,11 +18,7 @@ export const timelineStore = defineStore("Data",
         {
             addToStore(item)
             {
-                item.content.isVisible = true;
-                item.field = {
-                    name: item.year,
-                    type: 'range'
-                }
+                item.content.isVisible = false;
                 const timeline = this.data.timeline;
                 timeline.push(item);
                 console.warn("Adding data to store:", item, this.data);
@@ -49,32 +45,26 @@ export const timelineStore = defineStore("Data",
         getters: {
             isLoaded: (state) => state.data.isLoaded,
             timelines: (state) => state.data.timeline,
-            timelineRange : (state) => {
+            timelineRange : (state) =>
+            {
                 
+                const n = 1;
                 const data = reactive({});
-                const years = reactive([]);
                 const timeline = state.data.timeline;
                 timeline.sort((a, b) => a.year - b.year);
-                timeline.forEach((item) => {
-                    years.push(item.year);
-                });
+
                 data.field = 
                 {
+                    title: 'Academic Timeline',
+                    value: '0',
                     type: 'range',
-
-                    name: item.year,
-                    label: item.year,
-                    n: timeline.length,
+                    name: "Academic-timeline",
+                    rangeMax: timeline.length - n,
                 }
                 data.timeline = timeline;
 
                 return data;
 
             },
-            odd: (state) => state.data.timeline.filter(item => item.id % 2 !== 0),
-            even: (state) => state.data.timeline.filter(item => item.id % 2 === 0),
-            
-            
-
         },  
 });
