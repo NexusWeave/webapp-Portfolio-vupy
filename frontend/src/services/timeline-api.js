@@ -3,56 +3,63 @@ const timeline =
     {
         id: 0,
         year: 2010,
-        title: 'Bygg og Anlegg',
-
-        description: 
-        {
-            summary: 'Utviklet praktisk forståelse for byggeprosesser og materialer.',
-        },
-
         content:
-        {
-            school:
+        [
             {
-                start: 2010,
+                id: 0,
                 end: 2011,
+                start: 2010,
                 name: 'Borgund VGS',
-                location: ['Ålesund, Norge'],
+                title: 'Bygg og Anlegg',
+                description: 'Utviklet praktisk forståelse for byggeprosesser og materialer.',
+
+                location:
+                {
+                    type: ['map-pin', 'external'],
+                    label: 'Ålesund, Møre og Romsdal, Norge',
+                    href: 'https://maps.app.goo.gl/36YykDzig8eWA7DEA',
+                },
                 anchor:
                 {
-                    type: ['external'],
+                    type: ['globe', 'external'],
                     label: 'Borgund VGS Skole',
                     href: 'https://borgund.vgs.no/',
                 },
-            },
-        },
+            }
+        ],
     },
     {
         id: 1,
         year: 2011,
-        title: 'Helse og Oppvekstfag',
         description:
         {
             summary: 'Utviklet grunnleggende kunnskap om helse, etikk, og mellommenneskelig kommunikasjon.',
         },
 
         content:
-        {
-            school :
+        [
             {
+                id: 0,
                 end: 2014,
                 start: 2011,
                 name: 'Borgund VGS',
-                location: ['Ålesund, Norge'],
-                
+                title: 'Helse og oppvekstfag',
+                description: 'Utviklet grunnleggende kunnskap om helse, etikk, og mellommenneskelig kommunikasjon.',
+
+                location:
+                {
+                    type: ['map-pin', 'external'],
+                    label: 'Ålesund, Møre og Romsdal, Norge',
+                    href: 'https://maps.app.goo.gl/36YykDzig8eWA7DEA',
+                },
                 anchor:
                 {
-                    type: ['external'],
+                    type: ['globe', 'external'],
                     label: 'Borgund VGS Skole',
                     href: 'https://borgund.vgs.no/',
                 },
-            },
-        },
+            }
+        ],
     },
     {
         id: 2,
@@ -62,104 +69,120 @@ const timeline =
         {
             summary: 'Videre utviklet praktisk forståelse for programmering, algoritmer, og datastrukturer.',
         },
-
         content:
-        {
-            school :
+        [
             {
+                id: 0,
                 end: 2022,
                 start: 2022,
                 name: 'HarvardX',
-                location: ['Nettbasert'],
-                tech: ['C', 'python', 'js', 'flask', 'Github'],
                 description: 'Profesjonell sertifikat i Computer Science',
 
+                tech: ['C', 'python', 'js', 'flask', 'Github', 'frontend'],
+
+                diploma:
+                {
+                    type: ['diploma', 'external'],
+                    label: 'Sertifisert sertifikat',
+                    href: 'https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932',
+                },
+                location:
+                {
+                    type: ['map-pin'],
+                    label: 'Nettbasert',
+                },
                 anchor:
                 {
-                    type: ['external'],
+                    type: ['globe', 'external'],
                     label: 'HarvardX',
                     href: 'https://www.edx.org/school/harvardx',
                 },
             },
-
-            anchor:
-            {
-                label: 'Sertifisert sertifikat',
-                href: 'https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932',
-            },
-        },
+        ],
     },
     {
         id: 3,
         year: 2024,
-        title: 'It- Utviklings faget',
+        
         description:
         {
             summary: 'Godkjent kurs.',
         },
 
         content:
-        {
-            school :
+        [
             {
+                id: 0,
                 end: 2024,
                 start: 2024,
                 name: 'GetAcademy',
-                tech: ['C#', 'HTML', 'CSS', 'JS', 'vuejs', 'UML', 'Github'],
-                location: ['Larvik, Vestfold, Norge', 'Hybrid undervisning'],
+                title: 'It- Utviklings faget',
                 description: '20 ukers hybrid intens undervisning',
+                
+                tech: ['C#', 'frontend', 'vuejs', 'UML', 'Github'],
 
+                location:
+                {
+                    type: ['map-pin', 'external'],
+                    label: 'Larvik, Vestfold, Norge',
+                    href: 'https://maps.app.goo.gl/36YykDzig8eWA7DEA',
+                },
                 anchor:
                 {
-                    type: ['external'],
+                    type: ['globe', 'external'],
                     label: 'GetAcademy',
-                    href: 'https://example.com/',
+                    href: 'https://getacademy.no/',
                 },
             },
-        },
+        ],
     },
     {
         id: 4,
         year: 2025,
-        title: 'Intern',
-        description: {
-            summary: 'Oppnådde praktisk erfaring med full-stack IT-utvikling.',
-            list: [
-                
-                `Fikk hands-on erfaring med bruk av C# for backend-utvikling.`,
-                `Fikk hands-on erfaring med frontend-utvikling med Vue.js og Sass.`,
-                `Bidro aktivt til å etablere en effektiv teamdynamikk og samarbeidskultur`,
-                
-                
-            ]
-        },
         content:
-        {
-            employer :
+        [
             {
+                id: 0,
                 start: 2025,
                 //end: 2025,
+                title: 'Intern',
                 name: 'GetAcademy',
-                location: ['Larvik, Vestfold, Norge', 'Hybrid'],
+                
                 tech: ['C#', 'Sass', 'vuejs', 'UML', 'Github'],
- 
-                anchor:
+                description:
                 {
-                    type: ['external'],
-                    label: 'GetAcademy',
-                    href: 'https://example.com/',
+                    summary: 'Oppnådde praktisk erfaring med full-stack IT-utvikling.',
+                    list: 
+                    [
+                        
+                        `Fikk hands-on erfaring med bruk av C# for backend-utvikling.`,
+                        `Fikk hands-on erfaring med frontend-utvikling med Vue.js og Sass.`,
+                        `Bidro aktivt til å etablere en effektiv teamdynamikk og samarbeidskultur`,
+                        
+                        
+                    ]
                 },
-                attest:
+
+                reference:
                 {
-                    
                     href: '#',
                     type: ['pdf'],
                     label: 'Attest',
                 },
+                location:
+                {
+                    type: ['map-pin', 'external'],
+                    label: 'Larvik, Vestfold, Norge',
+                    href: 'https://maps.app.goo.gl/36YykDzig8eWA7DEA',
+                },
+                anchor:
+                {
+                    type: ['globe', 'external'],
+                    label: 'GetAcademy',
+                    href: 'https://getacademy.no/',
+                },
             },
-
-            
-        },
+        ],
     },
 ]
 
