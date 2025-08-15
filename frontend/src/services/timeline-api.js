@@ -40,6 +40,27 @@ const timeline =
         [
             {
                 id: 0,
+                end: 2011,
+                start: 2010,
+                name: 'Borgund VGS',
+                title: 'Bygg og Anlegg',
+                description: 'Utviklet praktisk forståelse for byggeprosesser og materialer.',
+
+                location:
+                {
+                    type: ['map-pin', 'external'],
+                    label: 'Ålesund, Møre og Romsdal, Norge',
+                    href: 'https://maps.app.goo.gl/36YykDzig8eWA7DEA',
+                },
+                anchor:
+                {
+                    type: ['globe', 'external'],
+                    label: 'Borgund VGS Skole',
+                    href: 'https://borgund.vgs.no/',
+                },
+            },
+            {
+                id: 0,
                 end: 2014,
                 start: 2011,
                 name: 'Borgund VGS',
