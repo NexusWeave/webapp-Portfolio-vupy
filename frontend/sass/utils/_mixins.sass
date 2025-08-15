@@ -129,8 +129,10 @@
         @error '"#{$name}" not found in flexbox mapping.'
 
 @mixin icon-generator()
-    @each $icon-type, $props in icons-mapping.$icons
-        .#{$icon-type}
-            color: map.get($props, icon-color)
-            &::before
-                content: map.get($props, icon)
+
+    @each $category, $maps in icons-mapping.$icons
+        @each $icon, $props in $maps
+            .#{$icon}
+                color: map.get($props, icon-color)
+                &:before
+                    content: map.get($props, icon)
