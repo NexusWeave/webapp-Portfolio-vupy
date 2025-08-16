@@ -9,18 +9,22 @@
                 'title-h2', ['timeline-input-label', 'timeline-input']]"
             @toggle-visibility="toggleVisibility"/>
         </section>
+        <h3 class="timeline-h3">
+            <Year v-for="data in timeline.timelines" :key="data.id"
+                    :year="data.year" :isVisible="data.isVisible"/>
+        </h3>
         <section class="flex-wrap-row-justify-space-evenly component-blue">
-            <Date />
                 <Card v-for="data in timeline.timelines" :key="data.id"
                     :data="data"/>
         </section>
     </section>  
 </template>
 <script setup>
-    import Timeline from '@/components/academic/Timeline.vue';
-    import Card from '@/components/academic/Card.vue';
-
     import { timelineStore } from '@/stores/timelineStore.js';
+
+    import Year from '@/components/Date/Year.vue';
+    import Card from '@/components/academic/Card.vue';
+    import Timeline from '@/components/academic/Timeline.vue';
 
     const timeline = timelineStore();
 
