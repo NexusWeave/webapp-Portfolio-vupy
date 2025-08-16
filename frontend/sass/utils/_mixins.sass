@@ -102,7 +102,7 @@
         &:visited
             color: $link-visited-color
 
-@mixin transitions($property: null, $duration: nulls, $timing-function: null)
+@mixin transitions($property: null, $duration: null, $timing-function: null, $delay: null, $behavior: null)
 
     @if $property == null
         $property: all
@@ -113,10 +113,13 @@
     @if $duration == null
         $duration: 0.3s
 
-    transition: $property $duration $timing-function
-    -o-transition: $property $duration $timing-function
-    -moz-transition: $property $duration $timing-function
-    -webkit-transition: $property $duration $timing-function
+    @if $delay == null
+        $delay: 0s
+
+    @if $behavior == null
+        $behavior: normal
+
+    transition: $property $duration $timing-function $delay $behavior
 
 @mixin flexbox-generator($name)
 
