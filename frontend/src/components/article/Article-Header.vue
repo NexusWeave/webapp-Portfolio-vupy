@@ -33,7 +33,7 @@
 
     
     import Tags from '@/components/utils/Tags.vue';
-    import Date from '@/components/utils/Date.vue';
+    import Date from '@/components/Date/Date.vue';
     
     import Figure from '@/components/media/Figure.vue';
     import Btn from '@/components/navigation/Button.vue';
