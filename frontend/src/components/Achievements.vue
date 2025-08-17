@@ -25,7 +25,7 @@
         </section>
     </template>
     <template v-else>
-        Attempting to retrieve achivements, please wait...
+        Attempting to retrieve achievements, please wait...
     </template>
 </template>
 <script setup>
@@ -53,5 +53,5 @@
         console.warn(`Toggling visibility for ID:${id}`, data[id].isVisible);
     };
 
-    console.warn("Timeline data on load:", achievement.achivements, achievement.isLoaded);
+    console.warn("Timeline data on load:", achievement.achievements, achievement.isLoaded);
 </script>
