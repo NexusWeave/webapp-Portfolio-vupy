@@ -91,5 +91,5 @@
     const content = computed(() => props.data);
     const emits = defineEmits(['toggleVisibility']);
 
-    console.log("Timeline data:", content.value);
+    //console.log("Card data:", content.value);
 </script>
