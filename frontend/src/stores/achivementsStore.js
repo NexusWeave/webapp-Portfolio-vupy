@@ -62,7 +62,7 @@ export const achivementStore = defineStore("achivements",
                     value: '0',
                     type: 'range',
                     name: "achivement-timeline",
-                    title: 'Achivement Timeline',
+                    title: 'Presentasjonstidslinje',
                     rangeMax: achivements.length - n,
                 }
                 data.timeline = achivements;
