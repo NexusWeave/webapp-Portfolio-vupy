@@ -5,8 +5,8 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
 
-import { fetchData } from "@/services/academic-api.js";
-//import { fetchData } from "@/services/utils/response.js";
+import { achivements } from "@/services/achivements-api.js";
+import { fetchData } from "@/services/utils/response.js";
 
 export const achivementStore = defineStore("Data",
     {
@@ -32,8 +32,8 @@ export const achivementStore = defineStore("Data",
             {
                 const data = this.data
                 //if (data.isLoaded) return;
-                
-                await fetchData().then((response) =>
+
+                await fetchData(achivements).then((response) =>
                     {
                         response.forEach((item) =>
                             {
@@ -48,7 +48,7 @@ export const achivementStore = defineStore("Data",
         },
         getters: {
             isLoaded: (state) => state.data.isLoaded,
-            timelines: (state) => state.data.timeline,
+            timeline: (state) => state.data.timeline,
             timelineRange : (state) =>
             {
                 
