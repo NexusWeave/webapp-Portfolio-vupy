@@ -1,4 +1,6 @@
-const timeline =
+//  Achivements Timeline API simulation
+
+export const achivements =
 [
     {
         id: 0,
