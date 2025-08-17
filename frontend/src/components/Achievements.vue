@@ -1,12 +1,11 @@
 <template>
-
-<template v-if="achivement.isLoaded">
+<template v-if="achievement.isLoaded">
         <section class="timeline-container component-blue timeline-container">
             
             <section class="flex-wrap-row-justify-space-evenly timeline-line">
                 
                 <Timeline
-                :data="achivement.timelineRange"
+                :data="achievement.timelineRange"
                 :cls="[['flex-column-align-items-center', 'timeline-item'],
                     'title-h2', ['timeline-input-label', 'timeline-input']]"
                 @toggle-visibility="toggleVisibility"/>
@@ -14,12 +13,12 @@
             
             <section class="flex-wrap-row-justify-space-evenly component-blue">
                     <h3 class="timeline-h3">
-                        <Year v-for="data in achivement.achivements" :key="data.id"
+                        <Year v-for="data in achievement.achievements" :key="data.id"
                             :year="data.year" :isVisible="data.isVisible"/>
                     </h3>
             </section>
             <section class="flex-wrap-row-justify-space-evenly component-blue">
-                    <Card v-for="data in achivement.achivements" :key="data.id"
+                    <Card v-for="data in achievement.achievements" :key="data.id"
                         :data="data"/>
             </section>
 
@@ -30,16 +29,16 @@
     </template>
 </template>
 <script setup>
-    import { achivementStore } from '@/stores/achivementsStore.js';
+    import { achievementStore } from '@/stores/achievementsStore.js';
 
     import Year from '@/components/Date/Year.vue';
     import Card from '@/components/academic/Card.vue';
     import Timeline from '@/components/academic/Timeline.vue';
 
-    const achivement = achivementStore();
+    const achievement = achievementStore();
 
     const toggleVisibility = (id) => {
-        const data = achivement.achivements;
+        const data = achievement.achievements;
         id = parseInt(id);
         console.log(data);
 
@@ -54,5 +53,5 @@
         console.warn(`Toggling visibility for ID:${id}`, data[id].isVisible);
     };
 
-    console.warn("Timeline data on load:", achivement.achivements, achivement.isLoaded);
+    console.warn("Timeline data on load:", achievement.achivements, achievement.isLoaded);
 </script>

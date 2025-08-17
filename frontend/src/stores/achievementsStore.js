@@ -3,15 +3,15 @@
 import { reactive } from "vue";
 import { defineStore } from "pinia";
 
-import { achivements } from "@/services/achivements-api.js";
+import { achievements } from "@/services/achievements-api.js";
 import { fetchData } from "@/services/utils/response.js";
 
-export const achivementStore = defineStore("achivements",
+export const achievementStore = defineStore("achievements",
     {
         state:() => ({
             data:
             {
-                achivements: [],
+                achievements: [],
                 isLoaded: false,
                 
             }
@@ -20,11 +20,11 @@ export const achivementStore = defineStore("achivements",
         {
             addToStore(item)
             {
-                const achivement = this.data.achivements;
-                
+                const achievement = this.data.achievements;
+
                 if (item.id == 0) item.isVisible = true;
                 else item.isVisible = false;
-                achivement.push(item);
+                achievement.push(item);
                 console.warn("Adding data to store:", item);
             },
 
@@ -33,7 +33,7 @@ export const achivementStore = defineStore("achivements",
                 const data = this.data
                 if (data.isLoaded) return;
 
-                await fetchData(achivements).then((response) =>
+                await fetchData(achievements).then((response) =>
                 {
                     response.forEach((item) =>
                     {
@@ -49,23 +49,23 @@ export const achivementStore = defineStore("achivements",
         },
         getters: {
             isLoaded: (state) => state.data.isLoaded,
-            achivements: (state) => state.data.achivements,
+            achievements: (state) => state.data.achievements,
             timelineRange : (state) =>
             {
                 
                 const n = 1;
                 const data = reactive({});
-                const achivements = state.data.achivements;
+                const achievements = state.data.achievements;
 
                 data.field = 
                 {
                     value: '0',
                     type: 'range',
-                    name: "achivement-timeline",
+                    name: "achievement-timeline",
                     title: 'Presentasjonstidslinje',
-                    rangeMax: achivements.length - n,
+                    rangeMax: achievements.length - n,
                 }
-                data.timeline = achivements;
+                data.timeline = achievements;
                 return data;
 
             },

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <Achivements />
+        <Achievements />
     </section>
     <section>
         <Academiic/>
@@ -9,7 +9,7 @@
     </section>
 </template>
 <script setup>
-    import Achivements from '@/components/Achivements.vue';
+    import Achievements from '@/components/Achievements.vue';
     import Academiic from '@/components/academic/Academic.vue';
     
 
