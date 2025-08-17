@@ -70,9 +70,12 @@
         {
             type: Array,
             required: false,
-            default: () => [['flex-wrap-column', 'timeline-content'], 'timeline-h3', 'timeline-h4',
-            'flex-column-justify-center-align-center', 'flex-wrap-row-align-content-start-justify-space-evenly',
-            'tech-container', 'tech-item', 'timeline-description', 'timeline-list', 'timeline-item']
+            default: () => [['flex-wrap-column', 'timeline-content'], 
+                        'timeline-h3', 'timeline-h4',
+                        'flex-column-justify-center-align-center',
+                        'flex-wrap-row-align-content-start-justify-space-evenly',
+                        ['tech-container', 'flex-wrap-row-justify-space-evenly'], 'tech-item', 'timeline-description',
+                        'timeline-list', 'timeline-item']
         },
         btn :
         {
@@ -91,5 +94,5 @@
     const content = computed(() => props.data);
     const emits = defineEmits(['toggleVisibility']);
 
-    console.log("Timeline data:", content.value);
+    //console.log("Card data:", content.value);
 </script>
