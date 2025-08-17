@@ -17,9 +17,9 @@ const router = createRouter({
         await academic.fetchData();
 
         const achivement = achivementStore();
-        //await achivement.fetchData();
+        await achivement.fetchData();
         
-        !!academic.timelines? next() : next();
+        !!academic.timelines && achivement.isLoaded ? next() : next();
 
       }
     },
