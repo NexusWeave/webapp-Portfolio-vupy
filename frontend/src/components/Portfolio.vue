@@ -1,22 +1,14 @@
 <template>
-    <section id="fullstack" v-if="repo.data" class="flex-wrap-column">
+    <template v-if="portofolio.data">
+        <section id="fullstack"  class="flex-wrap-column">
         <h2>Technical Repositories</h2>
+        
         <section class="flex-wrap-column-align-items-center">
-            <Navigation class='flex-wrap-row-justify-space-evenly tech-bar':data="repo.data.Total" @update="repo.current = $event" v-if="repo.data.Total"/>
-            <form class="flex-wrap-row-justify-space-evenly">
-                <select v-if = "repo.data.lang" placeholder="Choose a type" v-model="filter.lang">
-                    <option value="">Project Type</option>
-                    <option v-for="type in repo.data.type" :key="type.id" value="{{ type }}">{{ type.type}}</option>
-                </select>
-                <input type='text' name="search" v-model="filter.name" placeholder="Search" />
-                <select v-if = "repo.data.lang">
-                    <option value="">Project Language</option>
-                    <option v-for="lang in repo.data.lang" :key="lang.id" value="{{ lang.lang}}">{{ lang.lang}}</option>
-                </select>
-            </form>
+            <Pagination class='flex-wrap-row-justify-space-evenly tech-bar':data="portofolio.data.Total" @update="portofolio.current = $event" v-if="portofolio.data.Total"/>
         </section>
-        <section id="tech-repo" class="tech-repo flex-wrap-row-justify-center">
-            <div class="pp flex-wrap-row" v-for="data in repo.displayData" :key="data.id">
+
+        <section id="technologies" class="tech-repo flex-wrap-row-justify-center">
+            <div class="flex-wrap-row" v-for="data in portofolio.displayData" :key="data.id">
                 <div class="tech-container flex-wrap-column  ">
                     <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-justify-space-between relative">
                         <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
@@ -34,101 +26,110 @@
                 </div>
             </div>
         </section>
+
     </section>
-    <section id="fullstack" class="loading" v-else>
-        <p>Loading Technical Repositories...</p>
-    </section>
+    </template>
+
+    <template v-else>
+        <section id="fullstack" class="loading">
+            <p>Loading Technical Repositories...</p>
+        </section>
+    </template>
 </template>
 
 <script setup>
 
-//  Importing dependencies
-import { reactive, onMounted, computed } from 'vue';
-import { FetchApiResponse } from '../assets/js/utils/apiHandler.js';
+    //  Importing dependencies
+    import { reactive, onMounted, computed } from 'vue';
+    import { FetchApiResponse } from '../utils/apiHandler.js';
 
-//  Importing components
-import Link from './misc_components/link.vue';
-import Navigation from './misc_components/pagination.vue';
-
-
-//  Initializing reactive objects
-const repo = reactive(
-{
-    n           : 9,
-    current     : 1,
-    data        : null,
+    //  Importing components
+    import Form from '@/components/form/Form.vue';
+    import Link from '@/components/navigation/Anchor.vue';
     
-    btn   :[
-        {
-            id: 1,
-            name: 'Next',
-            cls: 'tech-btn'
-        },
-        {
-            id: 2,
-            name: 'Prev',
-            cls: 'tech-btn'
-        }
-    ],
-    
-    displayData :computed(() =>
+    import Pagination from '@/components/navigation/Pagination.vue';
+
+
+    //  Initializing reactive objects
+    const portofolio = reactive(
     {
-        if (filter.name)
-        {
-            return repo.data.filter((data) => {filterData (data.name, filter.name.toLowerCase())});
-        }
-        else
-        {
-            const end = (repo.current * repo.n);
-            const start = (repo.current-1) * repo.n;
-
-            let data =  repo.data.slice(start, end);
-
-            for (let i = 0; i< data.length; i++)
+        n           : 9,
+        current     : 1,
+        data        : null,
+        
+        btn   :[
             {
-                if (data[i].name.includes('-'))
-                {
-                    data[i].name = data[i].name.split('-');
-                }
+                id: 1,
+                name: 'Next',
+                cls: 'tech-btn'
+            },
+            {
+                id: 2,
+                name: 'Prev',
+                cls: 'tech-btn'
             }
-            return data;
-        }
-    })
-});
-
-
-const filter = reactive(
-{
-    name: '',
-    lang: '',
-    category: ''
-});
-
-function filterData (name, filter)
-{
-    for (let i = 0; i< name.length; i++)
-    {
-        if (name[i].includes(filter).toLowerCase())
+        ],
+        
+        displayData :computed(() =>
         {
-            return name[i];
-        }
-    }
-}
+            if (filter.name)
+            {
+                return portofolio.data.filter((data) => {
+                    filterData (data.name, filter.name.toLowerCase());
+                });
+            }
+            else
+            {
+                const end = (portofolio.current * portofolio.n);
+                const start = (portofolio.current-1) * portofolio.n;
 
-//  Fetching data from the server
-onMounted(
-    async () => {
-        try {
-        const response = await FetchApiResponse(import.meta.env.VITE_Github_local);
+                let data =  portofolio.data.slice(start, end);
 
-        repo.data = response.data;
-        repo.data.Total = response.Total;
-
-        console.log("Pfolio API Response :", repo.data);
-    }
-
-        catch (error){console.error("Error fetching announcements :", error);}
+                for (let i = 0; i< data.length; i++)
+                {
+                    if (data[i].name.includes('-'))
+                    {
+                        data[i].name = data[i].name.split('-');
+                    }
+                }
+                return data;
+            }
+        })
     });
 
-//  Fetching the data from the server
+
+    const filter = reactive(
+    {
+        name: '',
+        lang: '',
+        category: ''
+    });
+
+    function filterData (name, filter)
+    {
+        for (let i = 0; i< name.length; i++)
+        {
+            if (name[i].includes(filter).toLowerCase())
+            {
+                return name[i];
+            }
+        }
+    }
+
+    //  Fetching data from the server
+    onMounted(
+        async () => {
+            try {
+            const response = await FetchApiResponse(import.meta.env.VITE_Github_local);
+
+            portofolio.data = response.data;
+            portofolio.data.Total = response.Total;
+
+            console.log("Pfolio API Response :", portofolio.data);
+        }
+
+            catch (error){console.error("Error fetching announcements :", error);}
+        });
+
+    //  Fetching the data from the server
 </script>
