@@ -44,5 +44,5 @@
         });
         console.warn(`Toggling visibility for ID:${id}`, data[id].isVisible);
     };
-    //console.warn("Timeline data on load:", timeline.timelines);
+    //console.warn("Academic data on load:", academic.timelines);
 </script>
