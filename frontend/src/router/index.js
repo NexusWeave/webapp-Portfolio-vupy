@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { timelineStore } from '@/stores/academicStore.js';
+import { academicStore } from '@/stores/academicStore.js';
+import { achivementStore } from '@/stores/achivementsStore.js';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,9 +13,13 @@ const router = createRouter({
 
       beforeEnter: async (to, from, next) => {
 
-        const timeline = timelineStore();
-        await timeline.fetchData();
-        !!timeline.timeline ? next() : next();
+        const academic = academicStore();
+        await academic.fetchData();
+
+        const achivement = achivementStore();
+        //await achivement.fetchData();
+        
+        !!academic.timelines? next() : next();
 
       }
     },
