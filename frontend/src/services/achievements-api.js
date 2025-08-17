@@ -1,4 +1,4 @@
-//  Achivements Timeline API simulation
+//  Achievements Timeline API simulation
 
 export const achievements =
 [
