@@ -23,7 +23,7 @@ export const academicStore = defineStore("Data",
                 item.isVisible = false;
                 const timeline = this.data.timeline;
                 timeline.push(item);
-                console.warn("Adding data to store:", item, this.data);
+                //console.warn("Adding data to store:", item, this.data);
             },
 
             async fetchData()
