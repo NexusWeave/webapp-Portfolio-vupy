@@ -15,15 +15,16 @@
         </span>
 
         <section class="flex-column">
-        <p :class="[cls[3]]">{{ data.description }}</p>
-        <p :class="[cls[5]]">{{ data.description }}</p>
-        <!--Navigation :data="url" v-for="url in data.links" :cls="[cls[6]]" /-->
+            <p :class="[cls[3]]">{{ data.description }}</p>
+
+            <Navigation :data="data.anchor"
+            :cls="[cls[6]]" />
         </section>
     </div>
 </template>
 <script setup>
     import { defineProps } from 'vue';
-
+    import Navigation from '@/components/navigation/NavMenu.vue';
     const props = defineProps({
         data: {
             type: Object,
