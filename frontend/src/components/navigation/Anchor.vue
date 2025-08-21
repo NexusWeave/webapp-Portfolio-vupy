@@ -53,7 +53,7 @@
         files: ['pdf'],
         images: ['jpg', 'jpeg', 'png', 'svg'],
         downloadFiles: ['docx', 'xlsx', 'csv'],
-        icons: ['email', 'telephone', 'school', 'globe', 'map-pin', 'diploma'],
+        icons: ['email', 'telephone', 'school', 'globe', 'map-pin', 'diploma', 'github', 'ytube'],
     }
 
     const data = props.data;
@@ -70,7 +70,9 @@
     
     const isExternal = () => {
         if (!data.type) return false;
-        return Array.isArray(data.type) ? data.type.includes('external') : data.type === 'external';
+
+        const external = 'external';
+        return !!Array.isArray(data.type) ? data.type.includes(external) : data.type === external;
     };
 
     const isDisabled = () => {
@@ -110,5 +112,5 @@
         }
     };
 
-    //console.log("Link component loaded with data: ", data, img);
+    console.log("Link component loaded with data: ", data, img);
 </script>
