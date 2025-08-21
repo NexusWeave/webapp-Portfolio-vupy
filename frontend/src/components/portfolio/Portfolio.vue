@@ -1,13 +1,15 @@
 <template>
     <template v-if="!!pfolio.isLoaded">
-        <section id="fullstack"  class="flex-wrap-column">
+        <section class="flex-wrap-column repo-container">
         <h2>Technical Repositories</h2>
         
         <section class="flex-wrap-column-align-items-center">
             <Pagination class='flex-wrap-row-justify-space-evenly tech-bar':data="pfolio.data.Total" @update="pfolio.current = $event" v-if="pfolio.data.Total"/>
         </section>
 
-        <Repo :data="pfolio.displayData()"/>
+        <section class="repo-container flex-wrap-row-justify-center">
+            <Repo :data="pfolio.displayData()"/>
+        </section>
 
     </section>
 
@@ -16,7 +18,7 @@
     </template>
 
     <template v-else>
-        <section id="fullstack" class="loading">
+        <section class="loading repo-container">
             <p>Loading Technical Repositories...</p>
         </section>
     </template>
