@@ -1,7 +1,7 @@
 <template>
     <section class="flex-wrap-row-align-items-center">
         <section>
-            <NavMenu :data="data.logo.menu" :cls="['logo-bar', 'logo-list', 'logo-item']" />
+            <NavMenu :data="data.logo.anchor" :cls="['logo-bar', 'logo-list', 'logo-item']" />
         </section>
         <NavMenu :data="data.menu" />
     </section>
@@ -11,10 +11,7 @@
                     {{ text }}
                 </span>
             </h1>
-        
         </section>
-    
-
 </template>
 
 <script setup>
@@ -28,39 +25,39 @@ const data =
         'Logic', 'Meets',
         'Creative', 'Solutions',
     ],
-    logo: {
-        menu:
+    logo: 
+    {
+        anchor:
         [
             {
-                type: 'anchor',
-                anchor:
+                href: '/',
+                type: ['anchor'],
+
+                img:
                 {
-                    href: '/',
-                    img:{
-                        type: 'png',
-                        cls: ['k-logo-img'],
-                        alt: 'logic-meets-creative-solutions.png',
-                        src: '/media/images/logo/logic-meets-creative-solutions.png',
-                    }
+                    type: 'png',
+                    cls: ['k-logo-img'],
+                    alt: 'logic-meets-creative-solutions.png',
+                    src: '/media/images/logo/logic-meets-creative-solutions.png',
                 }
-            },
+            }
         ]
     },
     menu:
     [
         {
             href: '/',
-            type: 'router',
+            type: ['router'],
             label: 'Portefølje',
         },
         {
             href: '/about',
-            type: 'router',
+            type: ['router'],
             label: 'About',
         },
         {
             href: '/dev',
-            type: 'router',
+            type: ['router'],
             label: 'Dev profile',
         }
     ]
