@@ -8,15 +8,17 @@
                 :src="'/media/tech-lang-icons/' + lang.lang + '.svg'" 
                 :alt="lang.lang + '.svg'" />
         </div>
-        <h3 :class="[cls[4]]" v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
-        <h3 :class="[cls[4]]" v-else>{{ data.name }}</h3>
-        <span :class="[cls[3]]">
+        <h3 :class="[cls[3]]" v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
+        <h3 :class="[cls[3]]" v-else>{{ data.name }}</h3>
+        <span :class="[cls[4]]">
             <time v-bind:datetime="data.date">{{ data.date }}</time>
         </span>
 
-        <p :class="[cls[5]]">{{ data.description }}</p>
+        <section class="flex-column">
+        <p :class="[cls[3]]">{{ data.description }}</p>
         <p :class="[cls[5]]">{{ data.description }}</p>
         <!--Navigation :data="url" v-for="url in data.links" :cls="[cls[6]]" /-->
+        </section>
     </div>
 </template>
 <script setup>
@@ -31,8 +33,8 @@
             type: Array,
             default: () => [['card-container', 'grid-container','flex-wrap-column'], 
             ['grid-item-1', 'flex-wrap-row-justify-space-between'],
-            'figure-img', 'grid-item-3', 'tech-text', 'tech-text',
-            ['nav-container', 'flex-wrap-row-justify-space-evenly']]
+            'figure-img', 'grid-item-2', 'grid-item-3', 
+            ['nav-container', 'flex-wrap-row-justify-space-evenly', 'grid-item-4']]
         }
     });
 
