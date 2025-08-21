@@ -1,11 +1,15 @@
 <template>
     <section>
+
+    </section>
+    <section>
         <Achievements />
     </section>
     <section>
         <Academiic/>
     </section>
     <section>
+        <Portfolio />
     </section>
 </template>
 <script setup>
