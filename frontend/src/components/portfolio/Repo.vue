@@ -1,6 +1,6 @@
 <template>
     <section class="flex-wrap-row" v-for="data in pfolio.displayData()" :key="data.id">
-        <TechCard :data="data" />
+        <BCard :data="data" />
     </section>
 </template>
 <script setup>
@@ -9,7 +9,7 @@
     import { portfolioStore } from '@/stores/portfolioStore.js';
 
     //  Importing components
-    import TechCard from './BusinessCard.vue';
+    import BCard from './BusinessCard.vue';
 
 
 
