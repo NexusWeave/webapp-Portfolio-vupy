@@ -1,7 +1,6 @@
 <template>
     <section class="flex-wrap-row-align-items-center">
         <section>
-            {{ data.logo }}
             <Figure :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" />
         </section>
         <NavMenu :data="data.menu" toggle="router"/>
