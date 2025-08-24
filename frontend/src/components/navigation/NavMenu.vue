@@ -1,30 +1,34 @@
 <template>
     <nav :class="cls[0]">
         <ul :class="cls[1]">
-            <template v-if="!!isRouterLink">
-                <li v-for="item in data" :key="item.id"
+            <li v-for="item in data" :key="item.id"
                     :class="cls[2]">
-                    <RouterLink :to="item.href" :class="item.cls">
-                        {{ item.label }}
-                    </RouterLink>
-                </li>
+            <template v-if="!!isRouterLink">
+                <RouterLink :to="item.href" :class="item.cls">
+                    {{ item.label }}
+                </RouterLink>
             </template>
 
             <template v-else-if="!!isAnchor">
-                <li v-for="item in data" :key="item.id"
-                    :class="cls[2]">
                     <Anchor :data="item" :cls="item.cls"/>
-                </li>
             </template>
+
+            <template v-else-if="!!isPagination">
+                <Btn :data="btn[0]"/>
+                <span :class="cls[3]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
+                <Btn :data="btn[1]"/>
+            </template>
+            </li>
         </ul>
     </nav>
 </template>
 
 <script setup>
     import Anchor from './Anchor.vue';
+    import Btn from './Button.vue';
 
     import { RouterLink } from 'vue-router';
-    import { defineProps, computed } from 'vue';
+    import { ref, defineProps, computed } from 'vue';
 
     const props = defineProps({
         data: 
@@ -36,23 +40,59 @@
         {
             type: Array,
             required: false,
-            default: () => [['nav-bar',], [['nav-list', 'flex-wrap-row-justify-space-between'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
-        }
+            default: () => [['nav-bar', 'flex-wrap-row'], [['nav-list', 'flex-wrap-row-justify-space-between'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
+        },
+        toggle:
+        {
+            type: String,
+            required: true,
+            default: ''
+        },
     });
 
     const data = props.data;
     console.log("NavigationMenu loaded with data: ", data, );
-    const isAnchor = computed(() => {
-        const anchor = 'anchor';
-        if (!data) return false;
 
-        return !!data.filter(item => 
-        {
-            console.log(item);
-            item.type.includes(anchor)});
+    const emit = defineEmits(['update']);
+
+    
+    const activePage = ref(props.activePage);
+
+    const isAnchor = props.toggle === 'anchor';
+    const isRouterLink = props.toggle === 'router';
+    const isPagination = props.toggle === 'pagination';
+
+    const totalPages = computed(() => props.totalPage);
+
+    const btn = computed(() =>
+        [
+            {
+                id: 0,
+                label: 'Forrige',
+                cls: ['button', 'pagnition-btn'],
+                disabled: activePage.value <= 1 ? 'disabled' : false,
+                action: () => { if (activePage.value > 1)  activePage.value--; },
+
+            },
+            {
+                id: 1,
+                label: 'Neste',
+                cls: ['button', 'archive-btn'],
+                disabled: activePage.value >= totalPages.value? 'disabled' : false,
+                action: () => { if (activePage.value < totalPages.value)  activePage.value++; },
+            },
+        ]);
+
+    //  Watch for changes in the 'data' prop
+    watch(() => props.activePage, (newValue) => 
+    {
+        activePage.value = newValue;
     });
 
-    const isRouterLink = computed(() => { return !!data.find(item => item.type.includes('router'));});
+    watch(() => activePage, (newValue) => 
+    {
+        emit('update', newValue);
+    }, { immediate: true });
 
     console.log("NavigationMenu loaded with data: ", data, isAnchor.value, isRouterLink.value);
 </script>
