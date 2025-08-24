@@ -5,6 +5,11 @@
                 :data="lang"
                 :cls="['tech-figure', 'tech-img']"
             />
+            <img 
+                :class="[cls[2]]"
+                :src="'/media/tech-lang-icons/' + lang.lang + '.svg'" 
+                :alt="lang.lang + '.svg'" />
+
             <h3 :class="[cls[2]]" v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
             <h3 :class="[cls[2]]" v-else>{{ data.name }}</h3>
             <span :class="[cls[3]]">
@@ -51,23 +56,4 @@
     const cls = props.cls;
     const data = props.data;
 
-    const btn = computed(() =>
-        [
-            {
-                id: 0,
-                label: 'Forrige',
-                cls: ['button', 'pagnition-btn'],
-                disabled: activePage.value <= 1 ? 'disabled' : false,
-                action: () => { if (activePage.value > 1)  activePage.value--; },
-
-            },
-            {
-                id: 1,
-                label: 'Neste',
-                cls: ['button', 'archive-btn'],
-                disabled: activePage.value >= totalPages.value? 'disabled' : false,
-                action: () => { if (activePage.value < totalPages.value)  activePage.value++; },
-            },
-        ]);
-    
 </script>
