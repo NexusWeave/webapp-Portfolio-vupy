@@ -1,8 +1,5 @@
 <template>
     <section>
-
-    </section>
-    <section>
         <Achievements />
     </section>
     <section>
