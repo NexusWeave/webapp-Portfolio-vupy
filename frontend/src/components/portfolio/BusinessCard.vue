@@ -12,13 +12,14 @@
             </span>
         </section>
 
+        <Navigation :cls="cls[5]"
+            :data="btn" toggle="pagination" />
 
         <section class="flex-column-items-center">
             <p :class="[cls[4]]">{{ data.description }}</p>
 
             <Navigation :cls="cls[5]"
-            :data="data.anchor"
-             />
+            :data="data.anchor" toggle="anchor" />
         </section>
     </section>
 </template>
@@ -49,5 +50,24 @@
 
     const cls = props.cls;
     const data = props.data;
+
+    const btn = computed(() =>
+        [
+            {
+                id: 0,
+                label: 'Forrige',
+                cls: ['button', 'pagnition-btn'],
+                disabled: activePage.value <= 1 ? 'disabled' : false,
+                action: () => { if (activePage.value > 1)  activePage.value--; },
+
+            },
+            {
+                id: 1,
+                label: 'Neste',
+                cls: ['button', 'archive-btn'],
+                disabled: activePage.value >= totalPages.value? 'disabled' : false,
+                action: () => { if (activePage.value < totalPages.value)  activePage.value++; },
+            },
+        ]);
     
 </script>
