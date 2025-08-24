@@ -31,9 +31,10 @@
 
     const img = props.data.img;
     const anchor = props.data.anchor;
+    const caption = props.data.caption;
 
     const isFigure = computed(() => {
-        return !!data.caption;
+        return !!caption;
     });
     const cls = props.cls;
     //console.log('Figure data:', data);
