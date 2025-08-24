@@ -1,9 +1,10 @@
 <template>
     <section class="flex-wrap-row-align-items-center">
         <section>
-            <NavMenu :data="data.logo.anchor" :cls="['logo-bar', 'logo-list', 'logo-item']" />
+            {{ data.logo }}
+            <Figure :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" />
         </section>
-        <NavMenu :data="data.menu" />
+        <NavMenu :data="data.menu" toggle="router"/>
     </section>
     <section class="slogan-wrapper">
             <h1>
@@ -16,50 +17,46 @@
 
 <script setup>
 
-import NavMenu from '@/components/navigation/NavMenu.vue';
+    import Figure from '@/components/media/Figure.vue';
+    import NavMenu from '@/components/navigation/NavMenu.vue';
 
-const data =
-{
-    title:
-    [
-        'Logic', 'Meets',
-        'Creative', 'Solutions',
-    ],
-    logo: 
+    const data =
     {
-        anchor:
+        title:
+        [
+            'Logic', 'Meets',
+            'Creative', 'Solutions',
+        ],
+        logo: 
+        {
+            anchor:
+            {
+                href: '/',
+                cls: ['nav-link', 'nav-link-logo']
+            },
+            
+            img:
+            {
+                type: 'png',
+                cls: ['k-logo-img'],
+                alt: 'logic-meets-creative-solutions.png',
+                src: '/media/images/logo/logic-meets-creative-solutions.png',
+            }
+        },
+        menu:
         [
             {
                 href: '/',
-                type: ['anchor'],
-
-                img:
-                {
-                    type: 'png',
-                    cls: ['k-logo-img'],
-                    alt: 'logic-meets-creative-solutions.png',
-                    src: '/media/images/logo/logic-meets-creative-solutions.png',
-                }
+                label: 'Portefølje',
+            },
+            {
+                href: '/about',
+                label: 'About',
+            },
+            {
+                href: '/dev',
+                label: 'Dev profile',
             }
         ]
-    },
-    menu:
-    [
-        {
-            href: '/',
-            type: ['router'],
-            label: 'Portefølje',
-        },
-        {
-            href: '/about',
-            type: ['router'],
-            label: 'About',
-        },
-        {
-            href: '/dev',
-            type: ['router'],
-            label: 'Dev profile',
-        }
-    ]
-}
+    }
 </script>
