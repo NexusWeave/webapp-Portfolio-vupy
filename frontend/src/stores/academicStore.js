@@ -4,6 +4,7 @@ import { reactive } from "vue";
 import { defineStore } from "pinia";
 
 import { fetchData } from "@/services/academic-api.js";
+import js from "@eslint/js";
 //import { fetchData } from "@/services/utils/response.js";
 
 export const academicStore = defineStore("Academic",
@@ -25,7 +26,7 @@ export const academicStore = defineStore("Academic",
 
                 const timeline = this.data.timeline;
                 timeline.push(item);
-                console.warn("Adding data to store:", item, this.data);
+                //console.warn("Adding data to store:", item);
             },
 
             async fetchData()
@@ -35,14 +36,12 @@ export const academicStore = defineStore("Academic",
 
                 await fetchData().then(async () =>
                     {
-                    const json = await fetch('/apis/academic-api.json');
-                    
+                    const json = await fetch('/apis/academic-api.json');   
                     const jsonData = await json.json();
-                    console.warn("Fetched data:", jsonData);
 
-                    for (let i = 0; i < jsonData.length; i++) {
-                        this.addToStore(jsonData[i]);
-                    }
+                    jsonData.data.forEach(element => {
+                        this.addToStore(element);
+                    });
                     this.data.isLoaded = true;
 
                 }).catch((error) => {
@@ -60,7 +59,6 @@ export const academicStore = defineStore("Academic",
                 const n = 1;
                 const data = reactive({});
                 const timeline = state.data.timeline;
-
                 data.field = 
                 {
                     value: '0',
