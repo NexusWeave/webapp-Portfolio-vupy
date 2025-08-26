@@ -25,7 +25,7 @@
                 "anchor":
                 {
                     "type": ["globe", "external"],
-                    "label": ["Borgund VGS Skole"],
+                    "label": "Borgund VGS Skole",
                     "href": "https://borgund.vgs.no/"
                 }
                 }
@@ -57,7 +57,7 @@
                     "anchor":
                     {
                         "type": ["globe", "external"],
-                        "label": ["Borgund VGS Skole"],
+                        "label": "Borgund VGS Skole",
                         "href": "https://borgund.vgs.no/"
                     }
                 },
