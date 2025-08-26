@@ -23,7 +23,8 @@ const router = createRouter({
         const portfolio = portfolioStore();
         await portfolio.fetchData("http://127.0.0.1:5000/api/github");
 
-        !!academic.timelines && !!achievement.isLoaded && !!portfolio.isLoaded ? next() : next();
+        console.log(academic.timelineRange, achievement.isLoaded, portfolio.isLoaded);
+        !!academic.isLoaded && !!achievement.isLoaded && !!portfolio.isLoaded ? next() : next();
 
       }
     },
