@@ -29,9 +29,11 @@ export const portfolioStore = defineStore('portfolio',
                     });
 
                     repo.lang.forEach(lang => {
-                            lang.alt = `${lang.lang}.svg`,
-                            lang.src = `/media/tech-lang-icons/${lang.lang}.svg`
+                        lang.name = lang.lang[0];
+                        lang.alt = `${lang.lang}`,
+                        lang.src = `/media/tech-lang-icons/${lang.lang[0]}.svg`
                     });
+                    console.log(repo.lang);
 
                     const repositories = this.data.repositories;
                     repositories.push(repo);
@@ -39,7 +41,10 @@ export const portfolioStore = defineStore('portfolio',
                 },
                 splitName(name)
                 {
-                    return name.split('-');
+                    if(!name) return;
+                    console.log(name);
+                    const delimeter = '-';
+                    if (name.includes(delimeter)) return name.split(delimeter);
                 },
                 async fetchData(data)
                 {
