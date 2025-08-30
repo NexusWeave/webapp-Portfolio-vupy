@@ -10,6 +10,24 @@
         inline-size: 100%
         @include mix.input-styles(color.$sea-green-color)
 
+        input[type="range"]
+            inline-size: 100%
+
+            &::-webkit-slider-runnable-track,
+            &::-moz-range-track
+                cursor: pointer
+                block-size: .9em
+                border-radius: 1em
+                -webkit-appearance: none
+                background: color.$sea-green-color
+
+            &::-webkit-slider-thumb,
+            &::-moz-range-thumb
+                cursor: pointer
+                block-size: .9em
+                border-radius: 1em
+                -webkit-appearance: none
+                background: color.$sea-green-color
     .timeline-active
         opacity: 1 !important
         visibility: visible !important
