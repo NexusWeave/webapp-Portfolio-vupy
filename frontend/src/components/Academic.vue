@@ -1,18 +1,18 @@
 <template>
     <template  v-if="academic.isLoaded" >
-        <section class="timeline-container component-blue timeline-container">
-            <section class="flex-wrap-row-justify-space-evenly component-blue timeline-line">
+        <section class="timeline-container component-w-g-b timeline-container">
+            <section class="flex-wrap-row-justify-space-evenly timeline-line">
                 <Timeline
                 :data="academic.timelineRange"
                 :cls="[['flex-column-align-items-center', 'timeline-item'],
-                    'title-h2', ['timeline-input-label', 'timeline-input']]"
+                ['timeline-input-label', 'timeline-input']]"
                 @toggle-visibility="toggleVisibility"/>
             </section>
             <h3 class="timeline-h3">
                 <Year v-for="data in academic.timelines" :key="data.id"
                         :year="data.year" :isVisible="data.isVisible"/>
             </h3>
-            <section class="flex-wrap-row-justify-space-evenly component-blue">
+            <section class="flex-wrap-row-justify-space-evenly">
                     <Card v-for="data in academic.timelines" :key="data.id"
                         :data="data"/>
             </section>
