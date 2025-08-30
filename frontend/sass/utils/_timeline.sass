@@ -8,62 +8,33 @@
     .timeline-item
         z-index: 1
         inline-size: 100%
-
-        input[type = "range"].timeline-input
-            inline-size: 100%
+        @include mix.input-styles(color.$sea-green-color)
 
     .timeline-active
         opacity: 1 !important
         visibility: visible !important
 
-    .timeline-h3
-        font-size: 1.5em
-        font-weight: 600
-        margin-block: .5em
-        text-align: center
-
-    .timeline-content
+    .academic-content,
+    .achievement-content
         opacity: 0
         padding: 1em
         visibility: hidden
         max-inline-size: 22em
-        @include mix.transitions(opacity, 3s, ease-out, 10s, allow-discrete)
-        @include mix.component-color($color: color.$acent-3, $background-color: color.$acent-3-card)
+        box-shadow: 0 2px 4px rgba(64, 64, 64, .5)
 
-        .timeline-h4
-            font-size: 1.2em
-            font-weight: 600
-            margin-block: .5em
-            text-align: center
-            display: inline-block
-
-        p
-            font-size: 1.1em
-            text-align: center
-    
         .tech-container
             .tech-item
                 margin-inline:.5em
 
-        .timeline-description
-            .timeline-list
-                .timeline-item
-                    margin-block: .5em
-                    font-size: 1.1em
+            .timeline-description
+                .timeline-list
+                    .timeline-item
+                        margin-block: .5em
+                        font-size: 1.1em
 
-.timeline-line
-    @include mix.media-queries ($size: 'XL')
-        &::before
-            top: 2.2em
-            content: ""
-            left: 44em
-            inline-size: .1em
-            position: relative
-            background-color: red
-            transform: scaleX(14.1) rotate(90deg)
+    .academic-content    
+        @include mix.transitions(opacity, 3s, ease-out, 10s, allow-discrete)
 
-.component-blue
-    @include mix.component-color($color: color.$primary, $background-color: color.$acent-3)
+    .achievement-content
+        @include mix.transitions(opacity, 3s, ease-out, 10s, allow-discrete)
 
-.component-w-g-t
-    @include mix.component-color($color: color.$secondary, $background-color: color.$primary)
