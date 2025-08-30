@@ -34,11 +34,14 @@
     background-color: color.$primary
 
     h1,h2,h3,h4,h5,h6
+        text-align: center
         color: color.$secondary
         @include font-style('Work Sans')
 
-    button
+    button, a
         cursor: pointer
+
+    p, a, li, span, div, button
         @include font-style('Roboto')
 
     .component
@@ -54,8 +57,7 @@
         color: $title
         font-weight: 600
         margin-block: .5em
-        text-align: center
-        @include font-style('Work Sans')
+
 
     h3
         font-size: 1.2em
