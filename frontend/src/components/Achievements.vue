@@ -1,23 +1,23 @@
 <template>
 <template v-if="achievement.isLoaded">
-        <section class="timeline-container component-blue timeline-container">
+        <section class="timeline-container timeline-container">
             
             <section class="flex-wrap-row-justify-space-evenly timeline-line">
                 
                 <Timeline
                 :data="achievement.timelineRange"
                 :cls="[['flex-column-align-items-center', 'timeline-item'],
-                    'title-h2', ['timeline-input-label', 'timeline-input']]"
+                    'title-h2-teal', ['timeline-input-label', 'timeline-input']]"
                 @toggle-visibility="toggleVisibility"/>
             </section>
             
-            <section class="flex-wrap-row-justify-space-evenly component-blue">
-                    <h3 class="timeline-h3">
+            <section class="flex-wrap-row-justify-space-evenly">
+                    <h3 class="title-h3-teal">
                         <Year v-for="data in achievement.achievements" :key="data.id"
                             :year="data.year" :isVisible="data.isVisible"/>
                     </h3>
             </section>
-            <section class="flex-wrap-row-justify-space-evenly component-blue">
+            <section class="flex-wrap-row-justify-space-evenly">
                     <Card v-for="data in achievement.achievements" :key="data.id"
                         :data="data" />
             </section>
@@ -28,6 +28,7 @@
         Attempting to retrieve achievements, please wait...
     </template>
 </template>
+
 <script setup>
     import { achievementStore } from '@/stores/achievementsStore.js';
 
