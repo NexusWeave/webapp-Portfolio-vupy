@@ -1,17 +1,20 @@
 <template>
-    <template v-if="isAnchor">
-        {{ data }}
-        <span>
-            <i :class="cls"></i>
+
+    <span>
+        <i :class="cls"></i>
+        <template v-if="isAnchor">
             <Anchor :data="data.anchor" :cls="cls" /> 
-        </span>
+        </template>
+    <template v-if="cls.includes('icon')">
+        
+        <i :class="cls"></i> 
+        {{ data.label }}
+        
     </template>
     <template v-else>
-        <span>
-            <i :class="cls[0]"></i> 
-            {{ data.label }}
-        </span>
+        {{ data.label }}
     </template>
+    </span>
 </template>
 
 <script setup>
