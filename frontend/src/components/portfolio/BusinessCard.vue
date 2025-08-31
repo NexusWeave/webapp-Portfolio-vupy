@@ -6,22 +6,19 @@
                 :cls="['tech-figure', 'tech-img']"
             />
 
-            <h3 :class="[cls[2]]" v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
-            <h3 :class="[cls[2]]" v-else>{{ data.name }}</h3>
-            <span :class="[cls[3]]">
+            <h3  v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
+            <h3  v-else>{{ data.name }}</h3>
+            <span :class="[cls[2]]">
                 <time v-bind:datetime="data.date">
                     <b>{{ data.date }}</b>
                 </time>
             </span>
         </section>
 
-        <Navigation :cls="cls[5]"
-            :data="btn" toggle="pagination" />
-
         <section class="flex-column-items-center">
-            <Navigation :cls="cls[5]"
+            <Navigation :cls="cls[3]"
             :data="data.anchor" toggle="anchor" />
-            <p :class="[cls[4]]">{{ data.description }}</p>
+            <p>{{ data.description }}</p>
 
             
             <p class="flex-wrap-row-justify-space-evenly">
@@ -48,10 +45,11 @@
             default: () => [
                 ['card-container', 'flex-column','flex-wrap-column'],
                 ['flex-wrap-row-justify-space-between', 'card-content'],
-                'title-h3', 'date-container',  'ts',
+                'date-container',
                 [
-                    ['portefolio-bar', 'flex-wrap-row-justify-space-evenly'], ['nav-list', 'flex-row-align-items-center'],
-                    ['nav-item'], ['anchor-item']
+                    'portefolio-bar', 
+                    ['nav-list', 'flex-wrap-row-justify-space-evenly'],
+                    'nav-item', ['anchor-item']
                 ]
         ]
         }
