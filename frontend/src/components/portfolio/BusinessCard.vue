@@ -19,12 +19,14 @@
             :data="btn" toggle="pagination" />
 
         <section class="flex-column-items-center">
-            <p :class="[cls[4]]">{{ data.description }}</p>
-
             <Navigation :cls="cls[5]"
             :data="data.anchor" toggle="anchor" />
+            <p :class="[cls[4]]">{{ data.description }}</p>
 
-            <Tags v-for="lang in data.lang" :key="lang.id" :data="lang" />
+            
+            <p class="flex-wrap-row-justify-space-evenly">
+                <Tags v-for="lang in data.lang" :key="lang.id" :data="lang" />
+            </p>
         </section>
     </section>
 </template>
