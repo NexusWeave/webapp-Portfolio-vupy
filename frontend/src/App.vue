@@ -3,7 +3,7 @@
     <header>
         <Header />
     </header>
-    <main>
+    <main class="flex-wrap-column-align-content-center">
         <RouterView />
 
     </main>
