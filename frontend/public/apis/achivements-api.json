@@ -56,14 +56,8 @@
             "content":
             [
                 {
-                    "title": "Min første jobb som utvikler",
-                    "tech": ["ASP.NET", ".NET", "SASS", "TypeScript", "Entity Framework"],
-                    "description":
-                    {
-                        "summary": "Dette året markerte min inntreden i arbeidslivet som utvikler. I denne arbeidsplassen fikk jeg utvikle ferdigheter med teknologier som TypeScript for frontend og C# for backend. Jeg utviklet også kunnskapen om mermaid.js (UML) for å visualisere og dokumentere backend-strukturen. I tillegg utviklet jeg en erfaring med nyere teknologier som Headless CMS, utvidet min kompentanse innen for feltet."
-                    }
-                },
-                {
+                    "to-date": "2025-12-01",
+                    "from-date": "2025-04-01",
                     "title": "Mitt første prosjekt som frilanser",
 
                     "tech": ["Vue.js", "flask.py"],
@@ -78,6 +72,36 @@
                             "Planleggingsprosessen og UML dokumentasjon"
                             
                         ]
+                    },
+                    "anchor":
+                    {
+                        "type": ["globe", "external"],
+                        "label": "sosEnT Norge",
+                        "href": "https://sosent.no/"
+                    }
+                },
+                {
+                    "title": "Første produksjons prosjekt som intern",
+                    "to-date": "2025-06-01",
+                    "from-date": "2025-01-01",
+                    "tech": ["11ty", "decap cms", "mermaid.js"],
+                    "description":
+                    {
+                        "summary": "Denne delen perioden i internshipet, fikk vi som intern mulighet til å utvikle SSG for kunde, hvor jeg fikk muligheten til å få erfaringer knyttet til:",
+                        "list":
+                        [
+                            "Bruk av Headless CMS",
+                            "Smidig samarbeid og kommunikasjon",
+                            "Anbefaling av teknologier og verktøy",
+                            "Planleggingsprosessen og UML dokumentasjon"
+                            
+                        ]
+                    },
+                    "anchor":
+                    {
+                        "type": ["globe", "external"],
+                        "label": "sosnet Vestfold",
+                        "href": "https://sosnet.no/"
                     }
                 }
             ]
