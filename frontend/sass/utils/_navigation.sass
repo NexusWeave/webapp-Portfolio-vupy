@@ -15,7 +15,7 @@ ul.nav-list, .logo-list
 
 li.nav-item, .logo-item
     margin: 0
-
+    @include mix.link-styles(color.$light-orange, color.$soft-white, color.$dark-orange, color.$dark-orange)
 .nav-link
 
     &:hover
@@ -25,5 +25,5 @@ li.nav-item, .logo-item
         @include mix.background-style(color.$light-orange, color.$dark-grey)
 
     padding: 0.5em 1em
-    @include mix.link-styles(color.$light-orange, color.$soft-white, color.$dark-orange, color.$dark-orange)
+    
 
