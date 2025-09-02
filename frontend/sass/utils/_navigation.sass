@@ -1,3 +1,6 @@
+@use './mixins' as mix
+@use '../colors/colors' as color
+
 nav.nav-bar
     inline-size: 48em
 
@@ -12,4 +15,15 @@ ul.nav-list, .logo-list
 
 li.nav-item, .logo-item
     margin: 0
-    padding: 0
+
+.nav-link
+
+    &:hover
+        @include mix.background-style(color.$light-orange, color.$soft-white)
+
+    &:active
+        @include mix.background-style(color.$light-orange, color.$dark-grey)
+
+    padding: 0.5em 1em
+    @include mix.link-styles(color.$light-orange, color.$soft-white, color.$dark-orange, color.$dark-orange)
+
