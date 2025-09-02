@@ -4,13 +4,13 @@
             <li v-for="item in data" :key="item.id"
                     :class="cls[2]">
             <template v-if="!!isRouterLink">
-                <RouterLink :to="item.href" :class="item.cls">
+                <RouterLink :to="item.href" :class="[item.cls, 'nav-link']">
                     {{ item.label }}
                 </RouterLink>
             </template>
 
             <template v-else-if="!!isAnchor">
-                    <Anchor :data="item" :cls="item.cls"/>
+                    <Anchor :data="item" :cls="[item.cls]"/>
             </template>
 
             <template v-else-if="!!isPagination">
