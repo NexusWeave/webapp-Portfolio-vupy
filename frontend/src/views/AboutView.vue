@@ -1,10 +1,13 @@
 <template>
     <article>
-        <Figure />
+        <section>
+            <Repo />
+        </section>
         <section>
             <h2> Kristoffer Gjøsund</h2>
             <p> Profil informasjon om meg</p>
         </section>
+
         <section>
             <p> Litt dypere om min reise </p>
         </section>
@@ -14,9 +17,7 @@
         </section>
     </article>
 
-    <section>
-        <Repo />
-    </section>
+
     <article>
         <section>
             <p> mer historie om meg</p>
