@@ -1,7 +1,7 @@
 <template>
     <section class="flex-wrap-row-align-items-center">
         <section>
-            <Figure :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" />
+            <NavMenu :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" toggle="anchor" />
         </section>
         <NavMenu :data="data.menu" toggle="router"/>
     </section>
@@ -16,7 +16,6 @@
 
 <script setup>
 
-    import Figure from '@/components/media/Figure.vue';
     import NavMenu from '@/components/navigation/NavMenu.vue';
 
     const data =
@@ -31,16 +30,18 @@
             anchor:
             {
                 href: '/',
-                cls: ['nav-link', 'nav-link-logo']
+                cls: ['nav-link-logo'],
+                
+                img:
+                {
+                    type: 'png',
+                    cls: ['k-logo-img'],
+                    alt: 'logic-meets-creative-solutions.png',
+                    src: '/media/images/logo/logic-meets-creative-solutions.png',
+                }
             },
             
-            img:
-            {
-                type: 'png',
-                cls: ['k-logo-img'],
-                alt: 'logic-meets-creative-solutions.png',
-                src: '/media/images/logo/logic-meets-creative-solutions.png',
-            }
+            
         },
         menu:
         [
