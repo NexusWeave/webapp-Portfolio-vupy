@@ -15,15 +15,17 @@ ul.nav-list, .logo-list
 
 li.nav-item, .logo-item
     margin: 0
-    @include mix.link-styles(color.$light-orange, color.$soft-white, color.$dark-orange, color.$dark-orange)
+    
+    @include mix.link-styles(color.$dark-grey, color.$dark-grey, color.$soft-white, color.$dark-grey)
+
 .nav-link
 
     &:hover
         @include mix.background-style(color.$light-orange, color.$soft-white)
 
     &:active
-        @include mix.background-style(color.$light-orange, color.$dark-grey)
+        @include mix.background-style(color.$dark-orange, color.$soft-white)
 
     padding: 0.5em 1em
-    
+    border-radius: .5em
 
