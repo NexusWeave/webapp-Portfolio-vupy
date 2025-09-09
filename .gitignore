@@ -20,12 +20,18 @@
 #   frontend related files & folders
 
 #   Frontend dicrectories
+
 frontend/node_modules
 frontend/docs/.vitepress/cache
 frontend/build
 frontend/dist
 frontend/src/assets
 
+#   Frontend files
+frontend/package-lock.json
+frontend/.env.production
+frontend/.env.development
+frontend/.env.local
 #   Backend related files & folders
 .logs
 coverage
