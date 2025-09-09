@@ -1,0 +1,22 @@
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  local_backend: true                           # Allows local development
+  # (branch: main)                              # Branch to update (optional; defaults to main)
+
+media_folder: "../../public/img"                # Physical path to save images
+public_folder: "/public"                        # Web-accessible path to the images
+
+collections:                                    # Initializing the UI
+  - name: 'index Page'                                
+    label: 'Modify index Page'                  # Label for the blog post creation / Menu name
+    folder: '/posts'                            # Save path to the posts
+    create: true
+    slug: '{{slug}}'                            # Title of the file to be changed
+
+    fields:                                     # Initializing the User interface fields
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "layout", name: "layout", widget: "hidden", default: "post-layout.html" }
+      - { label: "summary", name: "summary", widget: "hidden", default: "post-layout.html" }
