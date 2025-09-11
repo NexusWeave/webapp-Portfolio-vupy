@@ -24,6 +24,7 @@ frontend/dist
 frontend/build
 frontend/src/assets
 frontend/node_modules
+frontend/public/admin
 frontend/tina/__generated__
 frontend/docs/.vitepress/cache
 
@@ -31,8 +32,6 @@ frontend/docs/.vitepress/cache
 frontend/.env.local
 frontend/.env.production
 frontend/.env.development
-
-
 frontend/package-lock.json
 
 #   Backend related files & folders
