@@ -7,6 +7,32 @@ const branch =
   process.env.HEAD ||
   "main";
 
+const techOptions = [
+  // Frontend
+  "CSS",
+  "Sass",
+  "HTML",
+  "Vue.js",
+  "JavaScript",
+  "TypeScript",
+
+  // Backend
+  "Python",
+  "Django",
+  "Flask",
+
+  // Databases
+  "MSSQL",
+  "MySQL",
+  "SQLite",
+  "MongoDB",
+  "PostgreSQL",
+]
+
+const tagsOptions = [
+  "news",
+  "dev-journey",
+]
 export default defineConfig({
   branch,
 
@@ -55,11 +81,11 @@ export default defineConfig({
             description: "Name of the institution"
           },
           {
+            list: true,
             name: "tech",
             type: "string",
-            required: true,
-            label: "Technologies",
-            description: "Technologies used in project"
+            options: techOptions,
+            label: "Technologies"
           },
           {
             name: "body",
@@ -103,11 +129,11 @@ export default defineConfig({
             description: "Title of the Subject",
           },
           {
+            list: true,
             name: "tech",
             type: "string",
-            required: true,
-            label: "Technologies",
-            description: "Technologies used in project",
+            options: techOptions,
+            label: "Technologies"
           },
           {
             name: "summary",
@@ -117,10 +143,12 @@ export default defineConfig({
             type: "rich-text",
           },
           {
-            name: "listedSkills",
+            list: true,
             required: true,
             type: "rich-text",
+            name: "listed_summary",
             label: "Summary of learning",
+            description: "listed sumary of what was experienced (delimeter ',')"
           },
 
           {
@@ -201,6 +229,13 @@ export default defineConfig({
             label: "Date",
             required: true,
             type: "datetime"
+          },
+          {
+            list: true,
+            name: "tags",
+            label: "Tags",
+            type: "string",
+            options: tagsOptions
           },
           {
             name: "title",
