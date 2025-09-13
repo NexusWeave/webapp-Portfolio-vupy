@@ -40,7 +40,7 @@
         {
             type: Array,
             required: false,
-            default: () => [['nav-bar', 'flex-wrap-row'], [['nav-list', 'flex-wrap-row-justify-space-between'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
+            default: () => [['nav-bar', 'flex-wrap-row'], [['nav-list', 'flex-wrap-row-justify-center'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
         },
         toggle:
         {
