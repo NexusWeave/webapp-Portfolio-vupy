@@ -51,7 +51,7 @@
     });
 
     const data = props.data;
-    console.log("NavigationMenu loaded with data: ", data, );
+    //console.log("NavigationMenu loaded with data: ", data, );
 
     const emit = defineEmits(['update']);
 
