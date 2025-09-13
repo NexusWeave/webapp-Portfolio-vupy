@@ -10,7 +10,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('../views/HomeView.vue'),
+      component: () => import('../views/personal.vue'),
 
       beforeEnter: async (to, from, next) => {
 
@@ -24,19 +24,28 @@ const router = createRouter({
         await portfolio.fetchData("http://127.0.0.1:5000/api/github");
 
         console.log(academic.timelineRange, achievement.isLoaded, portfolio.isLoaded);
-        !!academic.isLoaded && !!achievement.isLoaded && !!portfolio.isLoaded ? next() : next();
-
+        !!portfolio.isLoaded ? next() : next();
       }
     },
     {
-      name: 'About',
-      path: '/about',
-      component: () => import('../views/personal-profile.vue')
-    },
-    {
       path: '/dev',
-      name: 'DevProfile',
-      component: () => import('../views/dev-profile.vue')
+      name: 'Dev',
+      component: () => import('../views/dev.vue'),
+      beforeEnter: async (to, from, next) =>
+        {
+
+          const academic = academicStore();
+          await academic.fetchData();
+
+          const achievement = achievementStore();
+          await achievement.fetchData();
+
+          const portfolio = portfolioStore();
+          await portfolio.fetchData("http://127.0.0.1:5000/api/github");
+
+          //console.log(academic.timelineRange, achievement.isLoaded, portfolio.isLoaded);
+          !!academic.isLoaded && !!achievement.isLoaded ? next() : next();
+        }
     },
     
   ]
