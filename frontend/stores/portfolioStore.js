@@ -13,7 +13,6 @@ export const portfolioStore = defineStore('portfolio',
                     total : null,
                     isLoaded: false,
                     repositories: [],
-                    
                 },
             }),
             actions: {
@@ -38,6 +37,7 @@ export const portfolioStore = defineStore('portfolio',
                     repositories.push(repo);
                     //console.warn("Added repository:", repo);
                 },
+
                 splitName(name)
                 {
                     if(!name) return;
@@ -45,6 +45,7 @@ export const portfolioStore = defineStore('portfolio',
                     if (name.includes(delimeter)) return name.split(delimeter);
                     else return name;
                 },
+
                 async fetchData(data)
                 {
                     //console.warn("Fetching portfolio data from:", data);
