@@ -1,8 +1,5 @@
 <template>
     <section class="flex-column-align-items-center">
-        <section>
-            <h2> Aktuelle innlegg </h2>
-        </section>
         <section class="flex-wrap-row-justify-space-evenly">
             <section>
                 <p> Bilde av meg</p>

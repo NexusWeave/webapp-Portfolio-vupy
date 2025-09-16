@@ -10,6 +10,6 @@
     </footer>
 </template>
 <script setup>
-    import Footer from '$src/views/utils/Footer.vue';
-    import Header from '$src/views/utils/Header.vue';
+    import Header from '/pages/utils/Header.vue';
+    import Footer from '/pages/utils/Footer.vue';
 </script>
