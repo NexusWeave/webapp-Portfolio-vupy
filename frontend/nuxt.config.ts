@@ -16,6 +16,12 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui'
   ],
+
+  css:
+  [
+    '$src/assets/index.css'
+  ],
+
   vite:
   {
     resolve:
