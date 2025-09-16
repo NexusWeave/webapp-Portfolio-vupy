@@ -1,3 +1,12 @@
+
+##    Frontend
+In the frontend the project is equipped with
+* HTML as the content of the webpage
+* sass has been used to automatically generate css files for the project.
+* Basic Javascrip adds interactivity for the project. ( Automated slider)
+
+The project uses HTML to structure the content of the web pages.
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.

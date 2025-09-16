@@ -1,36 +1,13 @@
 # krigjo25 | Home
 The project was inteded to create as a personal home page, show my what i have done so far
 and not as a CS50x assignment, but it killed two birds with one stone.
-
-## Description
-[Visual representation of the directory tree](./model/directoryTree.md)
 [Future Projects](https://github.com/users/krigjo25/projects/17)
 
-###    Frontend
-In the frontend the project is equipped with
-* HTML as the content of the webpage
-* sass has been used to automatically generate css files for the project.
-* Basic Javascrip adds interactivity for the project. ( Automated slider)
 
-The project uses HTML to structure the content of the web pages.
+## Tree map
+In [directory-tree.md](./model/directoryTree.md) shows an overview of the directory architecture.
 
-###   Backend
-The project is equipped with technologies such as
--   Flask serves as API for the project.
-
-#### [Visual representation](./model/system-architecture.md) of the Web Architecture
-
-#### [Visual representation](./model/endpoints.md) of the Endpoints
-
-#### [Visual representation](./model/apis.md) of the API Classes
-
-#### [Visual representation](./model/utils.md) of the Utils Classes
-
-#### Database
-[Visual representation](./model/database.md) of the Database Classes
-As a consequence of the project not requires a server to handle database functionallity, SQLite was choosen to keep the records.
-
-### Installation and Configurations
+## Installation and run
 
 1. Clone the repository:
 ```sh
@@ -65,50 +42,60 @@ To configure access to Github create a '.env' file in the project's root directo
 GITHUB_TOKEN = "Bearer <Your Github Token>"
 ```
 
-## Testing Framework And Datasets
+## Development Server
 
-####    Test Execution
-[Visual representation](./model/testmodel.md) of the test cases
-To run the tests, use the following commands from the project's root directory
+Start the development server on `http://localhost:3000`:
 
-```sh
-pytest -v
+```bash
+# npm
+npm run dev
 
-#   This command will output a report of the tests.
-pytest --html=reports.html
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-#####    API Testing
-[Visual representation](./model/apis.md) of the apis classes
-[Visual representation](./model/testmodel.md) of the test
-API tests are conducted using:
+## Production
 
-- The [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
-- The [Heavy REST API](https://api.hevyapp.com/docs/)
-- Tests are based on the 
+Build the application for production:
 
-**Connection test (`test_connection`)**
-This test validates the connection to the specified APIs.
-Given the structure of the Github REST API, successful
-connection tests involve comparing identical expected and
-actual outputs. The actual response dictionary is therefore
-used to define the expected JSON, ensuring that no sensitive
-user data is unitetentionally included in the test.
+```bash
+# npm
+npm run build
 
-**Repository Availability Test (`mock_request`)**
-The test ensures the availability of repositories.
-It achives this by mocking the relevant URL from
-the GitHub REST API: [Get A Repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository)
+# pnpm
+pnpm build
 
-#####    Databases
-[Visual representation](./model/database.md) of the database
-Database tests are designed according to the principles
-outlined in this unit testing documentation: [test/sqlite.html](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
+# yarn
+yarn build
 
-* **Insertion Test (`test_insertion`)**: This test verifies the correct insertion of data into the database.
-* **Update Test (`test_update`)**: This test validates the accurate updating of data within the database.
+# bun
+bun run build
+```
 
-A test report is generated to provide a clear visualization of the test results.
+Locally preview production build:
+
+```bash
+# npm
+npm run start
+
+# pnpm
+pnpm start
+
+# yarn
+yarn start
+
+# bun
+bun run start
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
 
 ##   Credits
 **Libraries:**
