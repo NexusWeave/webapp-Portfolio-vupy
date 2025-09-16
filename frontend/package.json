@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "sass": "sass --watch sass:src/assets",
+    "sass": "sass --watch sass:assets",
     "build": "tinacms build && nuxt build",
     "dev": "tinacms dev -c \"nuxt dev\"",
     "generate": "nuxt generate",
