@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "name": "webapp-portofolio-vupy",
+  "version": "2.0.0",
   "type": "module",
   "private": true,
   "scripts": 
@@ -12,8 +13,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "pinia": "^3.0.3",
-    
     "nuxt": "^4.1.1",
     "vue": "^3.5.21",
     "axios": "^1.11.0",
