@@ -12,8 +12,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.11.2",
     "axios": "^1.11.0",
     "nuxt": "^4.1.1",
+    "pinia": "^3.0.3",
     "tinacms": "^2.8.2",
     "vue": "^3.5.21"
   },
@@ -30,7 +32,6 @@
     "@vue/eslint-config-prettier": "^10.2.0",
     "better-sqlite3": "^12.2.0",
     "bootstrap-icons": "^1.13.1",
-    "pinia": "^3.0.3",
     "sass": "^1.89.2",
     "typescript": "^5.9.2"
   }
