@@ -10,15 +10,9 @@
         </article>
         <h2> Utdanning og Portefølje</h2>
         <section class="flex-wrap-row-justify-space-evenly">
-            
-            <Academic />
+
             <Portfolio />
         </section>
 
     </section>
 </template>
-
-<script setup>
-    import Academic from '@/components/Academic.vue';
-    import Portfolio from '@/components/Achievements.vue';
-</script>
