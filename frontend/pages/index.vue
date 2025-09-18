@@ -4,20 +4,31 @@
             <h2> Aktuelle innlegg </h2>        
         </section>
         <section>
-            <h2> Aktuelle innlegg </h2>
+            <h2> Trenings innlegg </h2>
         </section>
     </section>
     <section :class="['flex-wrap-row-justify-space-evenly']">
-        
+        <Academic :data="academic"/>
+        <Achievements :data="achievements"/>
+
     </section>
+    <section>
+        <h2> Portefølje </h2>
     <Portfolio 
         :data="portfolio.portfolio"
         toogle="commercal"
     />
+    </section>
 </template>
 <script setup lang="ts">
-    import { portfolioStore } from '~/stores/portfolioStore'
-        const portfolio = portfolioStore();
+
+    import { academicStore } from '~/stores/academicStore';
+    import { portfolioStore } from '~/stores/portfolioStore';
+    import { achievementStore } from '~/stores/achievementsStore';
+
+    const academic = academicStore();
+    const portfolio = portfolioStore();
+    const achievements = achievementStore();
 
     //console.log(portfolio.isLoaded);
 </script>
