@@ -7,31 +7,6 @@
             "content":
             [
                 {
-                    "to-date": "2025-12-01",
-                    "from-date": "2025-04-01",
-                    "title": "Mitt første prosjekt som frilanser",
-
-                    "tech": ["Vue.js", "flask.py"],
-                    "description":
-                    {
-                        "summary": "Denne delen av min reise, fikk jeg muligheten til å arbeide med et prosjekt for SosEnt, hvor jeg fikk muligheten til å få erfaringer knyttet til:",
-                        "list":
-                        [
-                            "Tidsstyring",
-                            "Kundesamarbeid og kommunikasjon",
-                            "Anbefaling av teknologier og verktøy",
-                            "Planleggingsprosessen og UML dokumentasjon"
-                            
-                        ]
-                    },
-                    "anchor":
-                    {
-                        "type": ["globe", "external"],
-                        "label": "sosEnT Norge",
-                        "href": "https://sosent.no/"
-                    }
-                },
-                {
                     "title": "Første produksjons prosjekt som intern",
                     "to-date": "2025-06-01",
                     "from-date": "2025-01-01",
