@@ -15,11 +15,11 @@ export default defineNuxtPlugin(async (nuxtApp) =>
         //const useRepoStore = repositoryStore();
         //await useRepoStore.fetchData();
 
-        //const useAcademicStore = academicStore();
-        //await useAcademicStore.fetchData();
+        const useAcademicStore = academicStore();
+        await useAcademicStore.fetchData();
 
         
 
-        //const useAchievementsStore = achievementStore();
-        //await useAchievementsStore.fetchData();
+        const useAchievementsStore = achievementStore();
+        await useAchievementsStore.fetchData();
 })
