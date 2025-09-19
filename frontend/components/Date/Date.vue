@@ -1,6 +1,6 @@
 <template>
     <span :class="[cls[0]]">
-        {{ dateObject.text }}
+        <span v-if="!!dateObject.text">{{ dateObject.text }}</span>
 
         <template v-if="dateObject.delimiter">
             <span :class="dateObject.delimiter">
@@ -8,53 +8,31 @@
             </span>
         </template>
 
-        <time :datetime="dateObject.updated ??  dateObject.published">
-            <b>{{ dateObject.updated ?? dateObject.published }}</b>
+        <time :datetime="dateObject.current || dateObject.created">
+            {{ dateObject.current || dateObject.created }}
         </time>
 
-        <template v-if="cls.includes('icon')">
-            <Icon :cls="[cls[0], cls[1]]" :label="dateObject.type"/>
-        </template>
-    </span>
-
-    <span :class="cls" v-if="data.anchor">
-        <Anchor :data="data"/>
+        <MediaIcon :cls="['calendar']"/>
     </span>
 </template>
-<script setup>
-    import { defineProps } from 'vue';
+<script setup lang="ts">
 
-    import Anchor from '$src/components/navigation/Anchor.vue';
-
-    const props = defineProps({
-        data: {
-            type: Object,
-            required: false
-        },
-        
-        Cls: {
-            type: Array,
-            required: false
-        },
-
-    });
-    const data = props.data;
-    const classList =() =>
+    interface Props
     {
-        const cls = props.Cls ? props.Cls : [];
-        const icons = ['calendar'];
-
-
-        icons.forEach(icon => {
-            if (cls.includes(icon)) {
-                cls.push('icon');
-            }
-        });
-
-        return cls;
+        cls?: Array<string>;
+        data:Record<string, any>;
+        isArticle?: boolean;
     };
 
-    const cls = classList()
+    const props = withDefaults(defineProps<Props>(),
+    {
+        cls: () => [],
+        isArticle: () => false
+    });
+
+    const cls = props.cls;
+    const data = props.data;
+
     const norwegianTime = new Intl.DateTimeFormat('nb-NO',
     {
         day: '2-digit',
@@ -64,13 +42,12 @@
 
     const dateObject =
     {
-        delimiter: !! data.delimiter ? data.delimiter : 'dot',
         type: !!data.type ? data.type : 'date',
-        text : !!data.updated ? `Oppdatert` : `Publisert`,
-        updated: !!data.updated ? norwegianTime.format(new Date(data.updated)) :null,
-        published: data.published ? norwegianTime.format(new Date(data.published)) : null,
-
+        delimiter: !!data.delimiter ? data.delimiter : 'dot',
+        created: data.created ? norwegianTime.format(new Date(data.created)) : undefined,
+        text : props.isArticle  ? (!!data.current ? 'Oppdatert' : 'Publisert') : undefined,
+        current: !!data.current ? norwegianTime.format(new Date(data.current)) : undefined,
+        
     }
-
     console.log("Date Component loaded with data: ", data);
 </script>
