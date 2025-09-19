@@ -10,7 +10,6 @@
         </article>
         <h2> Utdanning og Portefølje</h2>
         <section class="flex-wrap-row-justify-space-evenly">
-
             <Portfolio />
         </section>
 
