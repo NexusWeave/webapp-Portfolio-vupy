@@ -1,7 +1,9 @@
 //  Portfolio Store
 
 import { defineStore } from "pinia";
-import { fetchData } from "./utils/response.js";
+import { fetchData } from "./utils/response";
+import { fetchExtensionType} from "./utils/utils";
+import { portfolio } from "~/content/portfolio/portfolio.json";
 
 interface Anchor
 {
@@ -17,8 +19,27 @@ interface Content {
 
 interface Item
 {
-    content : Content[];
+    name:string;
+    href: string;
+    tech: string[]
+    list: string[]
+    body: string;
+    created: string;
+}
+
+interface ItemV2
+{
+    
+    name:string;
+    href: string;
+    tech: string[]
+    list: string[]
+    summary: string
+    created: string;
+    data: Record<string,any>;
     [key:string]: any;
+    // content : Content[]
+    
 }
 
 interface Data
@@ -39,14 +60,9 @@ interface TechItems
     type: string[];
 }
 
+const path:string = "../content/portfolio/portfolio.json";
 
-const path:string = "services/portfolio-api.json";
 
-const generateCls = (type: string[]): string[] =>
-{
-    if (!Array.isArray(type)) return [];
-    return type.map(type => `${type.toLowerCase()}`)
-}
 export const portfolioStore = defineStore("portfolio",
     {
         state:(): State => ({
@@ -61,15 +77,10 @@ export const portfolioStore = defineStore("portfolio",
         {
             addToStore(item:Item)
             {
-                item.content.forEach((content) =>
-                    {
-                        content.anchor.label = content.name;
-                        content.anchor.type = ["globe", "external"];
-                    })
     
                 const portfolio = this.data.portfolio;
                 portfolio.push(item);
-                //console.warn("Adding data to portfolio:", item);
+            //console.log("Adding data to portfolio:", item);
             },
 
             async fetchData()
@@ -79,49 +90,44 @@ export const portfolioStore = defineStore("portfolio",
 
                 await fetchData().then(async () =>
                     {
-                        const json = await fetch(path);
-                        const jsonData: {data:Item[] } = await json.json();
+                        //const json:Record<any,any> = await $fetch(path);
+                        //const jsonData: {data:Item[] } = await json.json();
+                        const json = portfolio;
 
-                        jsonData.data.forEach(element => {
+                        json.forEach(element => {
                             this.addToStore(element);
+                            
                         });
                         this.data.isLoaded = true;
 
                     }).catch((error) =>
                         {
-                                console.error("Error fetching timeline data:", error);
-                                this.data.isLoaded = false;
+                            console.error("Error fetching portfolio data:", error);
+                            this.data.isLoaded = false;
                         });
             },
         },
         
         getters: {
             isLoaded: (state) => state.data.isLoaded,
-            
-            // Vi endrer navnet til portfolioWithClasses (Anbefalt) for å unngå kollisjon
+
             portfolio: (state) => { 
 
-                // 1. Mappe over portfolio (Bruker runde parenteser for implisitt retur av objekt)
-                return state.data.portfolio.map(item => ({ 
+                return state.data.portfolio.map(item =>
+                    ({
+
+                        name : item.name,
+                        date: {created: item.created, current: undefined },
+                        anchor: {label: item.name, href: item.href, type: ["globe", "external"]},
+                        summary:{body: item.body, list: item.list},
+
+                        tech : item.tech.flatMap(element =>
+                        {
+                            const ext:string[] = fetchExtensionType(element);
+                            if (!!ext) {return [{label: element, type: ext }]} else {return []}
+                        })
                     
-                    ...item, // KOPIERER ALLE FELT fra item
-                    
-                    // 2. Mappe over content (legger til ny content-array)
-                    content: item.content.map(content => ({
-                        
-                        ...content, // KOPIERER ALLE FELT fra content
-                        
-                        // 3. Mappe over tech
-                        tech: content.tech ? content.tech.map((tech: TechItems)=> ({
-                            
-                            ...tech, // KOPIERER ALLE FELT fra tech (id, type, label, etc.)
-                            
-                            // 4. Legger til det beregnede feltet i det dypeste objektet
-                            cls: generateCls(tech.type) 
-                            
-                        })) : content.tech // Vedlikehold null/undefined hvis tech mangler
-                    }))
-                }));
+                    }));
             }
         }  
 });
