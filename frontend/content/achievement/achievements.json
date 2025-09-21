@@ -1,0 +1,13 @@
+{
+  "achievement_timeline": [
+    {
+      "date": "2010-01-01T00:00:00.000Z",
+      "title": "En Start På En Lang Reise: Et tydelig tegn på initiativ og læringsvilje.",
+      "tech": [
+        "CSS",
+        "HTML"
+      ],
+      "body": "Reisen min innen Webutvikling startet allerede i 10.klasse, jeg ble facinert av både min bror og far sin studie. Dette engasjementet ledet til god overfladisk forståelse av webdesing.   På videregående ble jeg utfordret av abstrakt logikk i JavaScript og PHP, og jeg innsåat jeg manglet den konseptuelle modenheten til å omgjøre abstrakt logikk til praktiske systemer.  Jeg valgte bevisst å ta en pause fra koding (2011-2019) ledet meg til å dyrke kritisk tenkning - en ferdig som i 2019 ga meg et nytt og dypere systemperspektiv.\n\n\n* Tidlig engasjement - Startet med webutvikling i 10.klasse,\n* Inspirasjon - Fascinert av min bror og far med bakgrunn i IT,\n* Tidlig Begrensning - Engasjementet ledet til god men overfladigsk forståelse,\n* Konseptuelt Hull - På videregående innså jeg at jeg manglet konseptuell modenhet til å omgjøre abstrakt logikk (JavaScript/PHP) til praktiske systemer,\n* Bevisst pause - Tok en pause fra koding (2011-2019\n* Utvikling av Kjerneferdigheter - Gjenopptok læringen i 2019 etter å ha utviklet kritisk tenkning.\n"
+    }
+  ]
+}

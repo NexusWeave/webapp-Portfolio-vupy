@@ -2,7 +2,7 @@
 
 import { reactive } from "vue";
 import { defineStore } from "pinia";
-import { fetchData } from "./utils/response.js";
+import { fetchData } from "../utils/response.js";
 
 const path = 'services/achievements-api.json';
 
