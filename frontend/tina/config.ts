@@ -1,4 +1,5 @@
 import { defineConfig} from "tinacms";
+import { techStack} from "../utils/techstack"
 //import { geberateHex } from 'utils/';
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -7,26 +8,11 @@ const branch =
   process.env.HEAD ||
   "main";
 
-const techOptions = [
-  // Frontend
-  "CSS", "HTML", "Vue.js", 
-  "Nuxt.js", "react.js", "TS.js",
-
-  // Backend
-  "Flask.py", "Django.py", "Py-cord.py", "pandas.py", "numpy.py", "matplotlib.py",
-  ".NET", "C",
-
-  // Databases
-  "MSSQL", "MySQL", "SQLite", "MongoDB", "PostgreSQL",
-
-  //  Workflow
-  "CMS", "GIT", "Sass", "Agile"
-]
-
 const tagsOptions = [
   "news",
   "dev-journey",
 ]
+
 
 export default defineConfig({
   branch,
@@ -59,16 +45,22 @@ export default defineConfig({
         [
           {
             label: 'Akademiske Hendelser',
-            name: 'academic_timeline',
+            name: 'academic',
             type: 'object',
             list: true,
             fields:
             [
               {
-                name: "date",
-                label: "Year",
+                name: "start",
+                label: "Start Year",
                 required: true,
                 type: "datetime",
+                ui: { dateFormat: 'YYYYY'}
+              },
+              {
+                name: "end",
+                type: "datetime",
+                label: "End Year",
                 ui: { dateFormat: 'YYYYY'}
               },
               {
@@ -90,13 +82,6 @@ export default defineConfig({
                 label: "Title",
                 type: "string",
                 description: "Title of the Subject"
-              },
-              {
-                list: true,
-                name: "tech",
-                type: "string",
-                options: techOptions,
-                label: "Technologies"
               },
               {
                 name: "body",
@@ -128,6 +113,13 @@ export default defineConfig({
                 label: "Link",
                 type: "string",
                 description: "Link to reference"
+              },
+              {
+                list: true,
+                name: "tech",
+                type: "string",
+                options: techStack,
+                label: "Technologies",
               },
             ]
           }
@@ -170,19 +162,19 @@ export default defineConfig({
                 description: "Title of the Subject"
               },
               {
-                list: true,
-                name: "tech",
-                type: "string",
-                options: techOptions,
-                label: "Technologies"
-              },
-              {
                 name: "body",
                 isBody: true,
                 required: true,
                 label: "Summary",
                 type: "rich-text"
               },
+              {
+                list: true,
+                name: "tech",
+                type: "string",
+                options: techStack,
+                label: "Technologies",
+              }
             ]
           }
           
@@ -230,13 +222,7 @@ export default defineConfig({
                 type: "string",
                 description: "Link to the webpage \"https://example.com\""
               },
-              {
-                list: true,
-                name: "tech",
-                type: "string",
-                options: techOptions,
-                label: "Technologies"
-              },
+
               {
                 name: "body",
                 isBody: true,
@@ -250,7 +236,13 @@ export default defineConfig({
                 type: "string",
                 label: "Summary",
               },
-              
+              {
+                list: true,
+                name: "tech",
+                type: "string",
+                options: techStack,
+                label: "Technologies",
+              }, 
             ]
           }
           
