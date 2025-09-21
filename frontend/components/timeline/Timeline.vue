@@ -12,7 +12,7 @@
             <section :class="cls[3]">
                 <h3>
                     <DateYear v-for="data in timeline" :key="data.id"
-                        :year="data.year" :isVisible="data.isVisible"/>
+                        :year="data.date" :isVisible="data.isVisible"/>
                 </h3>
             </section>
 
