@@ -173,7 +173,7 @@ export default defineConfig({
                 name: "body",
                 isBody: true,
                 required: true,
-                label: "Write some text",
+                label: "Description",
                 type: "rich-text"
               },
               {
