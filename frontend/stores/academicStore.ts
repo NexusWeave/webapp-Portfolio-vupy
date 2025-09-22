@@ -22,6 +22,7 @@ interface Item
     id: Number;
     body: string;
     title: string;
+    tech?: string[];
     location: string;
     loc_link?: string;
     ref_link?: string;
@@ -29,24 +30,9 @@ interface Item
     references?: string;
     institution: string;
     isVisible?: boolean;
-    tech?: Array<string> ;
     start: Date | string;
     institution_link: string;
     
-    
-}
-interface ItemV2
-{
-    
-    name:string;
-    href: string;
-    tech: string[]
-    list: string[]
-    summary: string
-    created: string;
-    data: Record<string,any>;
-    [key:string]: any;
-    // content : Content[]
     
 }
 
@@ -74,7 +60,7 @@ export const academicStore = defineStore("Academic",
                 
                 data.forEach(item => 
                 {
-                    if (item.id == id) item.isVisible = true; else item.isVisible = false
+                    if (item.id == id) item.isVisible = !item.isVisible; else item.isVisible = false
                 }
                 )
             },
@@ -104,7 +90,6 @@ export const academicStore = defineStore("Academic",
 
                 return state.data.timeline.map(item =>
                 ({
-
                     id: item.id,
                     title: item.title,
                     name: item.institution,
@@ -119,21 +104,18 @@ export const academicStore = defineStore("Academic",
                             const ext = fetchExtensionType(element);
                             if (!!ext) {return [{label: element, type: ext }]} else {return []}
                         })
-                    
                 })
             )},
             range : (state) =>
             {
                 const n = 1;
 
-                const timeline = state.data.timeline;
-
                 return {
                     value: '0',
                     type: 'range',
                     name: "akademic-timeline",
                     title: 'Akademisk Tidslinje',
-                    rangeMax: timeline.length - n,
+                    rangeMax: state.data.timeline.length - n,
                 }
             },
         },  

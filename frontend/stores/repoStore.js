@@ -1,7 +1,7 @@
 //  Portfolio Store
 import { reactive, ref } from 'vue';
 import { defineStore } from 'pinia';
-import { FetchApiResponse } from './utils/response';
+import { FetchApiResponse } from '../utils/response';
 
 export const repoStore = defineStore('repoStore', 
     {
