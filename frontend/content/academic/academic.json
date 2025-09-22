@@ -1,6 +1,7 @@
 {
   "academic": [
     {
+      "id": 0,
       "start": "2010-01-01T00:00:00.000Z",
       "end": "2011-01-01T00:00:00.000Z",
       "institution": "Borgund VGS",
@@ -12,6 +13,7 @@
       "tech": []
     },
     {
+      "id": 1,
       "start": "2011-01-01T00:00:00.000Z",
       "end": "2014-01-01T00:00:00.000Z",
       "institution": "Borgund VGS",
@@ -24,6 +26,7 @@
       "tech": []
     },
     {
+      "id": 2,
       "start": "2022-01-01T00:00:00.000Z",
       "institution": "HarvardX",
       "institution_link": "https://www.edx.org/school/harvardx",
@@ -35,6 +38,7 @@
       "tech": []
     },
     {
+      "id": 3,
       "start": "2024-01-01T00:00:00.000Z",
       "institution": "GetAcademy",
       "institution_link": "https://getacademy.no/",
@@ -54,6 +58,7 @@
       ]
     },
     {
+      "id": 4,
       "start": "2025-01-01T00:00:00.000Z",
       "institution": "GetAcademy",
       "institution_link": "https://getacademy.no/",

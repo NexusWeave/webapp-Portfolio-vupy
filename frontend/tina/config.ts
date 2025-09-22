@@ -141,24 +141,25 @@ export default defineConfig({
         fields:
         [
           {
-            label: 'Presentasjons Hendelser',
-            name: 'achievement_timeline',
-            type: 'object',
             list: true,
+            type: 'object',
+            name: 'achievement',
+            label: 'Presentasjons Hendelser',
+
             fields:
             [
               {
-                name: "date",
+                name: "id",
+                required: true,
+                type: "number",
+                label: "Unique ID",
+              },
+              {
+                name: "start",
                 label: "Year",
                 required: true,
                 type: "datetime",
                 ui: { dateFormat: 'YYYYY'}
-              },
-              {
-                label: "Name",
-                type: "string",
-                name: "institution",
-                description: "Name of the institution"
               },
               {
                 isTitle: true,
@@ -172,8 +173,14 @@ export default defineConfig({
                 name: "body",
                 isBody: true,
                 required: true,
-                label: "Summary",
+                label: "Write some text",
                 type: "rich-text"
+              },
+              {
+                list: true,
+                type: "string",
+                name: "summary",
+                label: "summary"
               },
               {
                 list: true,
