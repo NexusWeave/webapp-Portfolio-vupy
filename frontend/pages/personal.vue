@@ -1,35 +1,20 @@
 <template>
-    <section class="flex-column-align-items-center">
-        <section class="flex-wrap-row-justify-space-evenly">
-            <section>
-                <p> Bilde av meg</p>
-            </section>
+    <section class="flex-column-justify-center-align-center">
+        <article v-for="data in personal" :key="data.id">
+            <h3>{{ data.title }}</h3>
+            <ContentRenderer :value="data" />
 
-            <article>
-                <h2> Kristoffer Gjøsund</h2>
-                <p> Profil informasjon om meg</p>
-            </article>
-        </section>
+        </article>
 
-        <section>
-            <h2> Trenings innlegg </h2>
-        </section>
-        
-        <section>
-            REPO
-        </section>
 
-        <section>
-            <h2> Litt dypere om min reise </h2>
-        </section>
-
-        <section>
-            <h2> mer historie om meg</h2>
-        </section>
     </section>
-
 </template>
+<script setup lang="ts">
 
-<script setup>
+    const path = 'personal_profile';
+    const {data: personal} = await useAsyncData('personal', () => 
+    {
+        return queryCollection(path).all();
+    });
 
 </script>
