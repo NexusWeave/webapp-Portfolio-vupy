@@ -1,13 +1,14 @@
 <template>
     <section :class="cls[0]">
-        <h2 :class="cls[1]">{{ data.title }}</h2>
-        <FormInputs v-if="data.rangeMax > 0" :data="data"
+        <h2 :class="cls[1]">{{ !!data.title ? data.title : "Untitled Timeline" }}</h2>
+        <FormInputs v-if="data.range.rangeMax > 0" :data="data.range"
             :cls="[cls[2]]" v-model="modelValue" />
     </section>
 </template>
 
 <script setup lang="ts">
 
+    //  --- Import & Interfaces logic
     import {computed } from 'vue';
 
     interface Props
@@ -16,6 +17,7 @@
         data:Record<string, any>;
     }
 
+    //  --- Props definition
     const props = withDefaults(defineProps<Props>(),
     {
         cls: () => []
@@ -35,6 +37,4 @@
             
         });
 
-    //console.warn("Range value changed:", rangeValue);
-    //console.warn("Timeline data:", data);
 </script>
