@@ -1,50 +1,43 @@
 <template>
-    <section>
-        <section>
-            <h2> Aktuelle innlegg </h2>        
-        </section>
-        <section>
-            <h2> Trenings innlegg </h2>
-        </section>
-    </section>
     <section :class="['flex-wrap-row-justify-space-evenly']">
-        <Timeline :data="academic.timelines" :range="academic.range"  @toggleVisibility ="toggleAcademic"/>
-        <Timeline :data="achievements.timelines" :range="achievements.range"
-              :cls="['component-seagreen', 'component-w-g-t']" @toggleVisibility ="toggleAchievement"/>
+        <Timeline v-if="academicData.length > 0"
+            title="Akademisk Tidslinje"
+            :data="academicData"
+            :cls = "['component-blue', 'timeline-container',
+            'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
+        />
 
-    </section>
-    <section>
-        <h2> Portefølje </h2>
-        <section class="flex-wrap-row-justify-space-evenly">
-            <PortfolioCard v-for="content in portfolio.portfolio" 
-                :data="content"
-                :cls = "['card-container', 'tech']"
-            />
-        </section>
     </section>
 </template>
 <script setup lang="ts">
 
-    import { academicStore } from '~/stores/academicStore';
+    //  --- Import & Interfaces logic
     import { portfolioStore } from '~/stores/portfolioStore';
-    import { achievementStore } from '~/stores/achievementsStore';
 
-    const academic = academicStore();
-    const portfolio = portfolioStore();
-    const achievements = achievementStore();
-
-    //const isLoaded = () => {};
-    const toggleAcademic = (id:number) => 
-        {
-            academic.toggleVisibility(id);
-            console.warn(`Toggling visibility for Academic ID:${id} `)
-        };
     
-    const toggleAchievement = (id:number) => 
+    //  --- Data Fetching Logic
+    async function fetchCollection(path:any)
+    {
+        const {data: aca_info} = await useAsyncData('academic-info', () => 
         {
-            achievements.toggleVisibility(id);
-            //console.warn(`Toggling visibility for Achievement ID:${id}`)
-        };
+            return queryCollection(path).all();
+        });
+        if(aca_info.value)
+        {
+            console.log("Academic info:", aca_info.value);
+            return aca_info.value;
+        }
+        else
+        {
+            console.warn("No academic info found!");
+            return [];
+        }
+    }
+    
+    const academicData = await fetchCollection('academic');
+    //const achievements = await fetchCollection('achievements');
 
-    //console.log(portfolio.isLoaded);
+    //  --- Debugging Logic
+    //console.log("Processed timeline:", academicData);
+    //console.log("Achievements data on load:", achievements);
 </script>
