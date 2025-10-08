@@ -1,64 +1,73 @@
 // content.config.ts
+
+//  --- Imports & Zod Schema Definitions
 import { z } from 'zod';
 import { defineCollection, defineContentConfig } from '@nuxt/content';
 
-// Del 1: TypeScript og Zod Imports
-// --------------------------------------------------------------------------------------------------
 const profileCollection = z.object({
     title: z.string(), 
     createdts: z.string(),
     updatedts: z.string().optional(),
 });
 
+
+
 const achievementsCollection = z.object({
-    title: z.string(), 
-    createdts: z.string(),
-    updatedts: z.string().optional(),
+    tag: z.string(),
+    title: z.string(),
+    created: z.string(),
+    end: z.string().optional().nullable(),
+    updated: z.string().optional().nullable(),
+    isVisible: z.boolean().optional(),
+    organization: z.string(),
+    org_link: z.string().optional(),
+    body: z.strictObject({}).optional(),
+    
+    location: z.string().optional(),
+    loc_link: z.string().optional(),
+    reference: z.string().optional(),
+    ref_link: z.string().optional(),
+    techStack: z.array(z.string()).optional(),
 });
 
-// Del 2: defineContentConfig (Hovedfunksjonen)
-// --------------------------------------------------------------------------------------------------
+// defineContentConfig & collections definition
 
 export default defineContentConfig({
-  collections: {
-    
-    // Del 3: 'profiles' Samlingsdefinisjon (Din Spesialdefinisjon)
-    // --------------------------------------------------------------------------------------------------
+  collections: 
+  {
+    'academic': defineCollection(
+        {
+            type: 'page',
+            schema: achievementsCollection,
+            source: 'achievements/academic/*.md', 
+        }),
+
+    'achievements': defineCollection(
+        {
+            type: 'page', 
+            schema: achievementsCollection,
+            source: 'achievements/achievements/*.md', 
+        }),
+
     'dev': defineCollection(
         {
-            type: 'page', // Bruk 'page' når innholdet skal ha en unik rute/URL-sti (som din profil)
-            source: 'profiles/dev/*.md', 
+            type: 'page',
             schema: profileCollection,
+            source: 'profiles/dev/*.md', 
         }),
 
     'personal_profile': defineCollection(
                 {
-            type: 'page', // Bruk 'page' når innholdet skal ha en unik rute/URL-sti (som din profil)
-            source: 'profiles/personal-profiles/*.md', 
+            type: 'page',
             schema: profileCollection,
-        }),
-      
-    'achievements': defineCollection(
-        {
-            type: 'page', // Bruk 'page' når innholdet skal ha en unik rute/URL-sti (som din profil)
-            source: 'achievements/achievements/*.md', 
-            schema: achievementsCollection,
+            source: 'profiles/personal-profiles/*.md', 
         }),
 
-    'academic': defineCollection(
-        {
-            type: 'page', // Bruk 'page' når innholdet skal ha en unik rute/URL-sti (som din profil)
-            source: 'achievements/academic/*.md', 
-            schema: achievementsCollection,
-        }),
-    
-    // Del 4: 'content' Standard Samlingsdefinisjon
-    // --------------------------------------------------------------------------------------------------
-    
-    // Beholder standard "content" samlingen for alle andre udefinerte filer.
+    // 'content' Standard Collection definition
+
     content: defineCollection({
       type: 'page',
-      source: '**/*.md', // Inkluderer alle Markdown-filer som ikke matcher 'profiles'-samlingen
+      source: '**/*.md',
     }),
   },
 });
