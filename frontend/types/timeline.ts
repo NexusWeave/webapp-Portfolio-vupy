@@ -2,44 +2,16 @@
 
 export interface TimelineItem
     {
-        description?: string | undefined,
-        title?: string | undefined,
-        tech_stack?: Array<string> | undefined,
-
-        date: 
-        {
-            created: string,
-            end?: string | undefined,
-            updated?: string | undefined,
-        },
-
-        location: 
-        {
-            name: string,
-            anchor:
-            {
-                type: string,
-                href?: string | undefined,
-            }
-        },
-        organization: 
-        {
-            name: string,
-            anchor:
-            {
-                type: string,
-                href?: string | undefined,
-            }
-        },
-        reference:
-        {
-            name: string,
-            anchor:
-            {
-                type: string,
-                href?: string | undefined,
-            }
-        },
+        id: number;
+        body?: object;
+        date: DateObject;
+        isVisible: boolean;
+        techStack?: TechStack[];
+        location: ReferencePoint;
+        reference: ReferencePoint;
+        title?: string | undefined;
+        organization: ReferencePoint;
+        description?: string | undefined;
 
         range?:
         {
@@ -50,3 +22,28 @@ export interface TimelineItem
             rangeMax: number,
         }
     }
+
+export interface DateObject
+{
+    created: string;
+    end?: string | null;
+    updated?: string | null;
+}
+
+export interface AnchorObject
+{
+    label: string;
+    href?: string | null;
+    type?: string | null;
+}
+
+export interface TechStack
+{
+    type: string;
+    label: string;
+}
+export interface ReferencePoint
+{
+    name: string;
+    anchor: AnchorObject;
+}
