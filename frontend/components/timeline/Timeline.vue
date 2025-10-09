@@ -3,57 +3,39 @@
         <section :class="[cls[0], cls[1]]">
             <section :class="cls[2], cls[3]">
                 <TimelineFilter
-                    :data="props.range"
+                    :data="filter"
                     :cls="[['flex-column-align-items-center', 'timeline-item'],
                     'timeline-input-label', 'timeline-input']"
                     @toggleVisibility="toggleVisibility"
                 />
             </section>
             <section :class="cls[3]">
-                <h3>
-                    <DateYear v-for="data in timeline.date" :key="data.id"
-                        :data="data.date" :isVisible="data.isVisible"/>
-                </h3>
+                <DateYear v-for="item in data" :key="item.id"
+                    :data="item.date"
+                    :isVisible="!!item.isVisible"
+                />
             </section>
             <section :class="cls[3]">
-                <TimelineCard v-for="data in timeline" :key="data.id"
-                        :data="data" :cls="
-                        [
-                            [
-                                'flex-wrap-column', 
-                                cls[4],
-                                'timeline-content'
-                            ],
-                                'flex-column-justify-center-align-center',
-                'flex-wrap-row-align-content-start-justify-space-evenly',
-                ['tech-container', 'flex-wrap-row-justify-space-evenly'], 'tech-item', 'timeline-description',
-                    'timeline-list', 'timeline-item']"/>
+                <TimelineCard v-for="item in data" :key="item.id"
+                    :data="item"
+                    :isVisible="item.isVisible"
+                />
             </section>
         </section>
     </template>
 </template>
 <script setup lang="ts">
 
-    interface Props
-    {
-        cls?: Array<any>;
-        range?: Record<string,any>;
-        data: Record<string, any>;
-    }
+    //  --- Import & Interfaces logic
+    import { computed } from 'vue';
 
-    import { computed } from 'vue'
 
-    const props = withDefaults(defineProps<Props>(),
+    import type { TimelineProps } from '@/types/props';
+    import type { TimelineItem } from '@/types/timeline';
+
+    const props = withDefaults(defineProps<TimelineProps>(),
     {
-        range: () =>
-                ({
-                    "value": 0,
-                    "rangeMax": 0,
-                    "type": 'range',
-                    "name": "akademic-timeline",
-                    "title": 'Undefined Timeline',
-                    
-                }),
+
         cls: () => ['component-blue', 'timeline-container',
         'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']
     });
@@ -78,14 +60,33 @@
         ];
     });
 
-    const timeline = computed(() => props.data);
+   const data = ref<TimelineItem[]>(props.data);
 
-
-    const emits = defineEmits(['toggleVisibility'])
-    const toggleVisibility = (id:number) => 
+    const filter = computed(() => (
         {
-            emits('toggleVisibility', id);
+            title: props.title,
+            range:
+            {
+                value: '0',
+                type: 'range',
+                name: "timeline-input",
+                rangeMax: data.value.length - 1,
+            }
+        }));
+
+    function toggleVisibility(id:number): void
+        {
+            const target = Number(id);
+            data.value.forEach((item) => 
+            {
+
+                if(item.id === target) item.isVisible = !item.isVisible;
+                else item.isVisible = false;
+            });
         };
 
-    console.warn("Academic data on load:", timeline.value);
+        //  --- Data Definition Logic
+        console.log("Timeline.vue\n Transfered data :", data);
+        console.log("Timeline.vue\n Processed data :", data);
+        //console.log("Timeline.vue\n Transfered filter :", filter);
 </script>
