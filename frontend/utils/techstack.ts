@@ -26,7 +26,6 @@ const databases =
 
 const frontend = [
     'CSS', 'HTML', 'BOOTSTRAP'
-    
 ]
 
 export const techStack:string[] = 
@@ -49,4 +48,3 @@ export const techStackMap:Array<{ name: string, codes: string[] }> =
     { name: 'JavaScript', codes: javascript },
     { name: 'Workflow/Other', codes: workFlow },
 ]
-

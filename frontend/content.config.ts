@@ -10,8 +10,6 @@ const profileCollection = z.object({
     updatedts: z.string().optional(),
 });
 
-
-
 const achievementsCollection = z.object({
     tag: z.string(),
     title: z.string(),
@@ -22,7 +20,6 @@ const achievementsCollection = z.object({
     organization: z.string(),
     org_link: z.string().optional(),
     body: z.strictObject({}).optional(),
-    
     location: z.string().optional(),
     loc_link: z.string().optional(),
     reference: z.string().optional(),
@@ -31,7 +28,6 @@ const achievementsCollection = z.object({
 });
 
 // defineContentConfig & collections definition
-
 export default defineContentConfig({
   collections: 
   {
