@@ -93,5 +93,6 @@
         emit('update', newValue);
     }, { immediate: true });
 
-    console.log("NavigationMenu loaded with data: ", data, isAnchor, isRouterLink);
+    //  --- Debug logic
+    //console.log("NavigationMenu loaded with data: ", data, isAnchor, isRouterLink);
 </script>

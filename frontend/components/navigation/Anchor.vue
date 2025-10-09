@@ -107,6 +107,6 @@
                 return false;
         }
     };
-
-    console.log("Link component loaded with data: ", data, img);
+    //  --- Debug logic
+    //console.log("Link component loaded with data: ", data, img);
 </script>
