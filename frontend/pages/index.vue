@@ -1,8 +1,14 @@
 <template>
     <section :class="['flex-wrap-row-justify-space-evenly']">
-        <Timeline v-if="academicData.length > 0"
+        <Timeline v-if="academicTimeline.length > 0"
             title="Akademisk Tidslinje"
-            :data="academicData"
+            :data="academicTimeline"
+            :cls = "['component-blue', 'timeline-container',
+            'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
+        />
+        <Timeline v-if="achievementsTimeline.length > 0"
+            title="Prestasjonstidslinje"
+            :data="achievementsTimeline"
             :cls = "['component-blue', 'timeline-container',
             'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
         />
@@ -11,33 +17,18 @@
 </template>
 <script setup lang="ts">
 
-    //  --- Import & Interfaces logic
-    import { portfolioStore } from '~/stores/portfolioStore';
+    //  --- Import & types logic
+    import { fetchCollection, mapTimeline } from '@/utils/preprosessor-utils';
 
-    
-    //  --- Data Fetching Logic
-    async function fetchCollection(path:any)
-    {
-        const {data: aca_info} = await useAsyncData('academic-info', () => 
-        {
-            return queryCollection(path).all();
-        });
-        if(aca_info.value)
-        {
-            console.log("Academic info:", aca_info.value);
-            return aca_info.value;
-        }
-        else
-        {
-            console.warn("No academic info found!");
-            return [];
-        }
-    }
-    
-    const academicData = await fetchCollection('academic');
-    //const achievements = await fetchCollection('achievements');
+
+    //  --- Component logic
+    const academicData = await fetchCollection('academic', 'academic-info');
+    const achievementData = await fetchCollection('achievements', 'achievements-info');
+
+    const academicTimeline = computed(() => mapTimeline(academicData));
+    const achievementsTimeline = computed( () =>mapTimeline(achievementData));
 
     //  --- Debugging Logic
     //console.log("Processed timeline:", academicData);
-    //console.log("Achievements data on load:", achievements);
+    //console.log("Achievements data on load:", achievementData);
 </script>
