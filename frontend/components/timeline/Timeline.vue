@@ -1,5 +1,5 @@
 <template>
-    <template>
+
         <section :class="[cls[0], cls[1]]">
             <section :class="cls[2], cls[3]">
                 <TimelineFilter
@@ -22,7 +22,6 @@
                 />
             </section>
         </section>
-    </template>
 </template>
 <script setup lang="ts">
 
