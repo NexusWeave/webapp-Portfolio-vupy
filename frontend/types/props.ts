@@ -17,7 +17,7 @@ export interface TimelineProps
 export interface DateYearProps
 {
     isVisible: boolean;
-    data: DateObject;
+    data: string;
 }
 
 export interface FilterProps
