@@ -1,8 +1,34 @@
-// Container for the icon and text
-.tech-figure
-    margin: 0
-    max-inline-size: 3em
+@use './mixins' as mix
+@use '../colors/colors' as color
 
-    .tech-img
-        inline-size: 100%
-        block-size: auto
+.tech-container
+    .tech-item
+        margin-inline:.5em
+
+        .javascript, .python
+            background: color.$Cyan-Blue-Azure
+            @include mix.circle-border()
+
+        .frontend
+            background: color.$webapp
+            @include mix.circle-border()
+
+        .sql
+            background: color.$db
+            @include mix.circle-border()
+
+        .cs, .c, .cpp
+            background: color.$compiled
+            @include mix.circle-border()
+
+        .workflow
+            background: color.$workflow
+            @include mix.circle-border()
+
+    .tech-figure
+        margin: 0
+        max-inline-size: 3em
+
+        .tech-img
+            inline-size: 100%
+            block-size: auto
