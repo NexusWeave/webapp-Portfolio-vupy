@@ -9,7 +9,7 @@
         <Timeline v-if="achievementsTimeline.length > 0"
             title="Prestasjonstidslinje"
             :data="achievementsTimeline"
-            :cls = "['component-blue', 'timeline-container',
+            :cls = "['component-seagreen', 'timeline-container',
             'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
         />
 
