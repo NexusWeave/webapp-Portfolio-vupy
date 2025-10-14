@@ -41,12 +41,13 @@
         </section>
 
         <section :class="cls[2]">
-            <span v-if="!!data.location">
-                <NavigationAnchor :data="data.location" />
-            </span>
-            <span v-if="!!data.reference">
-                <NavigationAnchor :data="data.reference" />
-            </span>
+            <h3 v-if="!!data.location.anchor">
+                <NavigationAnchor :data="data.location.anchor" />
+            </h3>
+            <h3 v-if="!!data.reference.anchor">
+                <NavigationAnchor  :data="data.reference.anchor" />
+            </h3>
+
         </section>
     </section>
 </template>
