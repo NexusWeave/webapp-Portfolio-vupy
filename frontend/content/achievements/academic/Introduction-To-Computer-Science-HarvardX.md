@@ -17,4 +17,4 @@ techStack:
   - JAVASCRIPT
 ---
 
-Videre utviklet praktisk forståelse for programmering, algoritmer, og datastrukturer.
+Gjennom dette introduksjonskurset videreutviklet jeg en **grunnleggende kompetanse** og **praktisk forståelse** for **programmering** i et bredt spekter av språk. Kurset la et særlig fundament innen **algoritmisk tenking**, **datamaskinarkitektur** og bruken av **datastrukturer** for effektiv problemløsning
