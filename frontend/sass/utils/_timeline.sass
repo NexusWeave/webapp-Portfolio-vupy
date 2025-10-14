@@ -52,33 +52,28 @@
 
     .timeline-content
 
-        h2, h3, h4
-            text-align: center
-            @include mix.font-style('Work Sans')
-        p
+        h2, h3, h4, p
             text-align: center
 
         &:nth-of-type(odd)
             margin-block-end: 1em
 
-        opacity: 0
+        //opacity: 0
         padding: 1em
-        visibility: hidden
+        //visibility: hidden
         border-radius: .5em
         max-inline-size: 22em
         box-shadow: 0 2px 4px rgba(64, 64, 64, .5)
 
         @include mix.transitions(opacity, 3s, ease-out, 10s, allow-discrete)
 
-        .tech-container
-            .tech-item
-                margin-inline:.5em
+        
 
-            .timeline-description
-                .timeline-list
-                    .timeline-item
-                        margin-block: .5em
-                        font-size: 1.1em
+        .timeline-description
+            .timeline-list
+                .timeline-item
+                    margin-block: .5em
+                    font-size: 1.1em
 
     padding: 1em
     margin-block: 2.5em
