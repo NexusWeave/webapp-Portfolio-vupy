@@ -1,9 +1,9 @@
 <template>
     <section class="flex-wrap-row-align-items-center">
         <section>
-            <NavMenu :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" toggle="anchor" />
+            <NavigationNavMenu :data="data.logo" :cls="['logo-bar', 'logo-list', 'logo-item']" toggle="anchor" />
         </section>
-        <NavMenu :data="data.menu" toggle="router"/>
+        <NavigationNavMenu :data="data.menu" toggle="router"/>
     </section>
     <section class="slogan-wrapper">
             <h1>
@@ -15,8 +15,6 @@
 </template>
 
 <script setup>
-
-    import NavMenu from '$src/components/navigation/NavMenu.vue';
 
     const data =
     {
@@ -55,7 +53,7 @@
                 label: 'Dev Profile',
             },
             {
-                href: '/portfolio',
+                href: '/folio',
                 label: 'Portefølje',
             },
         ]
