@@ -74,12 +74,12 @@ export function mapTimeline(data: Ref<AcademicCollectionItem[]>): TimelineItem[]
 
             reference:
                 {
-                    name: doc.reference,
+                    name: doc.references,
                     anchor:
                     {
-                        label: doc.reference,
+                        label: doc.references,
                         href: doc.ref_link || undefined,
-                        type: doc.ref_link ?'external': undefined
+                        type: doc.ref_link ? 'external': undefined
                     }
             },
             } as TimelineItem;

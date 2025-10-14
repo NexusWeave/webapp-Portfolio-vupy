@@ -22,7 +22,7 @@ const achievementsCollection = z.object({
     body: z.strictObject({}).optional(),
     location: z.string().optional(),
     loc_link: z.string().optional(),
-    reference: z.string().optional(),
+    references: z.string().optional(),
     ref_link: z.string().optional(),
     techStack: z.array(z.string()).optional(),
 });
