@@ -1,34 +1,20 @@
 <template>
-    <section :class="['flex-wrap-row-justify-space-evenly']">
-        <Timeline v-if="academicTimeline.length > 0"
-            title="Akademisk Tidslinje"
-            :data="academicTimeline"
-            :cls = "['component-blue', 'timeline-container',
-            'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
-        />
-        <Timeline v-if="achievementsTimeline.length > 0"
-            title="Prestasjonstidslinje"
-            :data="achievementsTimeline"
-            :cls = "['component-seagreen', 'timeline-container',
-            'timeline-line', 'flex-wrap-row-justify-space-evenly', 'component-w-g-b']"
-        />
+    <section class="flex-column-justify-center-align-center">
+        <article v-for="data in personal" :key="data.id">
+            <h3>{{ data.title }}</h3>
+            <ContentRenderer :value="data" />
+
+        </article>
+
 
     </section>
 </template>
 <script setup lang="ts">
 
-    //  --- Import & types logic
-    import { fetchCollection, mapTimeline } from '#imports';
+    const path = 'personal_profile';
+    const {data: personal} = await useAsyncData('personal', () => 
+    {
+        return queryCollection(path).all();
+    });
 
-
-    //  --- Component logic
-    const academicData = await fetchCollection('academic', 'academic-info');
-    const achievementData = await fetchCollection('achievements', 'achievements-info');
-
-    const academicTimeline = computed(() => mapTimeline(academicData));
-    const achievementsTimeline = computed(() => mapTimeline(achievementData));
-
-    //  --- Debugging Logic
-    //console.log("Processed timeline:", academicTimeline.value);
-    //console.log("Achievements data on load:", achievementsTimeline.value);
 </script>
