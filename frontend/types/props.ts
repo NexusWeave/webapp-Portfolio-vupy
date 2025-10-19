@@ -60,10 +60,13 @@ export interface Anchor
 
 export interface FigureItem
 {
-    cls?   : string,
-    src     : string,
-    alt     : string,
-    srcset? : string,
     caption? : string,
-    anchor?  : Anchor,
+
+    img :
+    {
+        type    : string,
+        src     : string,
+        alt     : string,
+        srcset? : string,
+    }
 }
