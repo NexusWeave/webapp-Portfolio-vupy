@@ -70,3 +70,9 @@ export interface FigureItem
         srcset? : string,
     }
 }
+
+export interface FigureProps
+{
+    cls?   : string[],
+    data    : FigureItem,
+}
