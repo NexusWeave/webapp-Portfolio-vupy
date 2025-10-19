@@ -1,6 +1,6 @@
 //  Types for the project
 
-import type { Anchor, DateYearProps } from "./props";
+import type { Anchor} from "./props";
 
 export interface TimelineItem
 {
