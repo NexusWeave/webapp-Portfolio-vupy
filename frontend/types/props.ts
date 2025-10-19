@@ -35,7 +35,7 @@ export interface CarouselProps
     buttons? : CarouselButton[],
 }
 
- interface CarouselButton
+export interface CarouselButton
 {
     icon?    : string,
     exist?   : boolean,
