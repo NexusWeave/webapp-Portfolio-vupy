@@ -14,11 +14,6 @@ export interface TimelineProps
     data: TimelineItem[];
 }
 
-export interface DateYearProps
-{
-    isVisible: boolean;
-    data: string;
-}
 
 export interface FilterProps
 {
@@ -44,4 +39,12 @@ interface CarouselButton
     icon?    : string,
     exist?   : boolean,
     action  : () => void,    
+}
+
+//  --- Misc Props ---
+
+export interface DateYearProps
+{
+    isVisible: boolean;
+    data: string;
 }
