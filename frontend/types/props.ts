@@ -52,9 +52,10 @@ export interface DateYearProps
 
 export interface FigureItem
 {
+    cls?   : string,
     src     : string,
     alt     : string,
-        type?   : string,
-        srcset? : string,
-        caption? : string,
+    type?   : string,
+    srcset? : string,
+    caption? : string,
 }
