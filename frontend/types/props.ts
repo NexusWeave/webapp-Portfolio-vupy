@@ -50,6 +50,16 @@ export interface DateYearProps
     data: string;
 }
 
+export interface Anchor
+{
+    cls?    : string,
+    label?  : string,
+    href    : string,
+    text    : string,
+    type    : string[],
+    
+}
+
 export interface FigureItem
 {
     cls?   : string,
