@@ -38,5 +38,5 @@
     const isImageModern = computed(() => {return !!data.value && !!imageFormats.modern.find(item => item === data.value.type); });
     const isImageStandard = computed(() => {return !!data.value && !!imageFormats.data.find(item => item === data.value.type); });
 
-    console.log('Figure data:', data.value, isImageModern.value, isImageStandard.value);
+    //console.log('Figure data:', data.value, isImageModern.value, isImageStandard.value);
 </script>
