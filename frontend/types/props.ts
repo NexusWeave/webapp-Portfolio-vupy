@@ -71,3 +71,31 @@ export interface FigureProps
     cls?   : string[],
     data    : FigureItem,
 }
+
+export interface listData
+{
+    title?: string;
+    anchor:
+    {
+        type?: string | string[];
+        href: string;
+        label?: string;
+        cls?: string | string[];
+        img?: {
+        src: string;
+        alt?: string;
+    }
+}
+}
+export interface listProps
+{
+    title?: string;
+    data: listData[];
+    cls?: Array<string | string[]>;
+}
+
+export interface iconProps
+{
+    cls?: string[];
+    label?: string;
+}
