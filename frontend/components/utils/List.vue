@@ -1,5 +1,5 @@
 <template>
-    <h4 v-if="data.title">{{ data.title }}</h4>
+    <h4 v-if="title">{{ title }}</h4>
     <ul :class="cls">
         <li v-for="(item, index) in data" :key="index">
             <NavigationAnchor v-if="item.anchor.href"
@@ -9,20 +9,20 @@
     </ul>
 
 </template>
-<script setup >
-    import { computed, defineProps } from 'vue';
+<script lang="ts" setup >
 
-    const props = defineProps({
-        data: {
-            type: Array,
-            required: true
-        },
-        cls: {
-            type: Array,
-            required: false
-        }
+    // --- Importing dependencies ---
+    import { computed } from 'vue';
+
+    import type { listProps } from '@/types/props';
+
+
+    const props = withDefaults(defineProps<listProps>(),
+    {
+        cls: () => []
     });
 
     const data = computed(() => props.data);
+    const title = computed(() => props.title);
     console.warn('List Component loaded with data: ', data.value);
 </script>
