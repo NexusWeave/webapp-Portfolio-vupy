@@ -101,7 +101,7 @@ export interface iconProps
 }
 
 
-interface NavProp
+export interface NavProp
 {
     totalPage?: number;
     activePage?: number;
