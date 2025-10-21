@@ -3,66 +3,49 @@
         <ul :class="cls[1]">
             <li v-for="item in data" :key="item.id"
                     :class="cls[2]">
-            <template v-if="!!isRouterLink">
+            <template v-if="isRouterLink">
                 <NuxtLink :to="item.href" :class="[item.cls, 'nav-link']">
                     {{ item.label }}
                 </NuxtLink>
             </template>
 
-            <template v-else-if="!!isAnchor">
-                    <Anchor :data="item" :cls="[item.cls]"/>
+            <template v-else-if="isAnchor">
+                    <NavigationAnchor :data="item" :cls="[item.cls]"/>
             </template>
 
-            <template v-else-if="!!isPagination">
-                <Btn :data="btn[0]"/>
+            <template v-else-if="isPagination">
+                <NavigationButton :data="btn[0]"/>
                 <span :class="cls[3]"> {{ activePage > 0 ?  activePage + ' / ' + totalPages : '' }}</span>
-                <Btn :data="btn[1]"/>
+                <NavigationButton :data="btn[1]"/>
             </template>
             </li>
         </ul>
     </nav>
 </template>
 
-<script setup>
-    import Anchor from './Anchor.vue';
-    import Btn from './Button.vue';
+<script lang="ts" setup>
 
-    import { ref, watch, defineProps, computed } from 'vue';
+    //  --- Importing dependencies & type definitions ---
+    import { ref, watch, computed } from 'vue';
 
-    const props = defineProps({
-        data: 
-        {
-            required: true,
-            type: [Array, Object],
-        },
-        cls:
-        {
-            type: Array,
-            required: false,
-            default: () => [['nav-bar', 'flex-wrap-row'], [['nav-list', 'flex-wrap-row-justify-center'], 'flex-row-align-items-center'], ['nav-item'], ['anchor-item']]
-        },
-        toggle:
-        {
-            type: String,
-            required: true,
-            default: ''
-        },
+    //  --- Props Definition ---
+    const props = withDefaults(defineProps<NavProp>(),
+    {
+        totalPage: 0,
+        activePage: 0,
+        cls: () => [['nav-bar', 'flex-wrap-row'], [['nav-list', 'flex-wrap-row-justify-center'], 'flex-row-align-items-center'], 'nav-item', 'anchor-item'],
     });
 
     const data = props.data;
-    //console.log("NavigationMenu loaded with data: ", data, );
 
-    const emit = defineEmits(['update']);
+    const isAnchor = computed(() => props.toggle === 'anchor');
+    const isRouterLink = computed(() => props.toggle === 'router');
+    const isPagination = computed(() => props.toggle === 'pagination');
 
-    
+    //  --- Pagination Logic ---
+
     const activePage = ref(props.activePage);
-
-    const isAnchor = props.toggle === 'anchor';
-    const isRouterLink = props.toggle === 'router';
-    const isPagination = props.toggle === 'pagination';
-
     const totalPages = computed(() => props.totalPage);
-
     const btn = computed(() =>
         [
             {
@@ -88,11 +71,14 @@
         activePage.value = newValue;
     });
 
+    //  --- Emits definition ---
+    const emit = defineEmits(['update']);
+
     watch(() => activePage, (newValue) => 
     {
         emit('update', newValue);
     }, { immediate: true });
 
     //  --- Debug logic
-    //console.log("NavigationMenu loaded with data: ", data, isAnchor, isRouterLink);
+    console.log("NavigationMenu loaded with data: ", data, isAnchor, isRouterLink);
 </script>
