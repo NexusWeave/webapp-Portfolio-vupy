@@ -56,8 +56,8 @@ export function mapTimeline(data: Ref<AcademicCollectionItem[]>): TimelineItem[]
                 anchor: 
                 {
                     label: doc.organization,
-                    href: doc.org_link || undefined,
-                    type: doc.org_link ? 'external' : undefined
+                    href: doc.org_link,
+                    type: doc.org_link ? ['external'] : []
                 }
             },
 
@@ -68,7 +68,7 @@ export function mapTimeline(data: Ref<AcademicCollectionItem[]>): TimelineItem[]
                 {
                     label: doc.location,
                     href: doc.loc_link || undefined,
-                    type: doc.loc_link ? 'external' : undefined
+                    type: doc.loc_link ? ['external'] : []
                 }
             },
 
@@ -79,7 +79,7 @@ export function mapTimeline(data: Ref<AcademicCollectionItem[]>): TimelineItem[]
                     {
                         label: doc.references,
                         href: doc.ref_link || undefined,
-                        type: doc.ref_link ? 'external': undefined
+                        type: doc.ref_link ? ['external'] : []
                     }
             },
             } as TimelineItem;
