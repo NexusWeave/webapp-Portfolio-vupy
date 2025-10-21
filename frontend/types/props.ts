@@ -20,24 +20,24 @@ export interface FilterProps
 export interface TimelineCardProps
 {
     cls?: Array<any>;
-    isVisible?: boolean;
     data: TimelineItem;
+    isVisible?: boolean;
 }
 
 
 //  --- Carousel component ---
 export interface CarouselProps
 {
-    data    : FigureItem[],
-    buttons? : CarouselButton[],
+    data    : FigureItem[];
+    buttons? : CarouselButton[];
 }
 
 export interface CarouselButton
 {
-    cls ?  : string,
-    icon?    : string,
-    exist?   : boolean,
-    action  : () => void,    
+    cls ?  : string;
+    icon?    : string;
+    exist?   : boolean;
+    action  : () => void;
 }
 
 
@@ -50,10 +50,10 @@ export interface DateYearProps
 
 export interface Anchor
 {
-    label   : string,
-    href    : string,
-    type    : string[],
-    img?    : FigureItem
+    label   : string;
+    href    : string;
+    type    : string[];
+    img?    : FigureItem;
     
 }
 
@@ -68,8 +68,8 @@ export interface FigureItem
 
 export interface FigureProps
 {
-    cls?   : string[],
-    data    : FigureItem,
+    cls?   : string[];
+    data    : FigureItem;
 }
 
 export interface listData
@@ -77,16 +77,20 @@ export interface listData
     title?: string;
     anchor:
     {
-        type?: string | string[];
+        
         href: string;
         label?: string;
+        
         cls?: string | string[];
-        img?: {
-        src: string;
-        alt?: string;
+        type?: string | string[];
+        img?:
+        {
+            src: string;
+            alt?: string;
+        }
     }
 }
-}
+
 export interface listProps
 {
     title?: string;
