@@ -27,6 +27,7 @@
 
     //  --- Importing dependencies & type definitions ---
     import { ref, watch, computed } from 'vue';
+    import type { NavProp } from '@/types/props';
 
     //  --- Props Definition ---
     const props = withDefaults(defineProps<NavProp>(),
