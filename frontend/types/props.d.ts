@@ -114,3 +114,24 @@ export interface NavProp
     data: Array<Record<string, any>> | Record<string, any>;
     cls?: Array<string | string[] | Array<string | string[]>>;
 }
+
+export interface GithubRepo
+{
+    id: string;
+    
+    name: string;
+    date: string;
+    owner: string;
+    label: string;
+    lang: string[];
+    //homepage?: string;
+    description: string;
+    anchor: Record<string, string>;
+
+}
+
+export interface RepoProps
+{
+    data: GithubRepo;
+    cls?: Array<string | string[] | Array<string | string[]>>;
+}
