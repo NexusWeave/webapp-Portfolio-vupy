@@ -1,6 +1,6 @@
 
 //  --- Import & types logic
-import type { TimelineItem } from '@/types/timeline';
+import type { TimelineItem } from '~/types/timeline';
 import type { AcademicCollectionItem } from '@nuxt/content';
 
 
