@@ -29,8 +29,8 @@
     //  --- Import & types logic
     import { computed } from 'vue';
 
-    import type { TimelineProps } from '@/types/props';
-    import type { TimelineItem } from '@/types/timeline';
+    import type { TimelineProps } from '~/types/props';
+    import type { TimelineItem } from '~/types/timeline';
 
     const props = withDefaults(defineProps<TimelineProps>(),
     {
