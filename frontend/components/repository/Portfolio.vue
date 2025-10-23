@@ -1,14 +1,30 @@
 <template>
-    <section class="flex-wrap-column repo-container" v-if="!!data.data && data.data.length > 0">
+    <section class="flex-wrap-column repo-container">
         <h2>Technical Repositories</h2>
 
         <section class="repo-container flex-wrap-row-justify-center">
-            <section class="flex-wrap-row">
+            <button 
+                    :disabled="currentPage === 1"
+                    @click="changePage(currentPage - 1)">
+                    &laquo; Forrige
+                </button>
+                
+                <button 
+                    :disabled="currentPage === repoData.page"
+                    @click="changePage(currentPage + 1)">
+                    Neste &raquo;
+                </button>
 
-                <RepositoryBusinessCard v-for="repo in data.data"
+            <section class="flex-wrap-row"  v-if="!!repoData.data && data && data.length > 0">
+                <RepositoryBusinessCard v-for="repo in data"
                     :key="repo.id"
                     :data="repo"
                 />
+                
+            </section>
+            <section class="flex-wrap-column" v-if="!!repoError && !!error">
+                <p>Github repository er for tiden under revisjon. Vennligst benytt <NavigationAnchor :data="error"/> for mer informasjon.</p>
+                <p>for å se min generelle GitHub-aktivitet og historikk. Jeg jobber med å oppdatere og strukturere mine nyeste kodeeksempler.</p>
             
             </section>
         </section>
@@ -18,13 +34,57 @@
 <script setup lang="ts">
 
     //  Importing dependencies & types
-    import { fetchRestApi as fetchRestApi } from '#imports';
     import { computed } from 'vue';
+    import { fetchRestApi as fetchRestApi } from '#imports';
+
 
     //  --- API Fetching Logic
-    const repoData = await fetchRestApi('github', 'repo-data')
-    const data =  computed(() => repoData.value);
+    const { data: repoData, error: repoError } = await fetchRestApi('github', 'repo-data')
     
     //  --- Debugging Logic
-    //console.warn("Portfolio API Response :", data.value);
+    const error: Array<Record<string, string>> | boolean = computed(() =>
+    {
+
+    if (repoError.value)
+    {
+        
+        const error = 
+            {
+            href: "https://github.com/krigjo25?tab=repositories",
+            type: ["external"],
+            label: "Github Repositories",
+        };
+
+        
+        return error;
+    }
+    console.error("Error fetching repository data:", repoError.value);
+    return false;
+    
+    });
+
+    //  --- Pagination Logic
+    const n = 6;
+    const currentPage = ref<number>(1);
+
+    const data =  computed(() =>
+    {
+        const data = repoData.value.data;
+        const start = (currentPage.value - 1) * n;
+        const end = start + n;
+
+        return !!data ? data.slice(start, end) : null;
+    });
+
+    function changePage(page: number) : void
+    {
+        const total = repoData.value.page;
+
+        if (page >= 1 && page <= total) {
+            currentPage.value = page;
+        }
+        console.log("Current Page:", currentPage.value, page, total);
+    }
+
+
 </script>
