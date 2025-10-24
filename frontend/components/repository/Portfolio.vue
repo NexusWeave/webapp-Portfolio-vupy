@@ -3,29 +3,20 @@
         <h2>Technical Repositories</h2>
 
         <section class="repo-container flex-wrap-row-justify-center">
-            <button 
-                    :disabled="currentPage === 1"
-                    @click="changePage(currentPage - 1)">
-                    &laquo; Forrige
-                </button>
-                
-                <button 
-                    :disabled="currentPage === repoData.page"
-                    @click="changePage(currentPage + 1)">
-                    Neste &raquo;
-                </button>
-
+            <UtilsPagination 
+                :activePage="currentPage" 
+                :totalPage="repoData.page" 
+                @update="currentPage = $event"
+            />
             <section class="flex-wrap-row"  v-if="!!repoData.data && data && data.length > 0">
                 <RepositoryBusinessCard v-for="repo in data"
                     :key="repo.id"
                     :data="repo"
                 />
-                
             </section>
             <section class="flex-wrap-column" v-if="!!repoError && !!error">
                 <p>Github repository er for tiden under revisjon. Vennligst benytt <NavigationAnchor :data="error"/> for mer informasjon.</p>
                 <p>for å se min generelle GitHub-aktivitet og historikk. Jeg jobber med å oppdatere og strukturere mine nyeste kodeeksempler.</p>
-            
             </section>
         </section>
     </section>
@@ -40,8 +31,7 @@
 
     //  --- API Fetching Logic
     const { data: repoData, error: repoError } = await fetchRestApi('github', 'repo-data')
-    
-    //  --- Debugging Logic
+
     const error: Array<Record<string, string>> | boolean = computed(() =>
     {
 
@@ -60,10 +50,10 @@
     }
     console.error("Error fetching repository data:", repoError.value);
     return false;
-    
     });
 
-    //  --- Pagination Logic
+
+    //  --- Filtering Logic
     const n = 6;
     const currentPage = ref<number>(1);
 
@@ -75,16 +65,4 @@
 
         return !!data ? data.slice(start, end) : null;
     });
-
-    function changePage(page: number) : void
-    {
-        const total = repoData.value.page;
-
-        if (page >= 1 && page <= total) {
-            currentPage.value = page;
-        }
-        console.log("Current Page:", currentPage.value, page, total);
-    }
-
-
 </script>
