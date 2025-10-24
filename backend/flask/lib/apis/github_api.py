@@ -60,8 +60,7 @@ class GithubAPI(APIConfig):
             repoObject['description'] = response[i]['description']
             repoObject['date'] = datetime.datetime.strptime(response[i]['updated_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
             repoObject['lang'] = [await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")]
-            repoObject['anchor'] =
-            [
+            repoObject['anchor'] = [
                 # { 'id': uuid.uuid4().hex, 'ytube_url': None,},
                 {
                     'name': 'github',
