@@ -104,7 +104,6 @@ export interface iconProps
     label?: string;
 }
 
-
 export interface NavProp
 {
     totalPage?: number;
@@ -134,4 +133,10 @@ export interface RepoProps
 {
     data: GithubRepo;
     cls?: Array<string | string[] | Array<string | string[]>>;
+}
+
+export interface ProgressProps {
+    value: number;
+    cls?: string[];
+    language: string;
 }
