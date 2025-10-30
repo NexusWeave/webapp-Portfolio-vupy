@@ -137,6 +137,7 @@ export interface RepoProps
 
 export interface ProgressProps {
     value: number;
+    tech?: string;
+    label: string;
     cls?: string[];
-    language: string;
 }
