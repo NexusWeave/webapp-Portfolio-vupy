@@ -11,6 +11,12 @@
             />
             <section>
                 <h2> Attest sitater </h2>
+                <section>
+                    <article v-for="(data, i) in reference" :key="i" class="bio">
+                        <h3><a :href="data.link">{{ data.title }}</a></h3>
+                        <p>{{ data.quote }}</p>
+                    </article>
+                </section>
             </section>
             <section>
                 <h2> Skill Bar</h2>
@@ -66,6 +72,12 @@
         return queryCollection(path).all();
     });
 
+    const {data: reference} = await useAsyncData('reference', () => 
+    {
+        return queryCollection('reference').all();
+    });
+
     //  --- Debugging Logic ---
+    //console.warn('Reference Data:', reference.value);
     //console.log(dev.value);
 </script>

@@ -27,6 +27,12 @@ const achievementsCollection = z.object({
     techStack: z.array(z.string()).optional(),
 });
 
+const referencesCollection = z.object({
+    link: z.string(),
+    title: z.string(),
+    quote: z.string()
+});
+
 // defineContentConfig & collections definition
 export default defineContentConfig({
   collections: 
@@ -50,6 +56,13 @@ export default defineContentConfig({
             type: 'page',
             schema: profileCollection,
             source: 'profiles/dev/*.md', 
+        }),
+
+    'reference': defineCollection(
+        {
+            type: 'data',
+            schema: referencesCollection,
+            source: 'quotes/references/*.md', 
         }),
 
     'personal_profile': defineCollection(
