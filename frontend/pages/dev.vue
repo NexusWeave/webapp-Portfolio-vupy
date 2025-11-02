@@ -1,6 +1,6 @@
 <template>
     <section class="flex-wrap-row-justify-space-evenly">
-        <section class="dev-profile">
+        <section class="dev-bar">
             <MediaFigure
                 :data="{
                     type: 'jpg',
@@ -9,22 +9,27 @@
                 }"
                 :cls="['dev-avatar']"
             />
-            <section>
+            <section class="dev-references">
                 <h2> Attest sitater </h2>
                 <section v-for="(data, i) in sortedReference" :key="i">
-                    <article v-if="data.isVisible"class="bio">
+                    <article v-if="data.isVisible" class="dev-quote">
+                        
+                        <p><q>{{ data.quote }}</q>
+                        - </p>
                         <h3>
+                            <cite>
                             <NavigationAnchor 
                                 :data="data.anchor"
                             />
-                        </h3>
-                        <p><i>{{ data.quote }}</i></p>
+                        </cite>
+                    </h3>
                     </article>
                 </section>
             </section>
-            <section>
+            <section class="dev-skill">
                 <h2> Skill Bar</h2>
 
+                <section>
                 <UtilsProgress 
                     :value="totalProgress"
                     label="Fullstack Utvikler"
@@ -32,9 +37,11 @@
                 <UtilsProgress v-for="(data, i) in sortedProgressList" :key="i" 
                     :value="data.value"
                     :label="data.name"
+                    :tech="data.tech"
                 />
             </section>
             
+            </section>
         </section>
 
         <section class="flex-column-justify-space-evenly">
@@ -49,6 +56,7 @@
             </article>
         </section>
 
+    
     </section>
     
 </template>
@@ -61,25 +69,6 @@
     import { fetchCollection } from '#imports';
     
     import type { DevCollectionItem, ReferenceCollectionItem } from '@nuxt/content';
-    
-
-    //  --- Progress Bar Logic
-    const progressList =
-    [
-        { name:'C', value: 25 },
-        { name:'GO', value: 5 },    
-        { name:'Python', value: 40 },
-        { name:'C# / .NET', tech:"c", value: 25 },
-        { name:'SQL / Databaser', value: 50 },
-        { name:'Javascript / TypeScript', tech:"javascript", value: 26 },
-        
-        
-    ];
-
-    const n = progressList.length;
-    const totalProgress = computed(() => (progressList.reduce((acc, item) => acc + item.value, 0) + n) / n);
-    const sortedProgressList = computed(() => progressList.slice().sort((a, b) => b.value - a.value));
-
 
     //  --- Dev Data Logic
     const devPath = 'dev';
@@ -90,9 +79,26 @@
 
     const sortedReference = reactive(mapReference(reference));
 
+    //  --- Progress Bar Logic
+    const progressList =
+    [
+        { name:'C',  tech:"c", value: 25 },
+        { name:'GO',  tech:"go", value: 5 },    
+        { name:'SASS', tech:"workflow", value: 30 },
+        { name:'Python', tech:"python", value: 40 },
+        { name:'C# / .NET', tech:"cs", value: 25 },
+        { name:'SQL / Databaser', tech:"sql", value: 50 },
+        { name:'TypeScript', tech:"javascript", value: 26 },
+    ];
+
+    const n = progressList.length;
+    const totalProgress = computed(() => (progressList.reduce((acc, item) => acc + item.value, 0) + n) / n);
+    const sortedProgressList = computed(() => progressList.slice().sort((a, b) => b.value - a.value));
+
+
     onMounted(() => {
         //  Start the reference timer
-        startTimer(sortedReference);
+        //startTimer(sortedReference);
 
     });
 
