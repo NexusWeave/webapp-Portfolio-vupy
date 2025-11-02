@@ -1,30 +1,36 @@
 
 //  --- Import & types logic
 import type { TimelineItem } from '~/types/timeline';
-import type { AcademicCollectionItem } from '@nuxt/content';
+import type { AcademicCollectionItem, DevCollectionItem,PersonalProfileCollectionItem, ReferenceCollectionItem, AchievementsCollectionItem } from '@nuxt/content';
 
+type CMSArticleCollectionItem = AcademicCollectionItem | AchievementsCollectionItem;
 
 //  --- Data Fetching Logic
-export async function fetchCollection(path:any, cacheKey:string): Promise<Ref<AcademicCollectionItem[]>>
+export async function fetchCollection<T>(path:any, cacheKey:string): Promise<Ref<T[]>>
 {
     const {data} = await useAsyncData(cacheKey, () => 
-    {return queryCollection(path).all() as Promise<AcademicCollectionItem[]>;});
+    {return queryCollection(path).all() as Promise<T[]>;});
     
     // --- Debugging
     // console.log("FetchCollection - Path:", path);
     // console.log("FetchCollection - Data:", data.value);
 
-    if(data) return data as Ref<AcademicCollectionItem[]>; else return ref([]);
+    if(data) return data as Ref<T[]>; else return ref([]);
 }
 
 //  --- Data Processing Logic
-export function sortCollection(data: AcademicCollectionItem[]): AcademicCollectionItem[]
+export function sortbyDate<T extends CMSArticleCollectionItem>(data: T[], sort: string =''): T[]
 {
     return data.sort((a, b) =>
         {
             const A = new Date(a.created).getTime();
             const B = new Date(b.created).getTime();
-            return A - B; // Sort descending
+
+            switch(sort)
+            {
+                case 'ascending': return A - B; // Sort ascending
+                default: return B - A; // Default to descending
+            }
         });
 }
 
@@ -34,7 +40,7 @@ export function mapTimeline(data: Ref<AcademicCollectionItem[]>): TimelineItem[]
 
     let AUTOINCREMENT:number = 0;
 
-    const timeline = sortCollection(data.value);
+    const timeline = sortbyDate<AcademicCollectionItem>(data.value);
 
     return timeline.map((doc:AcademicCollectionItem) => {
         return {
