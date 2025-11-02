@@ -23,10 +23,11 @@
 
     //  --- Import & types logic
     import { fetchCollection, mapTimeline } from '#imports';
+    import type { AcademicCollectionItem, AchievementsCollectionItem } from '@nuxt/content';
 
     //  --- Component logic
-    const academicData = await fetchCollection('academic', 'academic-info');
-    const achievementData = await fetchCollection('achievements', 'achievements-info');
+    const academicData = await fetchCollection<AcademicCollectionItem>('academic', 'academic-info');
+    const achievementData = await fetchCollection<AchievementsCollectionItem>('achievements', 'achievements-info');
 
     const academicTimeline = computed(() => mapTimeline(academicData));
     const achievementsTimeline = computed(() => mapTimeline(achievementData));
