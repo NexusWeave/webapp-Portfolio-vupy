@@ -23,12 +23,13 @@
             />
             
             <p>{{ data.description }}</p>
-            <section class="flex-wrap-row-justify-space-evenly">
+
+            <section v-if="!!data.lang && data.lang.length > 0"
+                :class="['tech-container']">
                 <h4>Teknologi : </h4>
-                <p v-if="!!data.lang && data.lang.length > 0"
-                    :class="['tech-container', 'flex-wrap-row-justify-space-evenly']">
+                <p :class="['flex-wrap-row-justify-space-evenly']">
                     <span v-for="(tech, i) in data.lang" :key="i">
-                        <span :class="tech.label.toLowerCase()"> </span>
+                        <span :class="tech.label.toLowerCase()"></span>
                         <b>{{ tech.label }}</b>
                     </span>
                 </p>
@@ -36,7 +37,7 @@
         </section>
     </section>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 
     //  --- Importing dependencies & types
     import type { RepoProps } from '@/types/props';
@@ -46,7 +47,7 @@
     {
         cls: () =>
         [
-            ['business-card', 'flex-column','flex-wrap-column'],
+            ['business-card', 'flex-column'],
             ['flex-wrap-row-justify-space-between', 'card-content'],
             'date-container',
             [
@@ -57,8 +58,8 @@
         ]
     });
 
-    const cls = props.cls;
-    const data = props.data;
+    const cls = computed(() => props.cls);
+    const data = computed(() => props.data);
 
     //  --- Debugging Logic
     console.error("BusinessCard data:", data);
