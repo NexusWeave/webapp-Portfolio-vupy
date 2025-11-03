@@ -15,7 +15,7 @@
     </section>
     
     <section class="slogan-wrapper">
-        <h1>
+        <h1 class="flex-wrap-row-justify-center slogan">
             <span v-for="text in data.title" :key="text">{{ text }} </span>
         </h1>
     </section>
