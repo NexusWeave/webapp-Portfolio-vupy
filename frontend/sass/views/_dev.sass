@@ -1,3 +1,4 @@
+@use '../utils/mixins' as mix
 
 section
     .dev-bar
@@ -17,10 +18,16 @@ section
             text-align: center
             margin-block: 0em
 
+        @include mix.tech-generator($boolean: false, $element:'progress')
         progress
             inline-size: 100%
             border-radius: 1em
             overflow: hidden
+            appearance: none
+            -moz-appearance: none
+            -webkit-appearance: none
+            
+
         margin-block: 1em
 
     section.dev-references

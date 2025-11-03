@@ -1,23 +1,12 @@
 @use './mixins' as mix
 @use '../colors/colors' as color
 
+@include mix.tech-generator()
+
 .tech-container
     p
-        .javascript, .python
-            background: color.$Cyan-Blue-Azure
-
-        .frontend
-            background: color.$webapp
-
-        .sql
-            background: color.$db
-
-        .cs, .c, .cpp
-            background: color.$compiled
-
-        .workflow
-            background: color.$workflow
-            
+        @include mix.tech-generator()
+               
         span
             span
                 @include mix.circle-border()
