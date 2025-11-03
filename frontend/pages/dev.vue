@@ -26,21 +26,30 @@
                     </article>
                 </section>
             </section>
-            <section class="dev-skill">
-                <h2> Skill Bar</h2>
+            <section class="dev-skill flex-column-justify-center-align-center">
+                <h2> Mine Kode Ferdigheter</h2>
 
-                <section>
-                <UtilsProgress 
-                    :value="totalProgress"
-                    label="Fullstack Utvikler"
-                />
-                <UtilsProgress v-for="(data, i) in sortedProgressList" :key="i" 
-                    :value="data.value"
-                    :label="data.name"
-                    :tech="data.tech"
-                />
-            </section>
-            
+                <section class="flex-wrap-row-justify-space-evenly">
+                    <UtilsProgress 
+                        :value="totalCodeSkills"
+                        label="Fullstack Utvikler"
+                    />
+                    <UtilsProgress v-for="(data, i) in codeSkills" :key="i" 
+                        :value="data.value"
+                        :label="data.name"
+                        :tech="data.tech"
+                    />
+                </section>
+
+                <h2> Verktøy Ferdigheter</h2>
+
+                <section class="flex-wrap-row-justify-space-evenly">
+                        <UtilsProgress v-for="(data, i) in toolSkills" :key="i" 
+                            :value="data.value"
+                            :label="data.name"
+                            :tech="data.tech"
+                        />
+                </section>
             </section>
         </section>
 
@@ -80,25 +89,37 @@
     const sortedReference = reactive(mapReference(reference));
 
     //  --- Progress Bar Logic
-    const progressList =
+    const codeProsessionList =
     [
         { name:'C',  tech:"c", value: 25 },
-        { name:'GO',  tech:"go", value: 5 },    
-        { name:'SASS', tech:"workflow", value: 30 },
+        { name:'GO-Lang',  tech:"go", value: 5 },    
+        { name:'SASS', tech:"sass", value: 30 },
         { name:'Python', tech:"python", value: 40 },
-        { name:'C# / .NET', tech:"cs", value: 25 },
-        { name:'SQL / Databaser', tech:"sql", value: 50 },
-        { name:'TypeScript', tech:"javascript", value: 26 },
+        { name:'C#', tech:"cs", value: 25 },
+        { name:'SQL / Databaser', tech:"sqlite", value: 50 },
+        { name:'TypeScript', tech:"typescript", value: 26 },
     ];
 
-    const n = progressList.length;
-    const totalProgress = computed(() => (progressList.reduce((acc, item) => acc + item.value, 0) + n) / n);
-    const sortedProgressList = computed(() => progressList.slice().sort((a, b) => b.value - a.value));
+    const toolList =
+    [
+        { name:'GIT',  tech:"workflow", value: 50 },
+        { name:'Agile',  tech:"workflow", value: 25 },    
+        { name:'Docker', tech:"workflow", value: 5 },
+        { name:'CI/CD', tech:"workflow", value: 15 },
+        { name:'Linux', tech:"workflow", value: 45 },
+        { name:'Unit Testing', tech:"workflow", value: 40 },
+        { name:'AI & ML', tech:"workflow", value: 50 },
+    ];
+
+    const n = codeProsessionList.length;
+    const totalCodeSkills = computed(() => (codeProsessionList.reduce((acc, item) => acc + item.value, 0) + n) / n);
+    const codeSkills = computed(() => codeProsessionList.slice().sort((a, b) => b.value - a.value));
+    const toolSkills = computed(() => toolList.slice().sort((a, b) => b.value - a.value));
 
 
     onMounted(() => {
         //  Start the reference timer
-        //startTimer(sortedReference);
+        startTimer(sortedReference);
 
     });
 
