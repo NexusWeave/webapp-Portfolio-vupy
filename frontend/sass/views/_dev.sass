@@ -2,33 +2,33 @@
 
 section
     .dev-bar
-        inline-size: 10em
+        max-inline-size: 24em
     
-    .dev-avatar
-        img, source
+        .dev-avatar
+            img, source
+                inline-size: 10em
+                border-radius: 100%
+                margin-inline: 6em
+
+        .dev-skill
+            h3
+                text-align: center
+                margin-block-end: 0
+
+            p
+                text-align: center
+                margin-block: 0em
+
+            progress
+                border-radius: 1em
+                overflow: hidden
+                appearance: none
+                -moz-appearance: none
+                -webkit-appearance: none
+
+            margin-block: 1em
             inline-size: 100%
-            border-radius: 10em
-
-    .dev-skill
-        h3
-            text-align: center
-            margin-block-end: 0
-
-        p
-            text-align: center
-            margin-block: 0em
-
-        @include mix.tech-generator($boolean: false, $element:'progress')
-        progress
-            inline-size: 100%
-            border-radius: 1em
-            overflow: hidden
-            appearance: none
-            -moz-appearance: none
-            -webkit-appearance: none
-            
-
-        margin-block: 1em
+            @include mix.tech-generator($boolean: false, $element:'progress')
 
     section.dev-references
         article
@@ -41,5 +41,6 @@ section
 
                 font-size: .9em
                 margin-block: 0
+                text-align: center
 
-        margin-block-end: 2em
+    margin-block-end: 2em
