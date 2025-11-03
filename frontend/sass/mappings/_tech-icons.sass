@@ -29,6 +29,11 @@ $interpreted-tech-language:(
         color: color.$Cyan-Blue-Azure, 
         hover: color.$compiled-light
     ),
+    'javascript': (
+        path:"",
+        color: #F7DF1E,
+        hover: color.$compiled-light
+    ),
     'typescript': (
         path:"", 
         color: color.$TypeScript-blue,
@@ -37,27 +42,16 @@ $interpreted-tech-language:(
 )
 
 $database-tech-language:(
-    'mdb': (
+    'rational-db': (
         path:"",
         color: color.$db, 
         hover: color.$db-light
     ),
-    'MSSQL': (
+    'nosql-db': (
         path:"", 
         color: color.$db, 
         hover: color.$db-light
     ),
-    'sqlite': (
-        path:"", 
-        color: color.$db, 
-        hover: color.$db-light
-    ),
-    
-    'default': (
-        path:"", 
-        color: color.$db, 
-        hover: color.$db-light
-    )
 )
 
 $workflow-tools:(
@@ -79,9 +73,25 @@ $workflow-tools:(
     )
 )
 
+$markup:(
+    'markup': (
+        path:"",
+        color: color.$c, 
+        hover: color.$compiled-light
+    )
+)
+$style:(
+    'styling': (
+        path:"",
+        color: color.$c, 
+        hover: color.$compiled-light
+    )
+)
 $tech-languages: (
     'workflow': $workflow-tools,
     'compiled': $compiled-tech-language,
     'database': $database-tech-language,
     'interpreted': $interpreted-tech-language,
+    'markup': $markup,
+    'style': $style,
 )
