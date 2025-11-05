@@ -50,3 +50,6 @@ tests/.pytest_cache/
 dist
 build
 coverage
+
+node_modules
+.env
