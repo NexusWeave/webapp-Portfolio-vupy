@@ -1,4 +1,4 @@
-import { techStackMap } from '../utils/techstack';
+import { techStackMap } from './techStack';
 import type { TechStack } from '~/types/timeline';
 
 //  --- Data Fetching Logic
