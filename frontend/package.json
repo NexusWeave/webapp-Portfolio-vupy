@@ -1,6 +1,6 @@
 {
   "name": "webapp-portofolio-vupy",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "sass": "sass --watch sass:assets",
     "dev": "tinacms dev -c \"nuxt dev\"",
     "build": "tinacms build && nuxt build",
-    "serve": "tinacms build && nuxt build && nuxt preview",
-    "deploy": "tinacms build && npm run generate && netlify deploy --no-build dir=.output/public",
+    "serve": "npm run build && nuxt preview",
+    "deploy": "npm run build && npm run generate && netlify deploy --dir=.output/public --no-build --message='Se_CHANGELOG.md_for_forbedringer_og_endringer'",
     "cl-update": "conventional-changelog -p angular -i  docs/logs/CHANGELOG.md -s"
   },
   "dependencies": {
