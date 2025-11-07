@@ -1,13 +1,15 @@
 ---
 created: 2025-04-14T00:00:00.000Z
-organization: SosEnt Norge
+organization: GetAcademy
 org_link: 'https://sosent.no'
-title: SosEnt Norge
+title: Internship
+location: 'Larvik, Vestfold, Norge | Remote'
+loc_link: 'https://maps.app.goo.gl/Ry3kFAGXNM6PATS26'
 techStack:
-  - VUE.TS
-  - CMS
   - GITHUB
-  - SASS
+  - NET
+  - ASPNET
+  - AGILE
 ---
 
-Dette prosjektet ble gjennomført kostnadseffektivt fra idé til løsning, hvor tett kundedialog sikret at prosjektet møtte kundens behov. Jeg utviklet løsningen selvstendig og implementerte en skalerbar arkitektur for å sikre enkel innholdshåndtering og høy kodekvalitet.
+Jeg har i denne jobben jobbet med å utvikle **undervisningsmateriell**, **jobbet med potensielle kunder** og **arbeidsplassens intranett**. Jeg har anvendt min kunnskap om **Agile metodikk** og **moderne samarbeidsformer**, der **Git** og **Discord** har vært et sentraltverktøyet for samarbeid.
