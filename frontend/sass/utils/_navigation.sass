@@ -1,0 +1,31 @@
+@use './mixins' as mix
+@use '../colors/colors' as color
+
+nav.nav-bar
+    inline-size: 48em
+
+nav.logo-bar
+    max-inline-size: 10em
+
+ul.nav-list, .logo-list
+    margin: 0
+    padding: 0
+    list-style: none
+    inline-size: 100%
+
+li.nav-item, .logo-item
+    margin: 0
+    
+    @include mix.link-styles(color.$dark-grey, color.$dark-grey, color.$soft-white, color.$dark-grey)
+
+.nav-link
+
+    &:hover
+        @include mix.background-style(color.$light-orange, color.$soft-white)
+
+    &:active
+        @include mix.background-style(color.$dark-orange, color.$soft-white)
+
+    padding: 0.5em 1em
+    border-radius: .5em
+

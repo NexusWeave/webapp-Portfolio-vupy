@@ -1,0 +1,315 @@
+//  Microsoft Devices Media Queries
+
+//  Importing dependencies
+@use './breakpoints' as device
+
+//  Portrait
+@media only screen and (device.$surface-pro-width <= width <= 1023px) and (min-height: device.$surface-pro-height) and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                block-size: 25vh !important
+
+                .caption
+                    bottom: 3.6vh !important
+
+                div.btn-container
+                    bottom: 17vh !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+
+        section#spec-container
+
+            .spec-class
+                inline-size: 84vw
+
+        section#tech-repo
+            .pp
+                block-size: 13vh !important
+                inline-size: 35vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 32vw !important
+
+                        .img-svg
+                            block-size: 2vh !important
+                p
+                    inline-size: 25vw !important
+                    margin-inline-start: 5vw !important
+
+@media only screen and (min-width: device.$surface-duoc-width) and (device.$surface-duoc-height <= height <= 828px) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 47vw !important
+
+                .caption
+                    font-size: 1em
+
+                .relative
+                    bottom: 6.9vh !important
+
+                div.btn-container
+                    bottom: 29vh !important
+
+        section.spec-wrapper
+            inline-size: 100%
+
+            .spec-class
+                inline-size: 84vw
+    
+                .h3-link
+                    margin-block: 1vh
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#tech-repo
+
+            .pp
+                block-size: 21vh !important
+                inline-size: 63vw !important
+                background-size: 22vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 4vw !important
+                    
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 58vw !important
+                        margin-inline-start: 0vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 51vw !important
+                    margin-inline-start: 10vw !important
+
+@media only screen and (device.$surface-duof-height <= width <=  799px) and (min-height: device.$surface-duof-width) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                block-size: 37vw !important
+                inline-size: 35vw !important
+
+                .relative
+                    bottom: 4.5vh !important
+
+                div.btn-container
+                    bottom: 18vh !important
+            
+            section.bio-container
+                inline-size: 50vw !important
+
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 84vw
+
+        section#tech-repo
+
+            .pp
+                block-size: 18vh !important
+                inline-size: 43vw !important
+                background-size: 22vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                    
+                    .img-wrapper
+                        block-size: 6vh !important
+                        inline-size: 39vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 33vw !important
+                    margin-inline-start: 4vw !important
+
+
+//  Landscape
+@media only screen and (device.$surface-pro-height <= width <= 1599px) and (min-height: device.$surface-pro-width) and (orientation: landscape)
+
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                block-size: 54vh !important
+                inline-size: 35vw !important
+
+                .relative
+                    bottom: 5.5vh !important
+
+                div.btn-container
+                    bottom: 35vh !important
+
+                    button.img-btn
+                        font-size: 2.5em
+
+            section.bio-container
+                inline-size: 50vw !important
+
+
+        section#spec-container
+            .spec-class
+                inline-size: 84vw
+
+        section#tech-repo
+            .pp
+                block-size: 17vh !important
+                inline-size: 29vw !important
+                background-size: 11vw !important
+
+                .tech-container
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 19vw !important
+                    margin-inline-start: 5vw !important
+
+@media only screen and (device.$surface-duoc-height <= width <= 799px) and (min-height: device.$surface-duoc-width) and (orientation: landscape)
+
+    header
+        img
+            inline-size: 13vw !important
+
+        .slogan-wrapper
+            font-size: 0.9em  !important 
+
+   
+    main
+        section.info
+            .carosel
+                block-size: 52vh !important
+                inline-size: 35vw !important
+
+                .relative
+                    bottom: 9.3vh !important
+
+                div.btn-container
+                    bottom: 41vh !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+        section.spec-wrapper
+            inline-size: 100%
+
+            .spec-class
+                inline-size: 45vw
+
+        section#tech-repo
+
+            .pp
+                block-size: 28vh !important
+                inline-size: 38vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 2vw !important
+                    
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 35vw !important
+
+                        .img-svg
+                            block-size: 5vh !important
+                h3
+                    margin-inline-start: 0 !important
+                p
+                    inline-size: 30vw !important
+                    margin-inline-start: 5vw !important
+
+@media only screen and (device.$surface-duof-width <= width <= 1179px) and (device.$surface-duof-height <= height <= 828px) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                block-size: 56vh !important
+                inline-size: 35vw !important
+
+                .relative
+                    bottom: 6.9vh !important
+
+                div.btn-container
+                    bottom: 37vh !important
+
+                    button.img-btn
+                        font-size: 2.5em !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 84vw
+    
+                .h3-link
+                    margin-block: 1vh
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#tech-repo
+
+            .pp
+                block-size: 21vh !important
+                inline-size: 28vw !important
+                background-size: 12vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 2vw !important
+                    
+                    .img-wrapper
+                        block-size: 5vh !important
+                        inline-size: 23vw !important
+                        margin-inline-start: 0vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 19vw !important
+                    margin-inline-start: 5vw !important

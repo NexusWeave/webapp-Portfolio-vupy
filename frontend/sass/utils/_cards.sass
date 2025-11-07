@@ -1,0 +1,54 @@
+// Card styles, with clear separation of concerns
+@use '../utils/mixins' as mix
+
+.card-container
+    p
+        font-size: 1em
+        text-align: justify
+        
+    h3,h4
+        @include mix.font-style("Nunito")
+
+    .tech
+        @include mix.list-inline-reset()
+
+        ul
+            li
+                cursor: default
+                padding-inline: 1em
+                border-radius: .5em
+                border: 1px solid black
+        
+        
+    max-inline-size: 24em
+    border-radius: .5em
+    border: 1px solid black
+
+    //@include mix.link-styles()
+    @include mix.card-shadow-box()
+    
+.timeline-card
+    h3
+        margin-inline: 1em
+        @include mix.font-style("Roboto")
+
+.business-card
+    p
+        font-size: 1em
+        text-align: center
+
+    img 
+        inline-size: 3em
+
+    .card-content
+        inline-size: 100%
+    
+    inline-size: 26em
+    max-block-size: 16em
+    border: 1px solid black
+    //@include mix.link-styles()
+    @include mix.card-shadow-box()
+    @include mix.list-inline-reset()
+    
+    @include mix.background-image(9em, "/media/images/cards/portfolio-card.svg")
+    

@@ -1,0 +1,195 @@
+// Sharp Media Queries
+// Issues with mq
+//  Import dependencies
+@use './breakpoints' as device
+
+
+@media only screen and (min-width: device.$sharp-941sh-width) and (min-height: device.$sharp-941sh-height) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                .caption
+                    font-size: 1em
+
+                .relative
+                    bottom: 4.9vh !important
+
+            div.btn-container
+                bottom: 30vh !important
+                inline-size: 100% !important
+
+        section#tech-repo
+            .pp
+                block-size: 14vh !important
+                inline-size: 65vw !important
+                background-size: 25vw !important
+
+                .tech-container
+
+                    .relative
+                        top: 1vh !important
+
+                .img-wrapper
+                    block-size: 3vh !important
+                    inline-size: 60vw !important
+
+                    .img-svg
+                        block-size: 4vh !important
+                p
+                    inline-size: 56vw !important
+                    margin-inline-start: 6vw !important
+
+@media only screen and (min-width: device.$sharp-is03-width) and (min-height: device.$sharp-is03-height) and (orientation: portrait)
+    header 
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 35vw !important
+
+                .caption
+                    font-size: 1em
+
+                .relative
+                    bottom: 5.2vh !important
+
+                div.btn-container
+                    bottom: 19vh !important
+            
+            div.bio-container
+                inline-size: 50vw
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+        
+        section#tech-repo
+            .pp
+                margin-inline: 1em
+                block-size: 22vh !important
+                inline-size: 43vw !important
+                background-size: 20vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 5vh !important
+                        inline-size: 38vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 35vw !important
+                    margin-inline-start: 4vw !important
+
+
+@media only screen and (device.$sharp-941sh-height <= width <= 1113px) and (device.$sharp-941sh-width <= height <= 599px) and (orientation: landscape)
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 78vh !important
+                inline-size: 35vw !important
+
+                .caption
+                    bottom: 10.3vh !important
+
+                div.btn-container
+                    bottom: 51vh !important
+                    inline-size: 100% !important
+                
+                    button.img-btn
+                        font-size: 2.5em !important
+            section.bio-container
+                inline-size: 50vw
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 47vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 30vh !important
+                inline-size: 35vw !important
+                background-size: 12vw !important
+
+                .tech-container
+                    .relative
+                        top: 3vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 5vh !important
+                        inline-size: 32vw !important
+
+                        .img-svg
+                            block-size: 5vh !important
+                p
+                    inline-size: 27vw !important
+                    margin-inline-start: 4vw !important
+
+@media only screen and (min-width: device.$sharp-is03-height) and (min-height: device.$sharp-is03-width) and (orientation: landscape)
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 26vh !important
+                inline-size: 50vw !important
+
+                .caption
+                    bottom: 8vh !important
+
+                div.btn-container
+                    bottom: 45vh !important
+
+                button.img-btn
+                    font-size: 2.5em !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+        
+        section#tech-repo
+            .pp
+                block-size: 20vh !important
+                inline-size: 28vw !important
+                background-size: 10vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 23vw !important
+                    margin-inline-start: 4vw !important

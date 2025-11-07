@@ -1,0 +1,276 @@
+//  Black Berry Devices Media Queries
+
+//  Importing dependencies
+@use './breakpoints' as device
+
+//  Portrait
+@media only screen and (device.$bberry-width <= width <= 539px) and (device.$bberry-height <= height <= 853px) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .7em !important
+    main
+        
+        section.info
+            .carosel
+                inline-size: 50vw !important
+
+                div.btn-container
+                    bottom: 23vh !important
+                
+                .caption
+                    font-size: .8em !important
+                .relative
+                    bottom: 5.2vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 20vh !important
+                inline-size: 67vw !important
+                background-size: 20vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh
+                        left: 2vw
+
+                    .img-wrapper
+                        block-size: 5vh !important
+                        inline-size: 61vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 60vw !important
+                    margin-inline-start: 5vw
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (device.$bberry-bt-width <= width <= 539px)and (device.$bberry-bt-height <= height <= 799px) and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: .7em
+
+    main
+        
+        section.info
+            .carosel
+                inline-size: 50vw
+
+                .caption
+                    font-size: .8em !important
+
+                .relative
+                    bottom: 6.3vh
+
+                div.btn-container
+                    bottom: 28vh
+
+        section#tech-repo
+            .pp
+                block-size: 28vh 
+                inline-size: 70vw
+                background-size: 30vw 
+
+                .tech-container
+                    .relative
+                        top: 3vh
+
+                    .img-wrapper
+                        inline-size: 65vw
+
+                        .img-svg
+                            block-size: 5vh 
+                p
+                    inline-size: 59vw
+                    margin-inline-start: 9vw
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (device.$bberry-curve-width <= width <= 374px) and (device.$bberry-curve-height <= height <= 639px)and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: .496em !important
+
+    main
+        section.info
+            .carosel
+                .caption
+                    font-size: 1em !important
+                
+                .relative
+                    bottom: 10.4vh !important
+
+                div.btn-container
+                    bottom: 51vh !important
+
+        section#tech-repo
+            .pp
+                p
+                    font-size: 1em !important
+
+                .tech-container
+                    .relative
+                        top: 3vh
+                    .img-wrapper
+                        .img-svg
+                            block-size: 6vh !important
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+//  Landscape
+@media only screen and (device.$bberry-height <= width <= 828)and (device.$bberry-width <= height <= 599px) and (orientation: landscape)
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper
+            font-size: .9em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 62vh
+
+                .caption
+                    font-size: 1em !important
+                
+                .relative
+                    bottom: 10.5vh !important
+
+                div.btn-container
+                    bottom: 46vh !important
+
+        section#tech-repo
+            .pp
+                margin-inline: 1em
+                block-size: 32vh !important
+                inline-size: 37vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh 
+                        left: 2vw
+
+                    .img-wrapper
+                        inline-size: 34vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+                p
+                    
+                    inline-size: 30vw !important
+                    margin-inline-start: 4vw !important
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (device.$bberry-bt-height<= width <= 640px) and (min-height: device.$bberry-bt-width) and (orientation: landscape)
+
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper
+            font-size: .7em !important
+
+    main
+        
+        section.info
+            .carosel
+                block-size: 51vh
+                inline-size: 35vw !important
+
+                .caption
+                    font-size: .8em !important
+                
+                .relative
+                    bottom: 8.5vh !important
+
+                div.btn-container
+                    bottom: 36vh !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+        section#spec-container
+            .spec-class
+                inline-size: 40vw
+
+        section#tech-repo
+            .pp
+                margin-inline: 1em 
+                inline-size: 40vw !important
+                block-size: 35vh !important
+                background-size: 17vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 3vw !important
+
+                    .img-wrapper
+                        inline-size: 36vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+
+                p
+                    inline-size: 35vw !important
+                    margin-inline-start: 4vw
+                
+                
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (device.$bberry-curve-height <= width <=  500px) and (min-height: device.$bberry-curve-width) and (orientation: landscape)
+
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper
+            font-size: .49em
+
+    main
+        section.info
+            .carosel
+                inline-size: 50vw !important
+
+                .caption
+                    font-size: .8em !important
+                
+                .relative
+                    bottom: 11vh !important
+
+                div.btn-container
+                    bottom: 51vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 46vh !important
+                inline-size: 60vw !important
+                background-size: 20vw !important
+
+                .tech-container
+                    .relative
+                        top: 3vh
+
+                    .img-wrapper
+                        inline-size: 56vw !important
+
+                        .img-svg
+                            block-size: 7vh !important
+
+                p
+                    font-size: 1em !important
+                    inline-size: 50vw !important
+
+        form input[type="text"]
+            margin-block-end: 2vh

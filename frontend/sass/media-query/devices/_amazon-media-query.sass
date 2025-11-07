@@ -1,0 +1,139 @@
+//  Amazon Media Query
+@use './breakpoints' as device
+
+//  Portrait
+@media only screen and (device.$amazon-kindle-fire-width <= width <= 799px) and (min-height: device.$amazon-kindle-fire-height) and (orientation: portrait)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.bio-container
+            .carosel
+                block-size: 100% !important
+                inline-size: 50vw !important
+                margin-inline: 2vw
+
+            
+        section.spec-wrapper
+            .spec-class
+                inline-size: 40vw !important
+
+        section#tech-repo
+            .pp
+                margin-inline: 1em
+                block-size: 15vh !important
+                inline-size: 42vw !important
+                background-size: 17vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        inline-size: 37vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                
+                p
+                    inline-size: 36vw !important
+                    margin-inline-start: 5vw !important
+
+@media only screen and (device.$amazon-kindle-fire-hd-width <= width <= 852px) and (min-height: device.$amazon-kindle-fire-hd-height) and (orientation: portrait)
+
+    header
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.bio-container
+            .carosel
+                inline-size: 25em !important
+
+                div.btn-container button.img-btn
+                    font-size: 2.5em
+
+        section#tech-repo
+            .pp
+                
+                block-size: 15vh !important
+
+                p
+                    inline-size: 37vw !important
+                    margin-inline-start: 5vw !important
+
+//  Landscape
+@media only screen and (device.$amazon-kindle-fire-height <= width <= 1113px) and (device.$amazon-kindle-fire-width <= height <= 799px) and (orientation: landscape)
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.bio-container
+            .carosel
+                inline-size: 25em
+
+        section.spec-container
+            .spec-class
+                inline-size: 47vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 29vh !important
+                inline-size: 29vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                    .img-wrapper
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+                p
+                    inline-size: 23vw !important
+                    margin-inline-start: 4vw !important
+
+@media only screen and (device.$amazon-kindle-fire-hd-height <= width <= 1300px) and (device.$amazon-kindle-fire-hd-width <= height <= 1023px) and (orientation: landscape)
+
+    main
+        div.btn-container button.img-btn
+            font-size: 3em
+
+            .bio-btn
+                font-size: 1em !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 47vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 20vh !important
+                inline-size: 29vw !important
+                background-size: 12vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 4vh !important
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 5vh !important
+
+                p
+                    inline-size: 21vw !important
+                    margin-inline-start: 6vw !important

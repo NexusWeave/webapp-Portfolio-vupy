@@ -1,0 +1,39 @@
+{
+  "name": "webapp-portofolio-vupy",
+  "version": "2.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "sass": "sass --watch sass:assets",
+    "dev": "tinacms dev -c \"nuxt dev\"",
+    "build": "tinacms build && nuxt build",
+    "serve": "tinacms build && nuxt build && nuxt preview",
+    "deploy": "tinacms build && npm run generate && netlify deploy --no-build dir=.output/public",
+    "cl-update": "conventional-changelog -p angular -i  logs/CHANGELOG.md -s"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.7.1",
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/ui": "^3.3.4",
+    "better-sqlite3": "^12.2.0",
+    "bootstrap-icons": "^1.13.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "eslint": "^9.35.0",
+    "nuxt": "^4.1.2",
+    "tinacms": "^2.8.3",
+    "typescript": "^5.9.2",
+    "vue": "^3.5.21",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@pinia/nuxt": "^0.5.5",
+    "@tinacms/cli": "^1.10.3",
+    "@types/node": "^24.10.0",
+    "bootstrap-icons": "^1.13.1",
+    "pinia": "^2.1.7",
+    "sass": "^1.92.1"
+  }
+}

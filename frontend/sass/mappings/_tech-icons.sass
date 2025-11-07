@@ -1,0 +1,97 @@
+@use '../colors/colors' as color
+
+$compiled-tech-language:(
+    'c': (
+        path:"",
+        color: color.$c, 
+        hover: color.$compiled-light
+    ),
+    'go': (
+        path:"",
+        color: color.$GO-Teal, 
+        hover: color.$compiled-light
+    ),
+    'cpp': (
+        path:"",
+        color: color.$compiled, 
+        hover: color.$compiled-light
+    ),
+    'cs': (
+        path:"",
+        color: color.$Microsoft-Green, 
+        hover: color.$compiled-light
+    ),
+)
+
+$interpreted-tech-language:(
+    'python': (
+        path:"",
+        color: color.$Cyan-Blue-Azure, 
+        hover: color.$compiled-light
+    ),
+    'javascript': (
+        path:"",
+        color: #F7DF1E,
+        hover: color.$compiled-light
+    ),
+    'typescript': (
+        path:"", 
+        color: color.$TypeScript-blue,
+        hover: color.$compiled-light
+    ),
+)
+
+$database-tech-language:(
+    'rational-db': (
+        path:"",
+        color: color.$db, 
+        hover: color.$db-light
+    ),
+    'nosql-db': (
+        path:"", 
+        color: color.$db, 
+        hover: color.$db-light
+    ),
+)
+
+$workflow-tools:(
+    'workflow': (
+        color: color.$workflow, 
+        hover: color.$workflow-light
+    ),
+    'cms': (
+        color: color.$workflow, 
+        hover: color.$workflow-light
+    ),
+    'sass': (
+        color: color.$workflow,
+        hover: color.$workflow-light
+    ),
+    'default': (
+        color: color.$workflow,
+        hover: color.$workflow-light
+    )
+)
+
+$markup:(
+    'markup': (
+        path:"",
+        color: color.$c, 
+        hover: color.$compiled-light
+    )
+)
+$style:(
+    'styling': (
+        path:"",
+        color: color.$c, 
+        hover: color.$compiled-light
+    )
+)
+$tech-languages: (
+    'workflow': $workflow-tools,
+    'compiled': $compiled-tech-language,
+    'database': $database-tech-language,
+    'interpreted': $interpreted-tech-language,
+    'markup': $markup,
+    'style': $style,
+)

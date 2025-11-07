@@ -1,0 +1,9 @@
+//  Flexbox styles for rows
+@use '../utils/mixins' as mix
+.flex-row
+    @include mix.flexbox-generator('flex-row')
+
+.flex-row-align-items-center
+    align-items: center
+    @include mix.flexbox-generator('flex-row')
+    
