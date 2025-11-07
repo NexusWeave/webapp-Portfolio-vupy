@@ -7,11 +7,7 @@ import { academicCollection } from "./collections/academic";
 import { referenceCollection } from "./collections/reference";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+const branch = process.env.TINA_BRANCH || "main";
 
 export default defineConfig({
   branch,
