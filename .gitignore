@@ -1,11 +1,15 @@
 #   Github Ignores these files (https://help.github.com/articles/ignoring-files/) for more about ignoring files.
 
-# misc folders and files
-*.env
+
+# Environment Variables
+frontend/.env*
+backend/.env*
+*.env*
+!.env.example
 
 # Editor directories and files
 .vscode/*
-.venv/
+
 !.vscode/extensions.json
 .idea
 *.suo
@@ -18,41 +22,38 @@
 *.tsbuildinfo
 
 #   frontend related files & folders
-
-#   Frontend dicrectories
-vueClient
 frontend/assets
 frontend/build
 frontend/src/assets
 frontend/node_modules
+
+# Nuxt dev/build outputs
+frontend/dist
+frontend/.data
+frontend/.nuxt
+frontend/.nitro
+frontend/.cache
+frontend/.output
+frontend/package-lock.json
+
+#   TinaCMS outputs
+frontend/.gitkeep.md
 frontend/public/admin
+frontend/.gitkeep.json
 frontend/tina/__generated__/
 
-frontend/docs/.vitepress/cache
-
-#   Frontend files
-frontend/.env.local
-frontend/.env.production
-frontend/.env.development
-frontend/package-lock.json
+# Local Netlify folder
+frontend/.netlify
 
 #   Backend related files & folders
 
+
 #   Backend directories
-__pycache__
-tests/assets/
-.pytest_cache/
-flask_session/
-tests/.pytest_cache/
+backend/.logs
+backend/.venv
+backend/__pycache__
+backend/tests/assets
+backend/.pytest_cache
+backend/flask_session
+backend/tests/.pytest_cache
 
-
-#   Backend Files
-.logs
-dist
-build
-coverage
-
-node_modules
-.env
-# Local Netlify folder
-.netlify
