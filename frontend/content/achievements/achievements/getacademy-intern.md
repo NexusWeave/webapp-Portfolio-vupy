@@ -1,7 +1,7 @@
 ---
 created: 2025-04-14T00:00:00.000Z
 organization: GetAcademy
-org_link: 'https://sosent.no'
+org_link: 'https://getacademy.no/'
 title: Internship
 location: 'Larvik, Vestfold, Norge | Remote'
 loc_link: 'https://maps.app.goo.gl/Ry3kFAGXNM6PATS26'
