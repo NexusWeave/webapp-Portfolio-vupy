@@ -43,5 +43,5 @@ export function startTimer(arr: Array<Record<string, any>>)
         const n = 10000;
 
         //  Start the timer
-        setInterval(() => next(arr), n);
+        return setInterval(() => next(arr), n);
     };
