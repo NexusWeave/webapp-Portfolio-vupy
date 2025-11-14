@@ -1,5 +1,7 @@
 ---
 created: 2025-11-14T00:00:00.000Z
+tags:
+  - dev-journey
 title: Testbarhet av Role Based Access Control -funksjonallitet
 ingress: >
   Den opprinnelige implementasjonen av **R**ole-**B**ased **A**ccess **C**ontrol
